@@ -1,6 +1,8 @@
 using broodmother.broodmotherCode.Character;
 using Broodmother.broodmotherCode.Summons;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 
 namespace broodmother.broodmotherCode.Summons;
@@ -25,6 +27,7 @@ public class WaspNest : BroodmotherSummonModel
     public override int MinInitialHp => 6;
     public override int MaxInitialHp => 6;
     
+    readonly DamageVar _damage = new DamageVar(3m, ValueProp.Move);
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
 
@@ -34,24 +37,22 @@ public class WaspNest : BroodmotherSummonModel
         return new MonsterMoveStateMachine(new List<MonsterState> {moveState}, moveState);
     }
     
-    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
+
+
+    protected override async Task OnPassive(ICombatState combatState)
     {
-        AnimState animState = new AnimState("idle_loop", isLooping: true);
-        AnimState state = new AnimState("die");
-        CreatureAnimator creatureAnimator = new CreatureAnimator(animState, controller);
-        creatureAnimator.AddAnyState("Dead", state);
-        return creatureAnimator;
+        Creature? target = combatState.RunState.Rng.CombatTargets.NextItem(
+            combatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
+        if (target != null)
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, _damage, base.Creature);
+
     }
-
-    public override async Task BeforeDeath(Creature creature)
+    protected override async Task OnDeath(PlayerChoiceContext choiceContext)
     {
-        if (creature != base.Creature) return;
-
-        BroodmotherInsectSlots.EmptySlot(SlotIndex);
-
         foreach (Creature c in base.CombatState.HittableEnemies.ToList())
         {
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), new[] { c }, 6m, ValueProp.Move, base.Creature);
+            if (!(c.Monster is IBroodmotherSummon))
+                await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), new[] { c }, 6m, ValueProp.Move, base.Creature);
         }
     }
 }

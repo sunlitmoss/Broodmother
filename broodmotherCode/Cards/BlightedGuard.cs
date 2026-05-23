@@ -8,7 +8,7 @@ namespace broodmother.broodmotherCode.Cards;
 
 
 public class BlightedGuard() : BroodmotherCard
-(2, CardType.Skill, CardRarity.Common,
+(2, CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
     public override bool GainsBlock => true;
@@ -16,7 +16,7 @@ public class BlightedGuard() : BroodmotherCard
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>(new DynamicVar[2]
     {
         new CardsVar("Cards", 1),
-        new BlockVar(5m, ValueProp.Move)
+        new BlockVar(7m, ValueProp.Move)
     });
     
     protected override async Task OnPlay(

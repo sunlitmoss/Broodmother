@@ -21,15 +21,5 @@ public class BlightflyPower() : broodmotherPower
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
-
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)    {
-        if (side == CombatSide.Player)
-        {
-            Creature creature = base.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies.Where(c => c != base.Owner));
-            if (creature != null && !(creature.Monster is IBroodmotherSummon))
-            {
-                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), creature, base.Amount, base.Owner, null);
-            }
-        }
-    }
+    
 }

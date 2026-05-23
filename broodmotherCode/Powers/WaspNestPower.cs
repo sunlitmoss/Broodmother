@@ -23,18 +23,4 @@ public class WaspNestPower() : broodmotherPower
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
-
-    readonly DamageVar _damage = new DamageVar(3m, ValueProp.Move);
-
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
-    {
-        if (side == CombatSide.Player)
-        {
-            Creature creature = base.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies.Where(c => c != base.Owner));
-            if (creature != null && !(creature.Monster is IBroodmotherSummon))
-            {
-                await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), creature, _damage, base.Owner);
-            }
-        }
-    }
 }
