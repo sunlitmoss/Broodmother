@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "broodmother", "broodmother.csproj", "{3BD1F673-33DD-47CE-BA95-127767223EAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BD1F673-33DD-47CE-BA95-127767223EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD1F673-33DD-47CE-BA95-127767223EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD1F673-33DD-47CE-BA95-127767223EAF}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{3BD1F673-33DD-47CE-BA95-127767223EAF}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{3BD1F673-33DD-47CE-BA95-127767223EAF}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{3BD1F673-33DD-47CE-BA95-127767223EAF}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

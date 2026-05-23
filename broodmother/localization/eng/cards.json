@@ -1,0 +1,28 @@
+{
+  "BROODMOTHER-BUG_SWARM.description": "Deal !D! damage to all enemies twice.",
+  "BROODMOTHER-BUG_SWARM.title": "Bug Swarm",
+
+  "BROODMOTHER-RELEASE_WASP_NEST.description": "Release a Wasp Nest",
+  "BROODMOTHER-RELEASE_WASP_NEST.title": "Wasp Nest",
+
+  "BROODMOTHER-BLIGHTED_GUARD.description": "Gain !B! block. Add a Blightfly to your hand.",
+  "BROODMOTHER-BLIGHTED_GUARD.title": "Blighted Guard",
+  
+  "BROODMOTHER-RELEASE_BLIGHTFLY.description": "Release a Blightfly",
+  "BROODMOTHER-RELEASE_BLIGHTFLY.title": "Blightfly",
+  
+  "BROODMOTHER-HURL_HIVE.description": "Deal !D! damage. Add !Cards! Wasp Nest(s) to your hand.",
+  "BROODMOTHER-HURL_HIVE.title": "Hurl Hive",
+  
+  "BROODMOTHER-STRIKE_BROODMOTHER.description": "Deal !D! damage.",
+  "BROODMOTHER-STRIKE_BROODMOTHER.title": "Strike",
+
+  "BROODMOTHER-DEFEND_BROODMOTHER.description": "Gain !B! block.",
+  "BROODMOTHER-DEFEND_BROODMOTHER.title": "Defend",
+  
+  "BROODMOTHER-BUG_SHIELD.description": "Gain !CB! block (+2 per insect alive).",
+  "BROODMOTHER-BUG_SHIELD.title": "Bug Shield",
+  
+  "BROODMOTHER-MOLT.description": "If this is the first card you play this turn, lose @StrengthPower@ strength and gain !ThornsPower! thorns this turn. Otherwise gain !B! block.",
+  "BROODMOTHER-MOLT.title": "Molt"
+}

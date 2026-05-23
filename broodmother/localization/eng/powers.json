@@ -1,0 +1,18 @@
+{
+  "BROODMOTHER-BLIGHTFLY_POWER.description": "Applies Weak to a random enemy at the start of your turn. Applies Weak to all enemies when killed.",
+  "BROODMOTHER-BLIGHTFLY_POWER.smartDescription": "Applies Weak to a random enemy at the start of your turn. Applies Weak to all enemies when killed.",
+  "BROODMOTHER-BLIGHTFLY_POWER.title": "Blightfly",
+
+
+  "BROODMOTHER-WASP_NEST_POWER.description": "",
+  "BROODMOTHER-WASP_NEST_POWER.smartDescription": "Deals 3 damage to a random enemy at the start of your turn. Deals 6 damage to all enemies when killed.",
+  "BROODMOTHER-WASP_NEST_POWER.title": "Wasp Nest",
+  
+  "BROODMOTHER-MOLT_THORNS_POWER.description": "",
+  "BROODMOTHER-MOLT_THORNS_POWER.smartDescription": "",
+  "BROODMOTHER-MOLT_THORNS_POWER.title": "Molt",
+
+  "BROODMOTHER-TEMPORARY_THORNS_POWER.description": "",
+  "BROODMOTHER-TEMPORARY_THORNS_POWER.smartDescription": "",
+  "BROODMOTHER-TEMPORARY_THORNS_POWER.title": "Thorns"
+}
