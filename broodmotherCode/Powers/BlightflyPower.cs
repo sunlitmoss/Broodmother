@@ -21,5 +21,7 @@ public class BlightflyPower() : broodmotherPower
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
-    
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => new List<IHoverTip>{HoverTipFactory.FromPower<WeakPower>()};
+
 }

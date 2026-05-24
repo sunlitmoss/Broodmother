@@ -1,8 +1,10 @@
+using broodmother.broodmotherCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
@@ -37,5 +39,5 @@ public class BlightedGuard() : BroodmotherCard
     }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
-        new List<IHoverTip> { HoverTipFactory.FromCard<ReleaseBlightfly>() };
+        new List<IHoverTip> { HoverTipFactory.FromCard<ReleaseBlightfly>(), HoverTipFactory.FromPower<BlightflyPower>(), HoverTipFactory.FromPower<WeakPower>() };
 }

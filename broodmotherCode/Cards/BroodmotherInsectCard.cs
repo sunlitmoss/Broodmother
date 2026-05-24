@@ -21,10 +21,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-[Pool(typeof(broodmotherCardPool))]
+[Pool(typeof(TokenCardPool))]
 public abstract class BroodmotherInsectCard : CustomCardModel
 {
-    public override CardPoolModel VisualCardPool => ModelDb.CardPool<ColorlessCardPool>();
+    public override CardPoolModel VisualCardPool => ModelDb.CardPool<TokenCardPool>();
     protected BroodmotherInsectCard(int cost) 
         : base(cost, CardType.Skill, CardRarity.Token, TargetType.Self)
     {
@@ -33,9 +33,10 @@ public abstract class BroodmotherInsectCard : CustomCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust };
 
     protected abstract IHoverTip InsectPowerTip { get; }
+    protected virtual IHoverTip OtherTip { get; }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
-        new List<IHoverTip> { InsectPowerTip };
+        new List<IHoverTip> { InsectPowerTip, OtherTip };
     
     protected override bool IsPlayable => BroodmotherInsectSlots.GetNextSlot() != -1;
     

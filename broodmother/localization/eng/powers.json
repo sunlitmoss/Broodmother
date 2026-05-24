@@ -4,7 +4,7 @@
   "BROODMOTHER-BLIGHTFLY_POWER.title": "Blightfly",
 
 
-  "BROODMOTHER-WASP_NEST_POWER.description": "Deals 3 damage to a random enemy at the start of your turn. Deals 6 damage to all enemies ",
+  "BROODMOTHER-WASP_NEST_POWER.description": "Deals 3 damage to a random enemy at the start of your turn. Deals 6 damage to all enemies on death.",
   "BROODMOTHER-WASP_NEST_POWER.smartDescription": "Deals 3 damage to a random enemy at the start of your turn. Deals 6 damage to all enemies on death.",
   "BROODMOTHER-WASP_NEST_POWER.title": "Wasp Nest",
   

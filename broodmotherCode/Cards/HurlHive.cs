@@ -1,3 +1,4 @@
+using broodmother.broodmotherCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -37,5 +38,5 @@ public class HurlHive() : BroodmotherCard
     }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        new List<IHoverTip> { HoverTipFactory.FromCard<ReleaseWaspNest>() };
+        new List<IHoverTip> { HoverTipFactory.FromCard<ReleaseWaspNest>(), HoverTipFactory.FromPower<WaspNestPower>() };
 }

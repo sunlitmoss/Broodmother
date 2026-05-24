@@ -26,7 +26,7 @@ public class BugShield() : broodmother.broodmotherCode.Cards.BroodmotherCard
         new CalculationBaseVar(5m),
         new CalculationExtraVar(2m),
         new CalculatedBlockVar(ValueProp.Move).WithMultiplier((CardModel card, Creature? _) =>
-            card.CombatState?.Enemies.Concat(card.CombatState.Allies)
+            card.CombatState?.Enemies
                 .Where(c => c.IsAlive && c.Monster is IBroodmotherSummon)
                 .Count() ?? 0)
     };
