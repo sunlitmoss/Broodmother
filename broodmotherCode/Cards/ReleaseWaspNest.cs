@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
@@ -18,6 +19,8 @@ namespace broodmother.broodmotherCode.Cards;
 public class ReleaseWaspNest() : BroodmotherInsectCard(1)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
+
+    protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<WaspNestPower>();
 
     public static Task<CardModel?> CreateInHand(Player owner, ICombatState combatState)
     {

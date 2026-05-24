@@ -31,7 +31,6 @@ public class BugShield() : broodmother.broodmotherCode.Cards.BroodmotherCard
                 .Count() ?? 0)
     };
 
-protected override IEnumerable<IHoverTip> ExtraHoverTips => new List<IHoverTip>{HoverTipFactory.FromPower<PoisonPower>()};
 
 protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 {

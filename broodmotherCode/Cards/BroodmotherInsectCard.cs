@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -31,6 +32,11 @@ public abstract class BroodmotherInsectCard : CustomCardModel
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust };
 
+    protected abstract IHoverTip InsectPowerTip { get; }
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
+        new List<IHoverTip> { InsectPowerTip };
+    
     protected override bool IsPlayable => BroodmotherInsectSlots.GetNextSlot() != -1;
     
     protected async Task<Creature?> SummonInsect<TMonster, TPower>(PlayerChoiceContext choiceContext)
