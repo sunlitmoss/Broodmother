@@ -25,51 +25,42 @@ public class Blightfly : BroodmotherSummonModel
 {
     public override int MinInitialHp => 3;
     public override int MaxInitialHp => 3;
-    
-    protected override MonsterMoveStateMachine GenerateMoveStateMachine()
-    {
-        
-        MoveState moveState = new MoveState("NOTHING_MOVE", (IReadOnlyList<Creature> _) => Task.CompletedTask, new DebuffIntent());
-        moveState.FollowUpState = moveState;
-        return new MonsterMoveStateMachine(new List<MonsterState> {moveState}, moveState);
-    }
-    
-    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
-    {
-        AnimState animState = new AnimState("idle_loop", isLooping: true);
-        AnimState state = new AnimState("die");
-        CreatureAnimator creatureAnimator = new CreatureAnimator(animState, controller);
-        creatureAnimator.AddAnyState("Dead", state);
-        return creatureAnimator;
-    }
 
-    protected override async Task OnPassive(ICombatState combatState)
+protected override MonsterMoveStateMachine GenerateMoveStateMachine()
+{
+    MoveState activeState = new MoveState("ACTIVE", (IReadOnlyList<Creature> _) => Task.CompletedTask, new DebuffIntent());
+    MoveState dormantState = new MoveState("DORMANT", (IReadOnlyList<Creature> _) => Task.CompletedTask, new SleepIntent());
+    
+    activeState.FollowUpState = dormantState;
+    dormantState.FollowUpState = activeState;
+    
+    return new MonsterMoveStateMachine(new List<MonsterState> { activeState, dormantState }, activeState);
+}
+    
+    private bool _activeThisTurn = true;
+    public override async Task OnPassive(ICombatState combatState)
     {
-        Creature? creature = base.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies.Where(c => c != base.Creature));
-        if (creature != null && !(creature.Monster is IBroodmotherSummon))
+        if (_activeThisTurn)
         {
-            await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), creature, 1m, base.Creature, null);
-        }    
+            Creature? creature =
+                combatState.RunState.Rng.CombatTargets.NextItem(
+                    base.CombatState.HittableEnemies.Where(c => c != base.Creature));
+            if (creature != null && !(creature.Monster is IBroodmotherSummon))
+            {
+                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), creature, 1m, base.Creature, null);
+            }
+        }
+        _activeThisTurn = !_activeThisTurn;
+        
     }
 
-    protected override async Task OnDeath(PlayerChoiceContext choiceContext)
+    public override async Task OnDeath(PlayerChoiceContext choiceContext)
     {
         foreach (Creature hittableEnemy in base.CombatState.HittableEnemies)
         {
-            
-            if (!(hittableEnemy is IBroodmotherSummon))
+            if (!(hittableEnemy.Monster is IBroodmotherSummon))
                 await PowerCmd.Apply<WeakPower>(choiceContext, hittableEnemy, 1m, base.Creature, null);
         }
     }
-
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
-    {
-        if (creature != base.Creature) return;
-        
-        BroodmotherInsectSlots.EmptySlot(SlotIndex);
-        
- 
-    }
-    
     
 }

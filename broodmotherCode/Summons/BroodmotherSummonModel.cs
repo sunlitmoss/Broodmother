@@ -8,6 +8,8 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 
 namespace broodmother.broodmotherCode.Summons;
 
@@ -15,6 +17,8 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
 {
     public int SlotIndex { get; set; } = -1;
     public override LocString Title => new LocString("monsters", "BROODMOTHER-" + GetType().Name.ToUpper() + ".name");
+
+    protected virtual AbstractIntent GetIntent() => new SleepIntent();
     
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)
     {
@@ -24,22 +28,29 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
         creatureAnimator.AddAnyState("Dead", state);
         return creatureAnimator;
     }
-    protected abstract Task OnPassive(ICombatState combatState);
-    protected abstract Task OnDeath(PlayerChoiceContext choiceContext);
-
+    
+    public abstract Task OnPassive(ICombatState combatState);
+    
+    public abstract Task OnDeath(PlayerChoiceContext choiceContext);
+    
+    protected override MonsterMoveStateMachine GenerateMoveStateMachine()
+    {
+        
+        MoveState moveState = new MoveState("NOTHING_MOVE", (IReadOnlyList<Creature> _) => Task.CompletedTask, GetIntent());
+        moveState.FollowUpState = moveState;
+        return new MonsterMoveStateMachine(new List<MonsterState> {moveState}, moveState);
+    }
+    
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (side == CombatSide.Player)
             await OnPassive(combatState);
     }
 
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
-        bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task BeforeDeath(Creature creature)
     {
         if (creature != base.Creature) return;
+        await OnDeath(new ThrowingPlayerChoiceContext());
         BroodmotherInsectSlots.EmptySlot(SlotIndex);
-        await OnDeath(choiceContext);
     }
-    
-    
 }

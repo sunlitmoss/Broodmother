@@ -28,8 +28,7 @@ public class ReleaseWaspNest() : BroodmotherInsectCard(1)
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await SummonInsect<WaspNest, WaspNestPower>(choiceContext);
-        await DamageRandomEnemy(choiceContext, 3m);
+        Creature? waspNest = await SummonInsect<WaspNest, WaspNestPower>(choiceContext);
 
     }
     protected override void OnUpgrade()

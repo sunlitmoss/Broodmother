@@ -45,6 +45,8 @@ public abstract class BroodmotherInsectCard : CustomCardModel
         if (node != null) node.Position = BroodmotherInsectSlots.InsectSlots[slot];
         await PowerCmd.Apply<TPower>(choiceContext, c, 1m, null, null);
         await PowerCmd.Apply<MinionPower>(choiceContext, c, 1m, null, null);
+        if (c.Monster is BroodmotherSummonModel summon)
+            await summon.OnPassive(base.CombatState);
         return c;
     }
     
@@ -57,13 +59,13 @@ public abstract class BroodmotherInsectCard : CustomCardModel
             await PowerCmd.Apply<TPower>(choiceContext, target, amount, base.Owner.Creature, this);
     }
 
-    protected async Task DamageRandomEnemy(PlayerChoiceContext choiceContext, decimal amount)
+    protected async Task DamageRandomEnemy(PlayerChoiceContext choiceContext, decimal amount, Creature? dealer = null)
     {
         DamageVar _damage = new DamageVar(amount, ValueProp.Move);
         Creature? target = base.CombatState.RunState.Rng.CombatTargets.NextItem(
             base.CombatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
         if (target != null)
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, _damage, base.Owner.Creature, this);
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, _damage, dealer, null);
     }
     public static async Task<CardModel?> CreateInHand<T>(Player owner, ICombatState combatState) where T : BroodmotherInsectCard
     {
