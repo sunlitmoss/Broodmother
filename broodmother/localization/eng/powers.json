@@ -1,17 +1,17 @@
 {
-  "BROODMOTHER-BLIGHTFLY_POWER.description": "At the start of every other turn, apply {PassiveWeak:diff()} [gold]Weak[/gold] to a random enemy. On death, apply {DeathWeak:diff()} [gold]Weak[/gold] to ALL enemies.",
-  "BROODMOTHER-BLIGHTFLY_POWER.smartDescription": "At the start of every other turn, apply {PassiveWeak:diff()} [gold]Weak[/gold] to a random enemy. On death, apply {DeathWeak:diff()} [gold]Weak[/gold] to ALL enemies.",
+  "BROODMOTHER-BLIGHTFLY_POWER.description": "At the start of every other turn, apply [gold]Weak[/gold] to a random enemy. On death, apply [gold]Weak[/gold] to ALL enemies.",
+  "BROODMOTHER-BLIGHTFLY_POWER.smartDescription": "At the start of every other turn, apply [gold]Weak[/gold] to a random enemy. On death, apply [gold]Weak[/gold] to ALL enemies.",
   "BROODMOTHER-BLIGHTFLY_POWER.title": "Blightfly",
   
-  "BROODMOTHER-WASP_NEST_POWER.description": "At the start of your turn, deal {PassiveDamage:diff()} damage to a random enemy. On death, deal {DeathDamage:diff()} damage to ALL enemies.",
+  "BROODMOTHER-WASP_NEST_POWER.description": "At the start of your turn, deal 3 damage to a random enemy. On death, deal 6 damage to ALL enemies.",
   "BROODMOTHER-WASP_NEST_POWER.smartDescription": "At the start of your turn, deal {PassiveDamage:diff()} damage to a random enemy. On death, deal {DeathDamage:diff()} damage to ALL enemies.",
   "BROODMOTHER-WASP_NEST_POWER.title": "Wasp Nest",
   
-  "BROODMOTHER-MOLT_THORNS_POWER.description": "At the end of the enemy's turn, lose {Amount:diff()} [gold]Thorns[/gold].",
+  "BROODMOTHER-MOLT_THORNS_POWER.description": "At the end of the enemy's turn, lose [gold]Thorns[/gold].",
   "BROODMOTHER-MOLT_THORNS_POWER.smartDescription": "At the end of the enemy's turn, lose {Amount:diff()} [gold]Thorns[/gold].",
   "BROODMOTHER-MOLT_THORNS_POWER.title": "Molt",
 
-  "BROODMOTHER-TEMPORARY_THORNS_POWER.description": "At the end of the enemy's turn, lose {Amount:diff()} [gold]Thorns[/gold].",
+  "BROODMOTHER-TEMPORARY_THORNS_POWER.description": "At the end of the enemy's turn, lose [gold]Thorns[/gold].",
   "BROODMOTHER-TEMPORARY_THORNS_POWER.smartDescription": "At the end of the enemy's turn, lose {Amount:diff()} [gold]Thorns[/gold].",
   "BROODMOTHER-TEMPORARY_THORNS_POWER.title": "Thorns"
 }

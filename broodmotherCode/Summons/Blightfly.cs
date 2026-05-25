@@ -42,14 +42,12 @@ protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
         if (_activeThisTurn)
         {
-            BlightflyPower? power = base.Creature.GetPower<BlightflyPower>();
-            if (power == null) return;
             Creature? creature =
                 combatState.RunState.Rng.CombatTargets.NextItem(
                     base.CombatState.HittableEnemies.Where(c => c != base.Creature));
             if (creature != null && !(creature.Monster is IBroodmotherSummon))
             {
-                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), creature, power.PassiveWeak.BaseValue, base.Creature, null);
+                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), creature, 1m, base.Creature, null);
             }
         }
         _activeThisTurn = !_activeThisTurn;
@@ -58,12 +56,10 @@ protected override MonsterMoveStateMachine GenerateMoveStateMachine()
 
     public override async Task OnDeath(PlayerChoiceContext choiceContext)
     {
-        BlightflyPower? power = base.Creature.GetPower<BlightflyPower>();
-        if (power == null) return;
         foreach (Creature hittableEnemy in base.CombatState.HittableEnemies)
         {
             if (!(hittableEnemy.Monster is IBroodmotherSummon))
-                await PowerCmd.Apply<WeakPower>(choiceContext, hittableEnemy, power.DeathWeak.BaseValue, base.Creature, null);
+                await PowerCmd.Apply<WeakPower>(choiceContext, hittableEnemy, 1m, base.Creature, null);
         }
     }
     
