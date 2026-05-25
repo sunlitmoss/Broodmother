@@ -23,9 +23,9 @@ public class ReleaseBlightfly() : BroodmotherInsectCard(1)
     {
         return CreateInHand<ReleaseBlightfly>(owner, combatState);
     }
-
     protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<BlightflyPower>();
-    protected override IHoverTip OtherTip => HoverTipFactory.FromPower<WeakPower>();
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
+        new List<IHoverTip> { InsectPowerTip, HoverTipFactory.FromPower<WeakPower>() };    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)

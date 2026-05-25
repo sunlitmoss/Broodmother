@@ -33,10 +33,8 @@ public abstract class BroodmotherInsectCard : CustomCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust };
 
     protected abstract IHoverTip InsectPowerTip { get; }
-    protected virtual IHoverTip OtherTip { get; }
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
-        new List<IHoverTip> { InsectPowerTip, OtherTip };
+        new List<IHoverTip> { InsectPowerTip };
     
     protected override bool IsPlayable => BroodmotherInsectSlots.GetNextSlot() != -1;
     

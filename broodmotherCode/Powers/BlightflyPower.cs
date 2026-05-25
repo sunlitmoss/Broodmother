@@ -1,3 +1,5 @@
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+
 namespace broodmother.broodmotherCode.Powers;
 using  System.Threading.Tasks; 
 using System.Linq;
@@ -20,6 +22,15 @@ public class BlightflyPower() : broodmotherPower
     public override PowerStackType StackType =>
         PowerStackType.Counter;
 
+    public PowerVar<WeakPower> PassiveWeak => new PowerVar<WeakPower>(1m);
+    public PowerVar<WeakPower> DeathWeak => new PowerVar<WeakPower>(1m);
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => new List<IHoverTip>{HoverTipFactory.FromPower<WeakPower>()};
 
+    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
+    {
+        PassiveWeak,
+        DeathWeak
+    };
+    
 }

@@ -1,6 +1,6 @@
 {
-  "BROODMOTHER-BLIGHTFLY_POWER.description": "At the start of every other turn, apply {Amount:diff()} [gold]Weak[/gold] to a random enemy. On death, apply [gold]Weak[/gold] to ALL enemies.",
-  "BROODMOTHER-BLIGHTFLY_POWER.smartDescription": "At the start of every other turn, apply {Amount:diff()} [gold]Weak[/gold] to a random enemy. On death, apply [gold]Weak[/gold] to ALL enemies.",
+  "BROODMOTHER-BLIGHTFLY_POWER.description": "At the start of every other turn, apply {PassiveWeak:diff()} [gold]Weak[/gold] to a random enemy. On death, apply {DeathWeak:diff()} [gold]Weak[/gold] to ALL enemies.",
+  "BROODMOTHER-BLIGHTFLY_POWER.smartDescription": "At the start of every other turn, apply {PassiveWeak:diff()} [gold]Weak[/gold] to a random enemy. On death, apply {DeathWeak:diff()} [gold]Weak[/gold] to ALL enemies.",
   "BROODMOTHER-BLIGHTFLY_POWER.title": "Blightfly",
   
   "BROODMOTHER-WASP_NEST_POWER.description": "At the start of your turn, deal {PassiveDamage:diff()} damage to a random enemy. On death, deal {DeathDamage:diff()} damage to ALL enemies.",
