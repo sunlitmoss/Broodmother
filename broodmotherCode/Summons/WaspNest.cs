@@ -26,26 +26,26 @@ public class WaspNest : BroodmotherSummonModel
 {
     public override int MinInitialHp => 6;
     public override int MaxInitialHp => 6;
-
-    static readonly decimal _damage = 3m;
-    readonly DamageVar _passiveDamage = new DamageVar(_damage, ValueProp.Move);
-    readonly DamageVar _deathDamage =  new DamageVar(2 * _damage, ValueProp.Move);
-
+    
     protected override AbstractIntent GetIntent() => new SingleAttackIntent(3);
     
     public override async Task OnPassive(ICombatState combatState)
     {
+        WaspNestPower? power = base.Creature.GetPower<WaspNestPower>();
+        if (power == null) return;
         Creature? target = combatState.RunState.Rng.CombatTargets.NextItem(
             combatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
         if (target != null)
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, _passiveDamage, base.Creature);
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, power.PassiveDamage, base.Creature);
 
     }
     public override async Task OnDeath(PlayerChoiceContext choiceContext)
     {
+        WaspNestPower? power = base.Creature.GetPower<WaspNestPower>();
+        if (power == null) return;
         List<Creature> targets = base.CombatState.HittableEnemies
             .Where(c => !(c.Monster is IBroodmotherSummon))
             .ToList();
-        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), targets, _deathDamage.BaseValue, _deathDamage.Props, null);
+        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), targets, power.DeathDamage.BaseValue, power.DeathDamage.Props, null);
     }
 }

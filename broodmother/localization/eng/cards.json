@@ -1,28 +1,28 @@
 {
-  "BROODMOTHER-BUG_SWARM.description": "Deal !D! damage to all enemies twice.",
+  "BROODMOTHER-BUG_SWARM.description": "Deal {Damage:diff()} damage to ALL enemies twice.",
   "BROODMOTHER-BUG_SWARM.title": "Bug Swarm",
 
-  "BROODMOTHER-RELEASE_WASP_NEST.description": "Release a Wasp Nest",
+  "BROODMOTHER-RELEASE_WASP_NEST.description": "Add a [gold]Wasp Nest[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-RELEASE_WASP_NEST.title": "Wasp Nest",
 
-  "BROODMOTHER-BLIGHTED_GUARD.description": "Gain !B! block. Add a Blightfly to your hand.",
+  "BROODMOTHER-BLIGHTED_GUARD.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd a [gold]Blightfly[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-BLIGHTED_GUARD.title": "Blighted Guard",
-  
-  "BROODMOTHER-RELEASE_BLIGHTFLY.description": "Release a Blightfly",
+
+  "BROODMOTHER-RELEASE_BLIGHTFLY.description": "Add a [gold]Blightfly[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-RELEASE_BLIGHTFLY.title": "Blightfly",
-  
-  "BROODMOTHER-HURL_HIVE.description": "Deal !D! damage. Add !Cards! Wasp Nest(s) to your hand.",
+
+  "BROODMOTHER-HURL_HIVE.description": "Deal {Damage:diff()} damage.\nAdd {Cards:diff()} [gold]{Cards:plural:Wasp Nest|Wasp Nests}[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-HURL_HIVE.title": "Hurl Hive",
-  
-  "BROODMOTHER-STRIKE_BROODMOTHER.description": "Deal !D! damage.",
+
+  "BROODMOTHER-STRIKE_BROODMOTHER.description": "Deal {Damage:diff()} damage.",
   "BROODMOTHER-STRIKE_BROODMOTHER.title": "Strike",
 
-  "BROODMOTHER-DEFEND_BROODMOTHER.description": "Gain !B! block.",
+  "BROODMOTHER-DEFEND_BROODMOTHER.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "BROODMOTHER-DEFEND_BROODMOTHER.title": "Defend",
-  
-  "BROODMOTHER-BUG_SHIELD.description": "Gain !CB! block (+2 per insect alive).",
+
+  "BROODMOTHER-BUG_SHIELD.description": "Gain {CalculatedBlock:diff()} [gold]Block[/gold].\n(+{CalculationExtra:diff()} per insect alive)",
   "BROODMOTHER-BUG_SHIELD.title": "Bug Shield",
-  
-  "BROODMOTHER-MOLT.description": "If this is the first card you play this turn, lose @StrengthPower@ strength and gain !ThornsPower! thorns this turn. Otherwise gain !B! block.",
+
+  "BROODMOTHER-MOLT.description": "If this is the first card you play this turn, lose {StrengthPower:inverseDiff()} [gold]Strength[/gold] and gain {ThornsPower:diff()} [gold]Thorns[/gold] this turn. \nOtherwise gain {Block:diff()} [gold]Block[/gold].",
   "BROODMOTHER-MOLT.title": "Molt"
 }

@@ -23,4 +23,13 @@ public class WaspNestPower() : broodmotherPower
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
+
+    static public decimal _damage = 3m;
+    public DamageVar PassiveDamage = new DamageVar("PassiveDamage",_damage, ValueProp.Move);
+    public DamageVar DeathDamage =  new DamageVar("DeathDamage",2 * _damage, ValueProp.Move);
+    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
+    {
+        PassiveDamage,
+        DeathDamage
+    };
 }
