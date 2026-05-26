@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using broodmother.broodmotherCode.Cards;
+using broodmother.broodmotherCode.Cards.ShiftCards;
 using broodmother.broodmotherCode.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;

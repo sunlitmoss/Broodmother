@@ -15,7 +15,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace broodmother.broodmotherCode.Cards;
 
 
-public class BugShield() : broodmother.broodmotherCode.Cards.BroodmotherCard
+public class BugShield() : broodmother.broodmotherCode.Cards.broodmotherCard
     (1, CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {

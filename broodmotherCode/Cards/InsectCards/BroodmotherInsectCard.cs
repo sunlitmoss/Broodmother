@@ -1,6 +1,5 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
-using broodmother.broodmotherCode.Character;
 using broodmother.broodmotherCode.Powers;
 using broodmother.broodmotherCode.Summons;
 using Broodmother.broodmotherCode.Summons;
@@ -15,12 +14,11 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace broodmother.broodmotherCode.Cards;
+namespace broodmother.broodmotherCode.Cards.InsectCards;
 
 [Pool(typeof(TokenCardPool))]
 public abstract class BroodmotherInsectCard : CustomCardModel
@@ -34,8 +32,12 @@ public abstract class BroodmotherInsectCard : CustomCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust };
 
     protected abstract IHoverTip InsectPowerTip { get; }
+    
+    protected virtual IEnumerable<IHoverTip> AdditionalHoverTips => 
+        Enumerable.Empty<IHoverTip>();
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
-        new List<IHoverTip> { InsectPowerTip };
+        new List<IHoverTip> { InsectPowerTip }
+            .Concat(AdditionalHoverTips);
     
     protected override bool IsPlayable => BroodmotherInsectSlots.GetNextSlot() != -1;
     

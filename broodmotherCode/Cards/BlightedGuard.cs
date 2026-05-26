@@ -1,3 +1,4 @@
+using broodmother.broodmotherCode.Cards.InsectCards;
 using broodmother.broodmotherCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace broodmother.broodmotherCode.Cards;
 
 
-public class BlightedGuard() : BroodmotherCard
+public class BlightedGuard() : broodmotherCard
 (2, CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

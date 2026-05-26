@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 namespace broodmother.broodmotherCode.Cards;
 
 [Pool(typeof(broodmotherCardPool))]
-public abstract class BroodmotherCard(int cost, CardType type, CardRarity rarity, TargetType target) :
+public abstract class broodmotherCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
     

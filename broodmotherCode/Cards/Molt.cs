@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class Molt() : broodmother.broodmotherCode.Cards.BroodmotherCard
+public class Molt() : broodmother.broodmotherCode.Cards.broodmotherCard
     (0, CardType.Skill, CardRarity.Rare, TargetType.Self){
     
     private new bool CanPlay

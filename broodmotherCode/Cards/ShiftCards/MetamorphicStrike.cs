@@ -1,21 +1,20 @@
+using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace broodmother.broodmotherCode.Cards;
+namespace broodmother.broodmotherCode.Cards.ShiftCards;
 
-public class MetamorphicStrike() : BroodmotherCard
+public class MetamorphicStrike() : ShiftCard<DefendBroodmother>
     (1, CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(6m, ValueProp.Move)
     ];
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { Utils.BroodmotherKeywords.Shift };
-    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
@@ -30,4 +29,5 @@ public class MetamorphicStrike() : BroodmotherCard
     {
         EnergyCost.UpgradeBy(-1);
     }
+    
 }

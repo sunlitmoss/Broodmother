@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class BugSwarm() : BroodmotherCard
+public class BugSwarm() : broodmotherCard
     (1,CardType.Attack, CardRarity.Basic,
     TargetType.AllEnemies)
 {

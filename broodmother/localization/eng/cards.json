@@ -27,5 +27,8 @@
   "BROODMOTHER-MOLT.title": "Molt",
 
   "BROODMOTHER-METAMORPHIC_STRIKE.description": "Deal {Damage:diff()} damage.",
-  "BROODMOTHER-METAMORPHIC_STRIKE.title": "Metamorphic Strike"
+  "BROODMOTHER-METAMORPHIC_STRIKE.title": "Metamorphic Strike",
+
+  "BROODMOTHER-METAMORPHIC_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "BROODMOTHER-METAMORPHIC_DEFEND.title": "Metamorphic Defend"
 }

@@ -1,3 +1,4 @@
+using broodmother.broodmotherCode.Cards.InsectCards;
 using broodmother.broodmotherCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class HurlHive() : BroodmotherCard
+public class HurlHive() : broodmotherCard
     (1, CardType.Skill, CardRarity.Basic,
     TargetType.AnyEnemy)
 {

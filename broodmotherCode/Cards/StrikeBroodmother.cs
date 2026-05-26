@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 
-public sealed class StrikeBroodmother : broodmother.broodmotherCode.Cards.BroodmotherCard
+public sealed class StrikeBroodmother : broodmother.broodmotherCode.Cards.broodmotherCard
 {
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Strike };
 
