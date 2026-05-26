@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Random;
 
 namespace broodmother.broodmotherCode.Utils;
@@ -30,7 +31,9 @@ public class ShiftKeyword() : CustomSingletonModel(true, false)
                     .Invoke(null, null) as CardModel;
 
                 CardModel alt = card.CardScope!.CreateCard(modelDbCard!, card.Owner);
-                await CardCmd.Transform(new CardTransformation(card, alt).Yield(), new Rng());
+                await CardCmd.Transform(new CardTransformation(card, alt).Yield(), null, CardPreviewStyle.None);
+                if (card.IsUpgraded && alt.IsUpgradable)
+                    CardCmd.Upgrade(alt);
             }
         }
     }
