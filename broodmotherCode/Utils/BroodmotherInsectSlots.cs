@@ -1,7 +1,7 @@
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 
-namespace broodmother.broodmotherCode.Character;
+namespace broodmother.broodmotherCode.Utils;
 
 public class BroodmotherInsectSlots
 {

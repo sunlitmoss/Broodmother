@@ -33,10 +33,8 @@ public class Broodmother : PlaceholderCharacterModel
         ModelDb.Card<BugSwarm>(),
         ModelDb.Card<HurlHive>()
         */
-        ModelDb.Card<BlightedGuard>(),
-        ModelDb.Card<BugShield>(),
-        ModelDb.Card<HurlHive>(),
-        ModelDb.Card<StrikeBroodmother>()
+        ModelDb.Card<MetamorphicStrike>(),
+        ModelDb.Card<DefendBroodmother>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

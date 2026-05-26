@@ -1,18 +1,13 @@
-using broodmother.broodmotherCode.Cards;
-using broodmother.broodmotherCode.Character;
 using broodmother.broodmotherCode.Summons;
 using Broodmother.broodmotherCode.Summons;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 
-namespace broodmother.broodmotherCode.Patches;
+namespace broodmother.broodmotherCode.Utils;
 
 public class BroodmotherPatches
 {

@@ -1,6 +1,7 @@
 using BaseLib.Abstracts;
 using broodmother.broodmotherCode.Character;
 using Broodmother.broodmotherCode.Summons;
+using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
