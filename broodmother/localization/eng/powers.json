@@ -20,7 +20,7 @@
   "BROODMOTHER-RESISTANCE_POWER.title": "Resistance",
 
 
-  "BROODMOTHER-INFESTATION_POWER.description": "At the start of its turn, if [gold]Infestation[/gold] exceeds [gold]Resistance[/gold], lose HP. Increases [gold]Resistance[/gold].",
-  "BROODMOTHER-INFESTATION_POWER.smartDescription": "At the start of its turn, if [gold]Infestation[/gold] exceeds [gold]Resistance[/gold], loses {CalculatedDamage} HP. Increases [gold]Resistance[/gold] by {ResistanceMultiplier}%.",
+  "BROODMOTHER-INFESTATION_POWER.description": "At the end of its turn, if [gold]Infestation[/gold] exceeds [gold]Resistance[/gold], lose HP. Increases [gold]Resistance[/gold].",
+  "BROODMOTHER-INFESTATION_POWER.smartDescription": "At the end of its turn, if [gold]Infestation[/gold] exceeds [gold]Resistance[/gold], loses {CalculatedDamage} HP. Increases [gold]Resistance[/gold] by {ResistanceMultiplier}%.",
   "BROODMOTHER-INFESTATION_POWER.title": "Infestation"
 }

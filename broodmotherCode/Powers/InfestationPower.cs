@@ -1,4 +1,6 @@
 using BaseLib.Cards.Variables;
+using BaseLib.Hooks;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -54,12 +56,22 @@ public sealed class InfestationPower : broodmotherPower
 		
 		return (int)damage;
 	}
-	
-	public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+
+	private int ActualDamage()
+	{
+		if (Amount > Owner.GetPowerAmount<ResistancePower>())
+			return CalculateDamage();
+		return 0;
+	}
+	public override IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context)
+	{
+		return [new HealthBarForecastSegment(ActualDamage(), Colors.Goldenrod, HealthBarForecastDirection.FromRight)];
+	}
+	public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participant)
 	{
 		if (side == CombatSide.Enemy)
 		{
-			if (CalculateDamage() != 0)
+			if (Amount > Owner.GetPowerAmount<ResistancePower>())
 			{
 				await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner, CalculateDamage(),
 					ValueProp.Unblockable | ValueProp.Unpowered, null, null);
