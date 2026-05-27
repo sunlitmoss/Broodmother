@@ -30,5 +30,8 @@
   "BROODMOTHER-METAMORPHIC_STRIKE.title": "Metamorphic Strike",
 
   "BROODMOTHER-METAMORPHIC_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
-  "BROODMOTHER-METAMORPHIC_DEFEND.title": "Metamorphic Defend"
+  "BROODMOTHER-METAMORPHIC_DEFEND.title": "Metamorphic Defend",
+
+  "BROODMOTHER-COCOON.description": "Gain {Block:diff()} [gold]Block[/gold]. \nChoose 2 cards in your [gold]Hand[/gold]. The first gains [gold]Shift[/gold], paired with the second. The second is removed from combat. ",
+  "BROODMOTHER-COCOON.title": "Cocoon"
 }
