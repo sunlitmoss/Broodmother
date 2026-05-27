@@ -21,7 +21,7 @@ public class Cocoon() : broodmotherCard(1,
     TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        new List<IHoverTip> { HoverTipFactory.FromKeyword(BroodmotherKeywords.Shift), HoverTipFactory.FromKeyword(CardKeyword.Exhaust) };
+        new List<IHoverTip> { HoverTipFactory.FromKeyword(BroodmotherKeywords.Shift) };
     
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     new List<DynamicVar>()
