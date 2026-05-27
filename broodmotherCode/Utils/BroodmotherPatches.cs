@@ -1,3 +1,4 @@
+using broodmother.broodmotherCode.Powers;
 using broodmother.broodmotherCode.Summons;
 using Broodmother.broodmotherCode.Summons;
 using Godot;
@@ -6,6 +7,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
@@ -26,7 +28,8 @@ public class BroodmotherPatches
                 if (slot >= 0)
                 {
                     node.Position = BroodmotherInsectSlots.InsectSlots[slot];
-                }                    
+                }
+
                 node.Scale = new Vector2(0.5f, 0.5f);
 
             }
@@ -41,7 +44,7 @@ public class BroodmotherPatches
             BroodmotherInsectSlots.Reset();
         }
     }
-    
+
     [HarmonyPatch(typeof(RavenousPower), "AfterDeath")]
     class RavenousPowerPatch
     {
@@ -56,21 +59,21 @@ public class BroodmotherPatches
     [HarmonyPatch(typeof(CardModel), "get_HoverTips")]
     class ShiftCombatHoverTipsPatch
     {
-        public static void Postfix(CardModel __instance, ref IEnumerable<IHoverTip> __result)
+        public static void Postfix(CardModel instance, ref IEnumerable<IHoverTip> result)
         {
-            if (__instance.Keywords.Contains(BroodmotherKeywords.Shift) && 
-                ShiftRegistries.CombatPairs.TryGetValue(__instance.GetHashCode(),
+            if (instance.Keywords.Contains(BroodmotherKeywords.Shift) &&
+                ShiftRegistries.CombatPairs.TryGetValue(instance.GetHashCode(),
                     out (Type altTypeC, bool wasUpgraded) tuple))
             {
                 CardModel? modelDbCard = typeof(ModelDb).GetMethod("Card", Type.EmptyTypes)!
                     .MakeGenericMethod(tuple.altTypeC)
                     .Invoke(null, null) as CardModel;
-                List<IHoverTip> list = __result.ToList();
-                CardModel? alt = __instance.CardScope?.CreateCard(modelDbCard!, __instance.Owner);
+                List<IHoverTip> list = result.ToList();
+                CardModel? alt = instance.CardScope?.CreateCard(modelDbCard!, instance.Owner);
                 alt?.AddKeyword(BroodmotherKeywords.Shift);
                 if (tuple.wasUpgraded && alt != null) alt.UpgradeInternal();
                 list.Add(HoverTipFactory.FromCard(alt!));
-                __result = list;
+                result = list;
             }
         }
     }

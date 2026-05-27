@@ -1,0 +1,72 @@
+using BaseLib.Cards.Variables;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace broodmother.broodmotherCode.Powers;
+
+public sealed class InfestationPower : broodmotherPower
+{
+	public override PowerType Type => PowerType.Debuff;
+
+	public override PowerStackType StackType => PowerStackType.Counter;
+
+	private DynamicVar InfestationMultiplier = new DynamicVar("InfestationMultiplier", 1.5m);
+	private DynamicVar ResistanceMultiplier = new DynamicVar("ResistanceMultiplier", 100m);
+
+	protected override IEnumerable<DynamicVar> CanonicalVars => 
+	[
+		InfestationMultiplier,
+		ResistanceMultiplier,
+		new DisplayVar<InfestationPower>("CalculatedDamage", p => p.CalculateDamage().ToString())
+	];
+	
+	public override LocString Description
+	{
+		get
+		{
+			LocString loc = base.Description;
+			loc.Add("ResistanceMultiplier", ResistanceMultiplier.BaseValue);
+			loc.Add("InfestationMultiplier", InfestationMultiplier.BaseValue);
+			return loc;
+		}
+	}
+	
+	public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+	{
+		if (!Owner.HasPower<ResistancePower>())
+		{
+			await PowerCmd.Apply<ResistancePower>(new ThrowingPlayerChoiceContext(), Owner, 10m, applier, null, true);
+		}
+	}
+
+	public int CalculateDamage()
+	{
+		decimal damage = 0;
+
+		damage = Amount * InfestationMultiplier.BaseValue;
+		
+		return (int)damage;
+	}
+	
+	public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+	{
+		if (side == CombatSide.Enemy)
+		{
+			if (CalculateDamage() != 0)
+			{
+				await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner, CalculateDamage(),
+					ValueProp.Unblockable | ValueProp.Unpowered, null, null);
+				await PowerCmd.Apply<ResistancePower>(new ThrowingPlayerChoiceContext(), Owner,
+					(((ResistanceMultiplier.BaseValue/50) - 1) * Owner.GetPowerAmount<ResistancePower>()), Owner, null);
+				await PowerCmd.Remove(this);
+			}
+		}
+	}
+}

@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards.ShiftCards;
 
-public class MetamorphicStrike() : ShiftCard<DefendBroodmother>
+public class MetamorphicStrike() : ShiftCard<MetamorphicDefend>
     (1, CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {

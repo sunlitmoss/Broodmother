@@ -33,5 +33,11 @@
   "BROODMOTHER-METAMORPHIC_DEFEND.title": "Metamorphic Defend",
 
   "BROODMOTHER-COCOON.description": "Gain {Block:diff()} [gold]Block[/gold]. \nChoose 2 cards in your [gold]Hand[/gold]. The first gains [gold]Shift[/gold], paired with the second. The second is removed from combat. ",
-  "BROODMOTHER-COCOON.title": "Cocoon"
+  "BROODMOTHER-COCOON.title": "Cocoon",
+
+  "BROODMOTHER-INVIGORATING_SLASH.description": "Deal {Damage:diff()} damage. \nGain [gold]Vigor[/gold] equal to damage dealt.",
+  "BROODMOTHER-INVIGORATING_SLASH.title": "Invigorating Slash",
+
+  "BROODMOTHER-INFEST.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold].",
+  "BROODMOTHER-INFEST.title": "Infest"
 }
