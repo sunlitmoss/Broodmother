@@ -62,7 +62,6 @@
     <ItemGroup>
         <Folder Include="broodmother\images\card_portraits\big\"/>
         <Folder Include="broodmother\images\powers\big\"/>
-        <Folder Include="broodmother\images\relics\big\"/>
     </ItemGroup>
 
     <Target Name="CheckDependencyPaths">
