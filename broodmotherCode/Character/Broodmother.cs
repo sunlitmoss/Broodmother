@@ -22,28 +22,21 @@ public class Broodmother : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        
-        // ModelDb.Card<StrikeBroodmother>(),
-        // ModelDb.Card<StrikeBroodmother>(),
-        // ModelDb.Card<StrikeBroodmother>(),
-        // ModelDb.Card<StrikeBroodmother>(),
-        // ModelDb.Card<DefendBroodmother>(),
-        // ModelDb.Card<DefendBroodmother>(),
-        // ModelDb.Card<DefendBroodmother>(),
-        // ModelDb.Card<DefendBroodmother>(),
-        // ModelDb.Card<BugSwarm>(),
-        // ModelDb.Card<HurlHive>()
-        
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<Cocoon>(),
         ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<StrikeBroodmother>()
+        ModelDb.Card<StrikeBroodmother>(),
+        ModelDb.Card<StrikeBroodmother>(),
+        ModelDb.Card<StrikeBroodmother>(),
+        ModelDb.Card<DefendBroodmother>(),
+        ModelDb.Card<DefendBroodmother>(),
+        ModelDb.Card<DefendBroodmother>(),
+        ModelDb.Card<DefendBroodmother>(),
+        ModelDb.Card<BugSwarm>(),
+        ModelDb.Card<HurlHive>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<BurningBlood>()
+        ModelDb.Relic<Relics.HiveHeart>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<broodmotherCardPool>();

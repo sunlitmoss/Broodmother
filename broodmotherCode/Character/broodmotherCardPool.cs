@@ -16,7 +16,7 @@ public class broodmotherCardPool : CustomCardPoolModel
 
     protected override CardModel[] GenerateAllCards()
     {
-	    return new CardModel[3]
+	    return new CardModel[]
 	    {
 		    ModelDb.Card<Molt>(),
 		    ModelDb.Card<BugShield>(),

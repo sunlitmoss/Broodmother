@@ -25,8 +25,6 @@ public class ReleaseBlightfly() : BroodmotherInsectCard(1)
         CardPlay play)
     {
         await SummonInsect<Blightfly, BlightflyPower>(choiceContext);
-        await ApplyToRandomEnemy<WeakPower>(choiceContext, 1m);
-
     }
     protected override void OnUpgrade()
     {
