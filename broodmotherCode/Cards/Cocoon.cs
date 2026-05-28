@@ -1,6 +1,3 @@
-using broodmother.broodmotherCode.Cards;
-using broodmother.broodmotherCode.Cards.InsectCards;
-using broodmother.broodmotherCode.Powers;
 using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -10,8 +7,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
@@ -37,7 +32,9 @@ public class Cocoon() : broodmotherCard(1,
         
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
         List<CardModel> validCards = PileType.Hand.GetPile(base.Owner).Cards
-            .Where(c => !c.Keywords.Contains(BroodmotherKeywords.Shift))
+            .Where(c => (!c.Keywords.Contains(BroodmotherKeywords.Shift) &&
+                         c.Type != CardType.Power &&
+                         !c.Keywords.Contains(CardKeyword.Ethereal)))
             .ToList();
         
         if (validCards.Count > 2)
@@ -46,7 +43,9 @@ public class Cocoon() : broodmotherCard(1,
                 choiceContext,
                 Owner,
                 new CardSelectorPrefs(new LocString("gameplay_ui", "CHOOSE_CARD_HEADER"), 2),
-                filter: (CardModel c) => !c.Keywords.Contains(BroodmotherKeywords.Shift),
+                filter: (CardModel c) => (!c.Keywords.Contains(BroodmotherKeywords.Shift) &&
+                                          c.Type != CardType.Power &&
+                                          !c.Keywords.Contains(CardKeyword.Ethereal)),
                 this))
                 .ToList();
             CardModel card1 = list[0];
@@ -60,7 +59,9 @@ public class Cocoon() : broodmotherCard(1,
         {
             CardModel card1 = (await CardSelectCmd.FromHand(choiceContext, base.Owner,
                 new CardSelectorPrefs(new LocString("gameplay_ui", "CHOOSE_CARD_HEADER"), 1),
-                (CardModel c) => !c.Keywords.Contains(BroodmotherKeywords.Shift), this)).FirstOrDefault()!;
+                (CardModel c) => (!c.Keywords.Contains(BroodmotherKeywords.Shift) &&
+                                  c.Type != CardType.Power &&
+                                  !c.Keywords.Contains(CardKeyword.Ethereal)), this)).FirstOrDefault()!;
             validCards.Remove(card1);
             card1.AddKeyword(BroodmotherKeywords.Shift);
             CardModel card2 = validCards.FirstOrDefault()!;

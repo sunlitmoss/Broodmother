@@ -39,5 +39,11 @@
   "BROODMOTHER-INVIGORATING_SLASH.title": "Invigorating Slash",
 
   "BROODMOTHER-INFEST.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold].",
-  "BROODMOTHER-INFEST.title": "Infest"
+  "BROODMOTHER-INFEST.title": "Infest",
+
+  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times",
+  "BROODMOTHER-WILD_STING.title": "Wild Sting",
+
+  "BROODMOTHER-ENCOURAGEMENT.description": "At the start of your turn, gain {EncouragementPower:diff()} [gold]Vigor[/gold] for each insect alive.",
+  "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement"
 }

@@ -5,34 +5,33 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class Infest() : broodmotherCard(1,
-    CardType.Skill, CardRarity.Common,
-    TargetType.AnyEnemy)
+public class Encouragement() : broodmotherCard(2,
+    CardType.Power, CardRarity.Uncommon,
+    TargetType.Self)
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromPower<InfestationPower>(),
-        HoverTipFactory.FromPower<ResistancePower>()
-    ];
-
-    private DynamicVar InfestationAmount = new DynamicVar("InfestationAmount", 3m);
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        InfestationAmount
+        new DynamicVar("EncouragementPower", 2m)
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<VigorPower>()
+    ];
+    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<InfestationPower>(choiceContext, play.Target!, InfestationAmount.BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<EncouragementPower>(choiceContext, base.Owner.Creature, base.DynamicVars["EncouragementPower"].BaseValue, base.Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["InfestationAmount"].UpgradeValueBy(2m);
+        DynamicVars["EncouragementPower"].UpgradeValueBy(2m);
     }
 }

@@ -11,8 +11,6 @@ namespace broodmother.broodmotherCode.Utils;
 
 public class ShiftKeyword() : CustomSingletonModel(true, false)
 {
-
-    
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)    
     {
         if ((oldPileType == PileType.Hand || oldPileType == PileType.Play) &&

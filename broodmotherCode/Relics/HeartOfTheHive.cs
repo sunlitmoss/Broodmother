@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 
 namespace broodmother.broodmotherCode.Relics;
 
-public class HiveHeart() : broodmotherRelic
+public class HeartOfTheHive() : broodmotherRelic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Starter;

@@ -26,6 +26,16 @@ public class BroodmotherInsectSlots
         return -1;
     }
 
+    public static int CountOccupiedSlots()
+    {
+        int sum = 0;
+        for (int i = 0; i < _occupants.Length; i++)
+        {
+            if (_occupants[i] != null)
+                sum++;
+        }
+        return sum;
+    }
     public static void OccupySlot(int slot, Creature creature)
     {
         _occupants[slot] = creature;

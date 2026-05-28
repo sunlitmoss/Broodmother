@@ -59,21 +59,21 @@ public class BroodmotherPatches
     [HarmonyPatch(typeof(CardModel), "get_HoverTips")]
     class ShiftCombatHoverTipsPatch
     {
-        public static void Postfix(CardModel instance, ref IEnumerable<IHoverTip> result)
+        public static void Postfix(CardModel __instance, ref IEnumerable<IHoverTip> __result)
         {
-            if (instance.Keywords.Contains(BroodmotherKeywords.Shift) &&
-                ShiftRegistries.CombatPairs.TryGetValue(instance.GetHashCode(),
+            if (__instance.Keywords.Contains(BroodmotherKeywords.Shift) &&
+                ShiftRegistries.CombatPairs.TryGetValue(__instance.GetHashCode(),
                     out (Type altTypeC, bool wasUpgraded) tuple))
             {
                 CardModel? modelDbCard = typeof(ModelDb).GetMethod("Card", Type.EmptyTypes)!
                     .MakeGenericMethod(tuple.altTypeC)
                     .Invoke(null, null) as CardModel;
-                List<IHoverTip> list = result.ToList();
-                CardModel? alt = instance.CardScope?.CreateCard(modelDbCard!, instance.Owner);
+                List<IHoverTip> list = __result.ToList();
+                CardModel? alt = __instance.CardScope?.CreateCard(modelDbCard!, __instance.Owner);
                 alt?.AddKeyword(BroodmotherKeywords.Shift);
                 if (tuple.wasUpgraded && alt != null) alt.UpgradeInternal();
                 list.Add(HoverTipFactory.FromCard(alt!));
-                result = list;
+                __result = list;
             }
         }
     }

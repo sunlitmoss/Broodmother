@@ -18,9 +18,6 @@ public class broodmotherCardPool : CustomCardPoolModel
     {
 	    return new CardModel[]
 	    {
-		    ModelDb.Card<Molt>(),
-		    ModelDb.Card<BugShield>(),
-		    ModelDb.Card<BlightedGuard>()
 	    };
     }
 

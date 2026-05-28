@@ -31,18 +31,26 @@ public class Broodmother : PlaceholderCharacterModel
         // ModelDb.Card<DefendBroodmother>(),
         // ModelDb.Card<DefendBroodmother>(),
         // ModelDb.Card<BugSwarm>(),
-        // ModelDb.Card<HurlHive>()
+        // ModelDb.Card<HurlHive>(),
         
+        ModelDb.Card<Encouragement>(),
+        ModelDb.Card<MetamorphicDefend>(),
+        ModelDb.Card<MetamorphicStrike>(),
+        ModelDb.Card<BlightedGuard>(),
+        ModelDb.Card<BugShield>(),
+        ModelDb.Card<BugSwarm>(),
+        ModelDb.Card<Cocoon>(),
+        ModelDb.Card<Encouragement>(),
+        ModelDb.Card<HurlHive>(),
         ModelDb.Card<Infest>(),
-        ModelDb.Card<Infest>(),
-        ModelDb.Card<Infest>(),
-        ModelDb.Card<Infest>(),
-        ModelDb.Card<Infest>()
+        ModelDb.Card<InvigoratingSlash>(),
+        ModelDb.Card<Molt>(),
+        ModelDb.Card<WildSting>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<Relics.HiveHeart>()
+        ModelDb.Relic<Relics.HeartOfTheHive>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<broodmotherCardPool>();

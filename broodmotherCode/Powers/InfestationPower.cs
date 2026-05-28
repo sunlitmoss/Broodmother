@@ -39,13 +39,11 @@ public sealed class InfestationPower : broodmotherPower
 			return loc;
 		}
 	}
-	
+
 	public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
 	{
 		if (!Owner.HasPower<ResistancePower>())
-		{
 			await PowerCmd.Apply<ResistancePower>(new ThrowingPlayerChoiceContext(), Owner, 10m, applier, null, true);
-		}
 	}
 
 	public int CalculateDamage()
