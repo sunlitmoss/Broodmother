@@ -46,6 +46,6 @@ public class WaspNest : BroodmotherSummonModel
         List<Creature> targets = base.CombatState.HittableEnemies
             .Where(c => !(c.Monster is IBroodmotherSummon))
             .ToList();
-        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), targets, power.DeathDamage.BaseValue, power.DeathDamage.Props, null);
+        await CreatureCmd.Damage(choiceContext, targets, power.DeathDamage.BaseValue, power.DeathDamage.Props, null);
     }
 }

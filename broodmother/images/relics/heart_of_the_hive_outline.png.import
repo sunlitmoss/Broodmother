@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cea0ur8wyd8o4"
-path="res://.godot/imported/hive_heart_outline.png-bda1d04589dea4dece29031c4aa872c4.ctex"
+path="res://.godot/imported/heart_of_the_hive_outline.png-31614bfa86de9e1b2b2617022d5a8663.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://broodmother/images/relics/hive_heart_outline.png"
-dest_files=["res://.godot/imported/hive_heart_outline.png-bda1d04589dea4dece29031c4aa872c4.ctex"]
+source_file="res://broodmother/images/relics/heart_of_the_hive_outline.png"
+dest_files=["res://.godot/imported/heart_of_the_hive_outline.png-31614bfa86de9e1b2b2617022d5a8663.ctex"]
 
 [params]
 
