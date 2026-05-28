@@ -48,5 +48,8 @@
   "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement",
 
   "BROODMOTHER-EMERGENCE.description": "If this is the first card you play this turn, draw {Cards:diff()} cards. \nOtherwise gain {Energy:energyIcons()}.",
-  "BROODMOTHER-EMERGENCE.title": "Emergence"
+  "BROODMOTHER-EMERGENCE.title": "Emergence",
+
+  "BROODMOTHER-CARD1.description": "",
+  "BROODMOTHER-CARD1.title": "card1"
 }
