@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace broodmother.broodmotherCode.Cards.InsectCards;
+
 public class ReleaseBlightfly() : BroodmotherInsectCard(1)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
@@ -18,16 +19,19 @@ public class ReleaseBlightfly() : BroodmotherInsectCard(1)
     {
         return CreateInHand<ReleaseBlightfly>(owner, combatState);
     }
+
     protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<BlightflyPower>();
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromPower<WeakPower>()]; 
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromPower<WeakPower>()];
+
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await SummonInsect<Blightfly, BlightflyPower>(choiceContext);
     }
+
     protected override void OnUpgrade()
     {
-        base.EnergyCost.UpgradeBy(-1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

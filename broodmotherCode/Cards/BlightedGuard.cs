@@ -10,7 +10,6 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-
 public class BlightedGuard() : broodmotherCard
 (2, CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
@@ -22,23 +21,28 @@ public class BlightedGuard() : broodmotherCard
         new CardsVar("Cards", 1),
         new BlockVar(7m, ValueProp.Move)
     });
-    
+
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, play);
-        for (int i = 0; i < base.DynamicVars["Cards"].IntValue; i++)
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
+        for (var i = 0; i < DynamicVars["Cards"].IntValue; i++)
         {
-            await ReleaseBlightfly.CreateInHand(base.Owner, base.CombatState);
+            await ReleaseBlightfly.CreateInHand(Owner, CombatState);
             await Cmd.Wait(0.25f);
         }
     }
+
     protected override void OnUpgrade()
     {
-        base.EnergyCost.UpgradeBy(-1);
+        EnergyCost.UpgradeBy(-1);
     }
-    
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
-        new List<IHoverTip> { HoverTipFactory.FromCard<ReleaseBlightfly>(), HoverTipFactory.FromPower<BlightflyPower>(), HoverTipFactory.FromPower<WeakPower>() };
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        new List<IHoverTip>
+        {
+            HoverTipFactory.FromCard<ReleaseBlightfly>(), HoverTipFactory.FromPower<BlightflyPower>(),
+            HoverTipFactory.FromPower<WeakPower>()
+        };
 }

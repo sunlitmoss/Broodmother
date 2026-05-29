@@ -1,22 +1,16 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-
-public class BugShield() : broodmother.broodmotherCode.Cards.broodmotherCard
-    (1, CardType.Skill, CardRarity.Common,
+public class BugShield() : broodmotherCard
+(1, CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
     public override bool GainsBlock => true;
@@ -32,13 +26,14 @@ public class BugShield() : broodmother.broodmotherCode.Cards.broodmotherCard
     };
 
 
-protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-{
-    await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target), base.DynamicVars.CalculatedBlock.Props, cardPlay);
-}
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.CalculatedBlock.Calculate(cardPlay.Target),
+            DynamicVars.CalculatedBlock.Props, cardPlay);
+    }
 
-protected override void OnUpgrade()
-{
-    base.EnergyCost.UpgradeBy(-1);
-}
+    protected override void OnUpgrade()
+    {
+        EnergyCost.UpgradeBy(-1);
+    }
 }

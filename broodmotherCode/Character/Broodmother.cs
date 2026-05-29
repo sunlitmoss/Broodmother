@@ -1,15 +1,14 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using broodmother.broodmotherCode.Cards;
-using broodmother.broodmotherCode.Cards.ShiftCards;
 using broodmother.broodmotherCode.Extensions;
+using broodmother.broodmotherCode.Relics;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace broodmother.broodmotherCode.Character;
+
 public class Broodmother : PlaceholderCharacterModel
 {
     public const string CharacterId = "Broodmother";
@@ -32,10 +31,10 @@ public class Broodmother : PlaceholderCharacterModel
         // ModelDb.Card<DefendBroodmother>(),
         // ModelDb.Card<BugSwarm>(),
         // ModelDb.Card<HurlHive>(),
-        
+
         ModelDb.Card<Emergence>(),
         ModelDb.Card<Emergence>()
-        
+
         // ModelDb.Card<Encouragement>(),
         // ModelDb.Card<MetamorphicDefend>(),
         // ModelDb.Card<MetamorphicStrike>(),
@@ -53,7 +52,7 @@ public class Broodmother : PlaceholderCharacterModel
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<Relics.HeartOfTheHive>()
+        ModelDb.Relic<HeartOfTheHive>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<broodmotherCardPool>();

@@ -1,26 +1,19 @@
-using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-
-namespace broodmother.broodmotherCode.Cards;
-
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
+namespace broodmother.broodmotherCode.Cards;
 
-public sealed class DefendBroodmother : broodmother.broodmotherCode.Cards.broodmotherCard
+public sealed class DefendBroodmother : broodmotherCard
 {
     public override bool GainsBlock => true;
 
-    protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Defend };
+    protected override HashSet<CardTag> CanonicalTags => new() { CardTag.Defend };
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>{new BlockVar(5m, ValueProp.Move)};
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        new List<DynamicVar> { new BlockVar(5m, ValueProp.Move) };
 
     public DefendBroodmother()
         : base(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
@@ -29,11 +22,11 @@ public sealed class DefendBroodmother : broodmother.broodmotherCode.Cards.broodm
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Block.UpgradeValueBy(3m);
+        DynamicVars.Block.UpgradeValueBy(3m);
     }
 }

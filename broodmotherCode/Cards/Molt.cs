@@ -6,26 +6,24 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Encounters;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.Nodes.Screens.DailyRun;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class Molt() : broodmother.broodmotherCode.Cards.broodmotherCard
-    (0, CardType.Skill, CardRarity.Rare, TargetType.Self){
-    
+public class Molt() : broodmotherCard
+    (0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+{
     private new bool CanPlay
     {
         get
         {
-            int num = CombatManager.Instance.History.CardPlaysFinished.Count((CardPlayFinishedEntry e) => e.HappenedThisTurn(base.CombatState) && e.CardPlay.Card.Owner == base.Owner);
+            var num = CombatManager.Instance.History.CardPlaysFinished.Count((CardPlayFinishedEntry e) =>
+                e.HappenedThisTurn(CombatState) && e.CardPlay.Card.Owner == Owner);
             return num == 0;
         }
     }
-    
+
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
     {
         new PowerVar<StrengthPower>(-1m),
@@ -39,22 +37,22 @@ public class Molt() : broodmother.broodmotherCode.Cards.broodmotherCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-
         if (CanPlay)
         {
-            await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-            await PowerCmd.Apply<MoltThornsPower>(choiceContext, base.Owner.Creature,
-                base.DynamicVars["ThornsPower"].BaseValue, base.Owner.Creature, this);
-            await PowerCmd.Apply<MoltStrengthPower>(choiceContext, base.Owner.Creature,
-                base.DynamicVars.Strength.BaseValue, base.Owner.Creature, this);
+            await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+            await PowerCmd.Apply<MoltThornsPower>(choiceContext, Owner.Creature,
+                DynamicVars["ThornsPower"].BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<MoltStrengthPower>(choiceContext, Owner.Creature,
+                DynamicVars.Strength.BaseValue, Owner.Creature, this);
         }
         else
         {
-            await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         }
     }
+
     protected override void OnUpgrade()
     {
-        base.DynamicVars["ThornsPower"].UpgradeValueBy(2m);
+        DynamicVars["ThornsPower"].UpgradeValueBy(2m);
     }
 }

@@ -11,7 +11,6 @@ namespace broodmother.broodmotherCode.Cards;
 public abstract class broodmotherCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
-    
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
     //Full art: 606x852

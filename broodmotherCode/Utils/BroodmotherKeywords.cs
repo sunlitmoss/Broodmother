@@ -5,6 +5,6 @@ namespace broodmother.broodmotherCode.Utils;
 
 public class BroodmotherKeywords
 {
-    [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
+    [CustomEnum] [KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword Shift;
 }

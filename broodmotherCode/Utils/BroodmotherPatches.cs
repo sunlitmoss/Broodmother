@@ -4,7 +4,6 @@ using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -16,27 +15,23 @@ namespace broodmother.broodmotherCode.Utils;
 public class BroodmotherPatches
 {
     [HarmonyPatch(typeof(NCombatRoom), "AddCreature")]
-    class AddCreaturePatch
+    private class AddCreaturePatch
     {
-        static void Postfix(Creature __creature)
+        private static void Postfix(Creature __creature)
         {
             if (__creature.Monster is IBroodmotherSummon)
             {
                 var node = NCombatRoom.Instance?.GetCreatureNode(__creature);
                 var slot = (__creature.Monster as Blightfly)?.SlotIndex ?? -1;
-                if (slot >= 0)
-                {
-                    node.Position = BroodmotherInsectSlots.InsectSlots[slot];
-                }
+                if (slot >= 0) node.Position = BroodmotherInsectSlots.InsectSlots[slot];
 
                 node.Scale = new Vector2(0.5f, 0.5f);
-
             }
         }
     }
 
     [HarmonyPatch(typeof(CombatManager), "SetUpCombat")]
-    class ResetInsectSlotsPatch
+    private class ResetInsectSlotsPatch
     {
         public static void Postfix()
         {
@@ -45,9 +40,9 @@ public class BroodmotherPatches
     }
 
     [HarmonyPatch(typeof(RavenousPower), "AfterDeath")]
-    class RavenousPowerPatch
+    private class RavenousPowerPatch
     {
-        static bool Prefix(Creature __target)
+        private static bool Prefix(Creature __target)
         {
             if (__target.Monster is IBroodmotherSummon)
                 return false;
@@ -56,7 +51,7 @@ public class BroodmotherPatches
     }
 
     [HarmonyPatch(typeof(CardModel), "get_HoverTips")]
-    class ShiftCombatHoverTipsPatch
+    private class ShiftCombatHoverTipsPatch
     {
         public static void Postfix(CardModel __instance, ref IEnumerable<IHoverTip> __result)
         {
@@ -64,11 +59,11 @@ public class BroodmotherPatches
                 ShiftRegistries.CombatPairs.TryGetValue(__instance.GetHashCode(),
                     out (Type altTypeC, bool wasUpgraded) tuple))
             {
-                CardModel? modelDbCard = typeof(ModelDb).GetMethod("Card", Type.EmptyTypes)!
+                var modelDbCard = typeof(ModelDb).GetMethod("Card", Type.EmptyTypes)!
                     .MakeGenericMethod(tuple.altTypeC)
                     .Invoke(null, null) as CardModel;
-                List<IHoverTip> list = __result.ToList();
-                CardModel? alt = __instance.CardScope?.CreateCard(modelDbCard!, __instance.Owner);
+                var list = __result.ToList();
+                var alt = __instance.CardScope?.CreateCard(modelDbCard!, __instance.Owner);
                 alt?.AddKeyword(BroodmotherKeywords.Shift);
                 if (tuple.wasUpgraded && alt != null) alt.UpgradeInternal();
                 list.Add(HoverTipFactory.FromCard(alt!));
@@ -78,12 +73,12 @@ public class BroodmotherPatches
     }
 
     [HarmonyPatch(typeof(RunState), "CreateShared")]
-    class SetInsectSlotsPatch
+    private class SetInsectSlotsPatch
     {
         public static void Prefix(RunState __instance)
         {
-            int count = 0;
-            foreach (Player p in __instance.Players)
+            var count = 0;
+            foreach (var p in __instance.Players)
                 if (p.Character is Character.Broodmother)
                     count++;
             if (count == 2) BroodmotherInsectSlots.SetSlots();

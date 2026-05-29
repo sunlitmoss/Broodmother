@@ -18,15 +18,15 @@ public class ShiftKeyword() : CustomSingletonModel(true,
             card.Keywords.Contains(BroodmotherKeywords.Shift))
         {
             if (ShiftRegistries.ShiftPairs.TryGetValue(card.GetType(),
-                    out Type? altType))
+                    out var altType))
             {
-                CardModel? modelDbCard = typeof(ModelDb).GetMethod("Card",
+                var modelDbCard = typeof(ModelDb).GetMethod("Card",
                         Type.EmptyTypes)!
                     .MakeGenericMethod(altType)
                     .Invoke(null,
                         null) as CardModel;
 
-                CardModel alt = card.CardScope!.CreateCard(modelDbCard!,
+                var alt = card.CardScope!.CreateCard(modelDbCard!,
                     card.Owner);
                 await CardCmd.Transform(new CardTransformation(card,
                         alt).Yield(),
@@ -40,13 +40,13 @@ public class ShiftKeyword() : CustomSingletonModel(true,
             if (ShiftRegistries.CombatPairs.TryGetValue(card.GetHashCode(),
                     out (Type altTypeC, bool wasUpgraded) tuple))
             {
-                CardModel? modelDbCard = typeof(ModelDb).GetMethod("Card",
+                var modelDbCard = typeof(ModelDb).GetMethod("Card",
                         Type.EmptyTypes)!
                     .MakeGenericMethod(tuple.altTypeC)
                     .Invoke(null,
                         null) as CardModel;
 
-                CardModel alt = card.CardScope!.CreateCard(modelDbCard!,
+                var alt = card.CardScope!.CreateCard(modelDbCard!,
                     card.Owner);
                 alt.AddKeyword(BroodmotherKeywords.Shift);
                 if (tuple.wasUpgraded)

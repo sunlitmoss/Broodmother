@@ -1,52 +1,36 @@
 {
   "BROODMOTHER-BUG_SWARM.description": "Deal {Damage:diff()} damage to ALL enemies twice.",
   "BROODMOTHER-BUG_SWARM.title": "Bug Swarm",
-
   "BROODMOTHER-RELEASE_WASP_NEST.description": "[gold]Release[/gold] a [gold]Wasp Nest[/gold].",
   "BROODMOTHER-RELEASE_WASP_NEST.title": "Wasp Nest",
-
   "BROODMOTHER-BLIGHTED_GUARD.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd a [gold]Blightfly[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-BLIGHTED_GUARD.title": "Blighted Guard",
-
   "BROODMOTHER-RELEASE_BLIGHTFLY.description": "[gold]Release[/gold] a [gold]Blightfly[/gold].",
   "BROODMOTHER-RELEASE_BLIGHTFLY.title": "Blightfly",
-
   "BROODMOTHER-HURL_HIVE.description": "Deal {Damage:diff()} damage.\nAdd {Cards:diff()} [gold]{Cards:plural:Wasp Nest|Wasp Nests}[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-HURL_HIVE.title": "Hurl Hive",
-
   "BROODMOTHER-STRIKE_BROODMOTHER.description": "Deal {Damage:diff()} damage.",
   "BROODMOTHER-STRIKE_BROODMOTHER.title": "Strike",
-
   "BROODMOTHER-DEFEND_BROODMOTHER.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "BROODMOTHER-DEFEND_BROODMOTHER.title": "Defend",
-
   "BROODMOTHER-BUG_SHIELD.description": "Gain {CalculatedBlock:diff()} [gold]Block[/gold].\n(+{CalculationExtra:diff()} per insect alive)",
   "BROODMOTHER-BUG_SHIELD.title": "Bug Shield",
-
   "BROODMOTHER-MOLT.description": "If this is the first card you play this turn, lose 1 [gold]Strength[/gold] and gain {ThornsPower:diff()} [gold]Thorns[/gold] this turn. \nOtherwise gain {Block:diff()} [gold]Block[/gold].",
   "BROODMOTHER-MOLT.title": "Molt",
-
   "BROODMOTHER-METAMORPHIC_STRIKE.description": "Deal {Damage:diff()} damage.",
   "BROODMOTHER-METAMORPHIC_STRIKE.title": "Metamorphic Strike",
-
   "BROODMOTHER-METAMORPHIC_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "BROODMOTHER-METAMORPHIC_DEFEND.title": "Metamorphic Defend",
-
   "BROODMOTHER-COCOON.description": "Gain {Block:diff()} [gold]Block[/gold]. \nChoose 2 cards in your [gold]Hand[/gold]. The first gains [gold]Shift[/gold], paired with the second. The second is removed from combat. ",
   "BROODMOTHER-COCOON.title": "Cocoon",
-
   "BROODMOTHER-INVIGORATING_SLASH.description": "Deal {Damage:diff()} damage. \nGain [gold]Vigor[/gold] equal to damage dealt.",
   "BROODMOTHER-INVIGORATING_SLASH.title": "Invigorating Slash",
-
   "BROODMOTHER-INFEST.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold].",
   "BROODMOTHER-INFEST.title": "Infest",
-
   "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times",
   "BROODMOTHER-WILD_STING.title": "Wild Sting",
-
   "BROODMOTHER-ENCOURAGEMENT.description": "At the start of your turn, gain {EncouragementPower:diff()} [gold]Vigor[/gold] for each insect alive.",
   "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement",
-
   "BROODMOTHER-EMERGENCE.description": "If this is the first card you play this turn, draw {Cards:diff()} cards. \nOtherwise gain {Energy:energyIcons()}.",
-  "BROODMOTHER-EMERGENCE.title": "Emergence",
+  "BROODMOTHER-EMERGENCE.title": "Emergence"
 }

@@ -17,54 +17,55 @@ public class Cocoon() : broodmotherCard(1,
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         new List<IHoverTip> { HoverTipFactory.FromKeyword(BroodmotherKeywords.Shift) };
-    
-    protected override IEnumerable<DynamicVar> CanonicalVars => 
-    new List<DynamicVar>()
-    {
-        new BlockVar(7m, ValueProp.Move)
-    };
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        new List<DynamicVar>
+        {
+            new BlockVar(7m, ValueProp.Move)
+        };
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, play);
-        
-        await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        List<CardModel> validCards = PileType.Hand.GetPile(base.Owner).Cards
-            .Where(c => (!c.Keywords.Contains(BroodmotherKeywords.Shift) &&
-                         c.Type != CardType.Power &&
-                         !c.Keywords.Contains(CardKeyword.Ethereal)))
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
+
+        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        var validCards = PileType.Hand.GetPile(Owner).Cards
+            .Where(c => !c.Keywords.Contains(BroodmotherKeywords.Shift) &&
+                        c.Type != CardType.Power &&
+                        !c.Keywords.Contains(CardKeyword.Ethereal))
             .ToList();
-        
+
         if (validCards.Count > 2)
         {
-            List<CardModel> list = (await CardSelectCmd.FromHand(
-                choiceContext,
-                Owner,
-                new CardSelectorPrefs(new LocString("gameplay_ui", "CHOOSE_CARD_HEADER"), 2),
-                filter: (CardModel c) => (!c.Keywords.Contains(BroodmotherKeywords.Shift) &&
-                                          c.Type != CardType.Power &&
-                                          !c.Keywords.Contains(CardKeyword.Ethereal)),
-                this))
+            var list = (await CardSelectCmd.FromHand(
+                    choiceContext,
+                    Owner,
+                    new CardSelectorPrefs(new LocString("gameplay_ui", "CHOOSE_CARD_HEADER"), 2),
+                    (CardModel c) => !c.Keywords.Contains(BroodmotherKeywords.Shift) &&
+                                     c.Type != CardType.Power &&
+                                     !c.Keywords.Contains(CardKeyword.Ethereal),
+                    this))
                 .ToList();
-            CardModel card1 = list[0];
+            var card1 = list[0];
             card1.AddKeyword(BroodmotherKeywords.Shift);
-            CardModel card2 = list[1];
+            var card2 = list[1];
             card2.AddKeyword(BroodmotherKeywords.Shift);
             ShiftRegistries.RegisterCombatPairs(card1, card2);
             await CardPileCmd.RemoveFromCombat(card2);
         }
+
         if (validCards.Count == 2)
         {
-            CardModel card1 = (await CardSelectCmd.FromHand(choiceContext, base.Owner,
+            var card1 = (await CardSelectCmd.FromHand(choiceContext, Owner,
                 new CardSelectorPrefs(new LocString("gameplay_ui", "CHOOSE_CARD_HEADER"), 1),
-                (CardModel c) => (!c.Keywords.Contains(BroodmotherKeywords.Shift) &&
-                                  c.Type != CardType.Power &&
-                                  !c.Keywords.Contains(CardKeyword.Ethereal)), this)).FirstOrDefault()!;
+                (CardModel c) => !c.Keywords.Contains(BroodmotherKeywords.Shift) &&
+                                 c.Type != CardType.Power &&
+                                 !c.Keywords.Contains(CardKeyword.Ethereal), this)).FirstOrDefault()!;
             validCards.Remove(card1);
             card1.AddKeyword(BroodmotherKeywords.Shift);
-            CardModel card2 = validCards.FirstOrDefault()!;
+            var card2 = validCards.FirstOrDefault()!;
             card2.AddKeyword(BroodmotherKeywords.Shift);
             ShiftRegistries.RegisterCombatPairs(card1, card2);
             await CardPileCmd.RemoveFromCombat(card2);

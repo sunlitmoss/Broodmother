@@ -24,7 +24,8 @@ namespace broodmother.broodmotherCode.Cards.InsectCards;
 public abstract class BroodmotherInsectCard : CustomCardModel
 {
     public override CardPoolModel VisualCardPool => ModelDb.CardPool<TokenCardPool>();
-    protected BroodmotherInsectCard(int cost) 
+
+    protected BroodmotherInsectCard(int cost)
         : base(cost, CardType.Skill, CardRarity.Token, TargetType.Self)
     {
     }
@@ -32,21 +33,22 @@ public abstract class BroodmotherInsectCard : CustomCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust };
 
     protected abstract IHoverTip InsectPowerTip { get; }
-    
-    protected virtual IEnumerable<IHoverTip> AdditionalHoverTips => 
+
+    protected virtual IEnumerable<IHoverTip> AdditionalHoverTips =>
         Enumerable.Empty<IHoverTip>();
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         new List<IHoverTip> { InsectPowerTip }
             .Concat(AdditionalHoverTips);
-    
+
     protected override bool IsPlayable => BroodmotherInsectSlots.GetNextSlot() != -1;
-    
+
     protected async Task<Creature?> SummonInsect<TMonster, TPower>(PlayerChoiceContext choiceContext)
         where TMonster : MonsterModel, IBroodmotherSummon
         where TPower : broodmotherPower
     {
-        Creature c = await CreatureCmd.Add<TMonster>(base.CombatState); 
-        int slot = BroodmotherInsectSlots.GetNextSlot();
+        var c = await CreatureCmd.Add<TMonster>(CombatState);
+        var slot = BroodmotherInsectSlots.GetNextSlot();
         BroodmotherInsectSlots.OccupySlot(slot, c);
         (c.Monster as IBroodmotherSummon)!.SlotIndex = slot;
         var node = NCombatRoom.Instance?.GetCreatureNode(c);
@@ -54,43 +56,45 @@ public abstract class BroodmotherInsectCard : CustomCardModel
         await PowerCmd.Apply<TPower>(choiceContext, c, 1m, null, null);
         await PowerCmd.Apply<MinionPower>(choiceContext, c, 1m, null, null);
         if (c.Monster is BroodmotherSummonModel summon)
-            await summon.OnPassive(base.CombatState);
+            await summon.OnPassive(CombatState);
         return c;
     }
-    
+
     protected async Task ApplyToRandomEnemy<TPower>(PlayerChoiceContext choiceContext, decimal amount)
         where TPower : PowerModel
     {
-        Creature? target = base.CombatState.RunState.Rng.CombatTargets.NextItem(
-            base.CombatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
+        var target = CombatState.RunState.Rng.CombatTargets.NextItem(
+            CombatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
         if (target != null)
-            await PowerCmd.Apply<TPower>(choiceContext, target, amount, base.Owner.Creature, this);
+            await PowerCmd.Apply<TPower>(choiceContext, target, amount, Owner.Creature, this);
     }
 
     protected async Task DamageRandomEnemy(PlayerChoiceContext choiceContext, decimal amount, Creature? dealer = null)
     {
-        DamageVar _damage = new DamageVar(amount, ValueProp.Move);
-        Creature? target = base.CombatState.RunState.Rng.CombatTargets.NextItem(
-            base.CombatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
+        var _damage = new DamageVar(amount, ValueProp.Move);
+        var target = CombatState.RunState.Rng.CombatTargets.NextItem(
+            CombatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
         if (target != null)
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, _damage, dealer, null);
     }
-    public static async Task<CardModel?> CreateInHand<T>(Player owner, ICombatState combatState) where T : BroodmotherInsectCard
+
+    public static async Task<CardModel?> CreateInHand<T>(Player owner, ICombatState combatState)
+        where T : BroodmotherInsectCard
     {
         return (await CreateInHand<T>(owner, 1, combatState)).FirstOrDefault();
     }
 
-    public static async Task<IEnumerable<CardModel>> CreateInHand<T>(Player owner, int count, ICombatState combatState) where T : BroodmotherInsectCard
+    public static async Task<IEnumerable<CardModel>> CreateInHand<T>(Player owner, int count, ICombatState combatState)
+        where T : BroodmotherInsectCard
     {
         if (count == 0) return Array.Empty<CardModel>();
         if (CombatManager.Instance.IsOverOrEnding) return Array.Empty<CardModel>();
-        
-        List<CardModel> cards = new List<CardModel>();
-        for (int i = 0; i < count; i++)
+
+        var cards = new List<CardModel>();
+        for (var i = 0; i < count; i++)
             cards.Add(combatState.CreateCard<T>(owner));
-        
+
         await CardPileCmd.AddGeneratedCardsToCombat(cards, PileType.Hand, owner);
         return cards;
     }
-
 }

@@ -1,5 +1,4 @@
 using broodmother.broodmotherCode.Powers;
-using broodmother.broodmotherCode.Relics;
 using broodmother.broodmotherCode.Summons;
 using Broodmother.broodmotherCode.Summons;
 using broodmother.broodmotherCode.Utils;
@@ -19,12 +18,13 @@ public class HeartOfTheHive() : broodmotherRelic
     public override RelicRarity Rarity =>
         RelicRarity.Starter;
 
-    private async Task<Creature?> SummonInsect<TMonster, TPower>(PlayerChoiceContext choiceContext, ICombatState combatState)
+    private async Task<Creature?> SummonInsect<TMonster, TPower>(PlayerChoiceContext choiceContext,
+        ICombatState combatState)
         where TMonster : MonsterModel, IBroodmotherSummon
         where TPower : broodmotherPower
     {
-        Creature c = await CreatureCmd.Add<TMonster>(combatState); 
-        int slot = BroodmotherInsectSlots.GetNextSlot();
+        var c = await CreatureCmd.Add<TMonster>(combatState);
+        var slot = BroodmotherInsectSlots.GetNextSlot();
         BroodmotherInsectSlots.OccupySlot(slot, c);
         (c.Monster as IBroodmotherSummon)!.SlotIndex = slot;
         var node = NCombatRoom.Instance?.GetCreatureNode(c);
@@ -37,9 +37,7 @@ public class HeartOfTheHive() : broodmotherRelic
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
         IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        if (participants.Contains(base.Owner.Creature) && Owner.PlayerCombatState!.TurnNumber <= 1)
-        {
+        if (participants.Contains(Owner.Creature) && Owner.PlayerCombatState!.TurnNumber <= 1)
             await SummonInsect<WaspNest, WaspNestPower>(choiceContext, combatState);
-        }
     }
 }

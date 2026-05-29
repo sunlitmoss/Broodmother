@@ -1,9 +1,7 @@
 ﻿using BaseLib.Abstracts;
-using broodmother.broodmotherCode.Cards;
 using broodmother.broodmotherCode.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace broodmother.broodmotherCode.Character;
 
@@ -16,9 +14,9 @@ public class broodmotherCardPool : CustomCardPoolModel
 
     protected override CardModel[] GenerateAllCards()
     {
-	    return new CardModel[]
-	    {
-	    };
+        return new CardModel[]
+        {
+        };
     }
 
     /* These HSV values will determine the color of your card back.

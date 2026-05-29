@@ -15,68 +15,70 @@ namespace broodmother.broodmotherCode.Powers;
 
 public sealed class InfestationPower : broodmotherPower
 {
-	public override PowerType Type => PowerType.Debuff;
+    public override PowerType Type => PowerType.Debuff;
 
-	public override PowerStackType StackType => PowerStackType.Counter;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
-	private DynamicVar InfestationMultiplier = new DynamicVar("InfestationMultiplier", 1.5m);
-	private DynamicVar ResistanceMultiplier = new DynamicVar("ResistanceMultiplier", 100m);
+    private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 1.5m);
+    private DynamicVar ResistanceMultiplier = new("ResistanceMultiplier", 100m);
 
-	protected override IEnumerable<DynamicVar> CanonicalVars => 
-	[
-		InfestationMultiplier,
-		ResistanceMultiplier,
-		new DisplayVar<InfestationPower>("CalculatedDamage", p => p.CalculateDamage().ToString())
-	];
-	
-	public override LocString Description
-	{
-		get
-		{
-			LocString loc = base.Description;
-			loc.Add("ResistanceMultiplier", ResistanceMultiplier.BaseValue);
-			loc.Add("InfestationMultiplier", InfestationMultiplier.BaseValue);
-			return loc;
-		}
-	}
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        InfestationMultiplier,
+        ResistanceMultiplier,
+        new DisplayVar<InfestationPower>("CalculatedDamage", p => p.CalculateDamage().ToString())
+    ];
 
-	public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-	{
-		if (!Owner.HasPower<ResistancePower>())
-			await PowerCmd.Apply<ResistancePower>(new ThrowingPlayerChoiceContext(), Owner, Owner.MaxHp / 10m, applier, null, true);
-	}
+    public override LocString Description
+    {
+        get
+        {
+            var loc = base.Description;
+            loc.Add("ResistanceMultiplier", ResistanceMultiplier.BaseValue);
+            loc.Add("InfestationMultiplier", InfestationMultiplier.BaseValue);
+            return loc;
+        }
+    }
 
-	public int CalculateDamage()
-	{
-		decimal damage = 0;
+    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        if (!Owner.HasPower<ResistancePower>())
+            await PowerCmd.Apply<ResistancePower>(new ThrowingPlayerChoiceContext(), Owner, Owner.MaxHp / 10m, applier,
+                null, true);
+    }
 
-		damage = Amount * InfestationMultiplier.BaseValue;
-		
-		return (int)damage;
-	}
+    public int CalculateDamage()
+    {
+        decimal damage = 0;
 
-	private int ActualDamage()
-	{
-		if (Amount > Owner.GetPowerAmount<ResistancePower>())
-			return CalculateDamage();
-		return 0;
-	}
-	public override IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context)
-	{
-		return [new HealthBarForecastSegment(ActualDamage(), Colors.Goldenrod, HealthBarForecastDirection.FromRight)];
-	}
-	public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participant)
-	{
-		if (side == CombatSide.Enemy)
-		{
-			if (Amount > Owner.GetPowerAmount<ResistancePower>())
-			{
-				await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner, CalculateDamage(),
-					ValueProp.Unblockable | ValueProp.Unpowered, null, null);
-				await PowerCmd.Apply<ResistancePower>(new ThrowingPlayerChoiceContext(), Owner,
-					(((ResistanceMultiplier.BaseValue/50) - 1) * Owner.GetPowerAmount<ResistancePower>()), Owner, null);
-				await PowerCmd.Remove(this);
-			}
-		}
-	}
+        damage = Amount * InfestationMultiplier.BaseValue;
+
+        return (int)damage;
+    }
+
+    private int ActualDamage()
+    {
+        if (Amount > Owner.GetPowerAmount<ResistancePower>())
+            return CalculateDamage();
+        return 0;
+    }
+
+    public override IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context)
+    {
+        return [new HealthBarForecastSegment(ActualDamage(), Colors.Goldenrod, HealthBarForecastDirection.FromRight)];
+    }
+
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participant)
+    {
+        if (side == CombatSide.Enemy)
+            if (Amount > Owner.GetPowerAmount<ResistancePower>())
+            {
+                await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner, CalculateDamage(),
+                    ValueProp.Unblockable | ValueProp.Unpowered, null, null);
+                await PowerCmd.Apply<ResistancePower>(new ThrowingPlayerChoiceContext(), Owner,
+                    (ResistanceMultiplier.BaseValue / 50 - 1) * Owner.GetPowerAmount<ResistancePower>(), Owner, null);
+                await PowerCmd.Remove(this);
+            }
+    }
 }

@@ -1,6 +1,4 @@
-using broodmother.broodmotherCode.Cards;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -11,12 +9,12 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-
 public class InvigoratingSlash() : broodmotherCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
         new DamageVar(8m, ValueProp.Move)
     ];
 
@@ -30,10 +28,12 @@ public class InvigoratingSlash() : broodmotherCard(1,
         CardPlay play)
     {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
-        AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target)
+        var attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
-        await PowerCmd.Apply<VigorPower>(choiceContext, base.Owner.Creature, attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage), base.Owner.Creature, this);
+        await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature,
+            attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage),
+            Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

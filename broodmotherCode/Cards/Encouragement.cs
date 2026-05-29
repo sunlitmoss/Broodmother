@@ -1,4 +1,3 @@
-using broodmother.broodmotherCode.Cards;
 using broodmother.broodmotherCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,21 +12,23 @@ public class Encouragement() : broodmotherCard(2,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DynamicVar("EncouragementPower", 2m)
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new("EncouragementPower", 2m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<VigorPower>()
     ];
-    
+
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<EncouragementPower>(choiceContext, base.Owner.Creature, base.DynamicVars["EncouragementPower"].BaseValue, base.Owner.Creature, this);
+        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await PowerCmd.Apply<EncouragementPower>(choiceContext, Owner.Creature,
+            DynamicVars["EncouragementPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

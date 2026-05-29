@@ -7,8 +7,8 @@ public class ShiftRegistries
 {
     public static readonly Dictionary<Type, Type> ShiftPairs = new()
     {
-        {typeof(MetamorphicStrike), typeof(MetamorphicDefend)},
-        {typeof(MetamorphicDefend),  typeof(MetamorphicStrike)},
+        { typeof(MetamorphicStrike), typeof(MetamorphicDefend) },
+        { typeof(MetamorphicDefend), typeof(MetamorphicStrike) }
     };
 
     public static Dictionary<int, (Type, bool)> CombatPairs = new();
