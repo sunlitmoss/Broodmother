@@ -21,33 +21,32 @@ public class Broodmother : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        // ModelDb.Card<StrikeBroodmother>(),
-        // ModelDb.Card<StrikeBroodmother>(),
-        // ModelDb.Card<StrikeBroodmother>(),
-        // ModelDb.Card<StrikeBroodmother>(),
-        // ModelDb.Card<DefendBroodmother>(),
-        // ModelDb.Card<DefendBroodmother>(),
-        // ModelDb.Card<DefendBroodmother>(),
-        // ModelDb.Card<DefendBroodmother>(),
-        // ModelDb.Card<BugSwarm>(),
-        // ModelDb.Card<HurlHive>(),
+        ModelDb.Card<StrikeBroodmother>(),
+        ModelDb.Card<StrikeBroodmother>(),
+        ModelDb.Card<StrikeBroodmother>(),
+        ModelDb.Card<StrikeBroodmother>(),
+        ModelDb.Card<DefendBroodmother>(),
+        ModelDb.Card<DefendBroodmother>(),
+        ModelDb.Card<DefendBroodmother>(),
+        ModelDb.Card<DefendBroodmother>(),
+        ModelDb.Card<BugSwarm>(),
+        ModelDb.Card<HurlHive>(),
         
-        ModelDb.Card<Emergence>(),
-
+        // ModelDb.Card<Emergence>(),
         // ModelDb.Card<Encouragement>(),
         // ModelDb.Card<MetamorphicDefend>(),
         // ModelDb.Card<MetamorphicStrike>(),
-        ModelDb.Card<BlightedGuard>(),
+        // ModelDb.Card<BlightedGuard>(),
         // ModelDb.Card<BugShield>(),
         // ModelDb.Card<BugSwarm>(),
         // ModelDb.Card<Cocoon>(),
         // ModelDb.Card<Encouragement>(),
-        ModelDb.Card<HurlHive>(),
+        // ModelDb.Card<HurlHive>(),
         // ModelDb.Card<Infest>(),
         // ModelDb.Card<InvigoratingSlash>(),
         // ModelDb.Card<Molt>(),
         // ModelDb.Card<WildSting>(),
-        ModelDb.Card<HiveMind>(),
+        // ModelDb.Card<HiveMind>(),
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

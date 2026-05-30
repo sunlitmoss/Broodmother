@@ -34,5 +34,7 @@
   "BROODMOTHER-EMERGENCE.description": "If this is the first card you play this turn, gain {Energy:energyIcons()}. \nOtherwise draw {Cards:diff()} cards.",
   "BROODMOTHER-EMERGENCE.title": "Emergence",
   "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of {Times:diff()} random {Times:plural:insect|insects}.",
-  "BROODMOTHER-HIVE_MIND.title": "Hive Mind"
+  "BROODMOTHER-HIVE_MIND.title": "Hive Mind",
+  "BROODMOTHER-INSTAR.description": "[gold]Shift[/gold] ALL [gold]Shift[/gold] in your hand.",
+  "BROODMOTHER-INSTAR.title": "Instar"
 }
