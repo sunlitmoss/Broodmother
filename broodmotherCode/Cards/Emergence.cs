@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class Emergence() : broodmotherCard(1,
+public class Emergence() : broodmotherCard(0,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
@@ -34,7 +34,7 @@ public class Emergence() : broodmotherCard(1,
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
 
-        if (CanPlay)
+        if (!CanPlay)
             await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
         else
             await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);

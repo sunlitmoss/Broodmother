@@ -1,5 +1,5 @@
 {
-  "BROODMOTHER-BUG_SWARM.description": "Deal {Damage:diff()} damage to ALL enemies twice.",
+  "BROODMOTHER-BUG_SWARM.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.",
   "BROODMOTHER-BUG_SWARM.title": "Bug Swarm",
   "BROODMOTHER-RELEASE_WASP_NEST.description": "[gold]Release[/gold] a [gold]Wasp Nest[/gold].",
   "BROODMOTHER-RELEASE_WASP_NEST.title": "Wasp Nest",
@@ -27,10 +27,12 @@
   "BROODMOTHER-INVIGORATING_SLASH.title": "Invigorating Slash",
   "BROODMOTHER-INFEST.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold].",
   "BROODMOTHER-INFEST.title": "Infest",
-  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times",
+  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times.",
   "BROODMOTHER-WILD_STING.title": "Wild Sting",
   "BROODMOTHER-ENCOURAGEMENT.description": "At the start of your turn, gain {EncouragementPower:diff()} [gold]Vigor[/gold] for each insect alive.",
   "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement",
-  "BROODMOTHER-EMERGENCE.description": "If this is the first card you play this turn, draw {Cards:diff()} cards. \nOtherwise gain {Energy:energyIcons()}.",
-  "BROODMOTHER-EMERGENCE.title": "Emergence"
+  "BROODMOTHER-EMERGENCE.description": "If this is the first card you play this turn, gain {Energy:energyIcons()}. \nOtherwise draw {Cards:diff()} cards.",
+  "BROODMOTHER-EMERGENCE.title": "Emergence",
+  "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of {Times:diff()} random {Times:plural:insect|insects}.",
+  "BROODMOTHER-HIVE_MIND.title": "Hive Mind"
 }

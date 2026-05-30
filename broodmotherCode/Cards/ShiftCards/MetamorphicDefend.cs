@@ -11,7 +11,7 @@ public class MetamorphicDefend() : ShiftCard<MetamorphicStrike>
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        new List<DynamicVar> { new BlockVar(5m, ValueProp.Move) };
+        new List<DynamicVar> { new BlockVar(7m, ValueProp.Move) };
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -27,6 +27,6 @@ public class MetamorphicStrike() : ShiftCard<MetamorphicDefend>
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Damage.UpgradeValueBy(5m);
     }
 }

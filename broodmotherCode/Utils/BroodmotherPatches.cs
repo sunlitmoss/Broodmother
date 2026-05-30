@@ -15,15 +15,15 @@ namespace broodmother.broodmotherCode.Utils;
 public class BroodmotherPatches
 {
     [HarmonyPatch(typeof(NCombatRoom), "AddCreature")]
-    private class AddCreaturePatch
+    public class AddCreaturePatch
     {
-        private static void Postfix(Creature __creature)
+        public static void Postfix(Creature creature)
         {
-            if (__creature.Monster is IBroodmotherSummon)
+            if (creature.Monster is IBroodmotherSummon)
             {
-                var node = NCombatRoom.Instance?.GetCreatureNode(__creature);
-                var slot = (__creature.Monster as Blightfly)?.SlotIndex ?? -1;
-                if (slot >= 0) node.Position = BroodmotherInsectSlots.InsectSlots[slot];
+                var node = NCombatRoom.Instance?.GetCreatureNode(creature);
+                var slot = (creature.Monster as BroodmotherSummonModel)?.SlotIndex ?? -1;
+                if (slot >= 0) node.Position = BroodmotherInsectSlots.ActiveSlots[slot];
 
                 node.Scale = new Vector2(0.5f, 0.5f);
             }
@@ -31,7 +31,7 @@ public class BroodmotherPatches
     }
 
     [HarmonyPatch(typeof(CombatManager), "SetUpCombat")]
-    private class ResetInsectSlotsPatch
+    public class ResetInsectSlotsPatch
     {
         public static void Postfix()
         {
@@ -40,18 +40,18 @@ public class BroodmotherPatches
     }
 
     [HarmonyPatch(typeof(RavenousPower), "AfterDeath")]
-    private class RavenousPowerPatch
+    public class RavenousPowerPatch
     {
-        private static bool Prefix(Creature __target)
+        public static bool Prefix(Creature target)
         {
-            if (__target.Monster is IBroodmotherSummon)
+            if (target.Monster is IBroodmotherSummon)
                 return false;
             return true;
         }
     }
 
     [HarmonyPatch(typeof(CardModel), "get_HoverTips")]
-    private class ShiftCombatHoverTipsPatch
+    public class ShiftCombatHoverTipsPatch
     {
         public static void Postfix(CardModel __instance, ref IEnumerable<IHoverTip> __result)
         {
@@ -72,16 +72,14 @@ public class BroodmotherPatches
         }
     }
 
-    [HarmonyPatch(typeof(RunState), "CreateShared")]
-    private class SetInsectSlotsPatch
+[HarmonyPatch(typeof(RunState), "CreateShared")]
+public class SetInsectSlotsPatch
+{
+    public static void Postfix(RunState __result)
     {
-        public static void Prefix(RunState __instance)
-        {
-            var count = 0;
-            foreach (var p in __instance.Players)
-                if (p.Character is Character.Broodmother)
-                    count++;
-            if (count == 2) BroodmotherInsectSlots.SetSlots();
-        }
+        int count = __result.Players.
+            Count(p => p.Character is Character.Broodmother);
+        if (count > 1) BroodmotherInsectSlots.SetSlots();
     }
+}
 }
