@@ -9,13 +9,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class InvigoratingSlash() : broodmotherCard(1,
-    CardType.Attack, CardRarity.Common,
+public class InvigoratingSlash() : broodmotherCard(2,
+    CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(8m, ValueProp.Move)
+        new DamageVar(10m, ValueProp.Move)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -32,7 +32,7 @@ public class InvigoratingSlash() : broodmotherCard(1,
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature,
-            attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage),
+            attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.UnblockedDamage),
             Owner.Creature, this);
     }
 

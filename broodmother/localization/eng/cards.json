@@ -36,5 +36,7 @@
   "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of {Times:diff()} random {Times:plural:insect|insects}.",
   "BROODMOTHER-HIVE_MIND.title": "Hive Mind",
   "BROODMOTHER-INSTAR.description": "[gold]Shift[/gold] ALL [gold]Shift[/gold] in your hand.",
-  "BROODMOTHER-INSTAR.title": "Instar"
+  "BROODMOTHER-INSTAR.title": "Instar",
+  "BROODMOTHER-WILLING_SACRIFICE.description": "Apply [gold]Sacrifice[/gold] to one of your insects.",
+  "BROODMOTHER-WILLING_SACRIFICE.title": "Willing Sacrifice"
 }

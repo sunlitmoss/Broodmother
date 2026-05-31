@@ -13,11 +13,10 @@ public class HurlHive() : broodmotherCard
 (1, CardType.Skill, CardRarity.Basic,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>(new DynamicVar[2]
-    {
+    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>([
         new CardsVar("Cards", 1),
         new DamageVar(3m, ValueProp.Move)
-    });
+    ]);
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
