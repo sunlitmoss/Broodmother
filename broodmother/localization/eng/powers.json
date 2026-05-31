@@ -19,5 +19,8 @@
   "BROODMOTHER-INFESTATION_POWER.title": "Infestation",
   "BROODMOTHER-ENCOURAGEMENT_POWER.description": "At the start of your turn, gain [gold]Vigor[/gold] for each insect alive.",
   "BROODMOTHER-ENCOURAGEMENT_POWER.smartDescription": "At the start of your turn, gain {Amount} [gold]Vigor[/gold] for each insect alive.",
-  "BROODMOTHER-ENCOURAGEMENT_POWER.title": "Encouragement"
+  "BROODMOTHER-ENCOURAGEMENT_POWER.title": "Encouragement",
+  "BROODMOTHER-SACRIFICE_POWER.description": "This insect absorbs all unblocked attack damage.",
+  "BROODMOTHER-SACRIFICE_POWER.smartDescription": "This insect absorbs all unblocked attack damage.",
+  "BROODMOTHER-SACRIFICE_POWER.title": "Sacrifice"
 }

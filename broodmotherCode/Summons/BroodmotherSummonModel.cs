@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -17,6 +18,8 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
     public int SlotIndex { get; set; } = -1;
     public override LocString Title => new("monsters", "BROODMOTHER-" + GetType().Name.ToUpper() + ".name");
 
+    public Player? Summoner { get; set; }
+    
     protected virtual AbstractIntent GetIntent()
     {
         return new SleepIntent();

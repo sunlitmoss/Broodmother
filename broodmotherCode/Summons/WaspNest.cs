@@ -16,7 +16,7 @@ public class WaspNest : BroodmotherSummonModel
     {
         return new SingleAttackIntent(3);
     }
-
+    
     public override async Task OnPassive(ICombatState combatState)
     {
         var power = Creature.GetPower<WaspNestPower>();
