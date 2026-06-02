@@ -48,8 +48,11 @@ public class Broodmother : PlaceholderCharacterModel
         // ModelDb.Card<WildSting>(),
         // ModelDb.Card<HiveMind>(),
         // ModelDb.Card<ReleaseShrinkerBeetle>()
-        ModelDb.Card<ReleaseScarabBeetle>()
+        // ModelDb.Card<ReleaseScarabBeetle>()
+        ModelDb.Card<ReleaseDawnBeetle>()
     ];
+    
+    
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [

@@ -14,10 +14,9 @@ public class Infest() : broodmotherCard(1,
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<InfestationPower>(),
-        HoverTipFactory.FromPower<ResistancePower>()
     ];
 
-    private DynamicVar InfestationAmount = new("InfestationAmount", 3m);
+    private DynamicVar InfestationAmount = new("InfestationAmount", 1m);
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -35,6 +34,6 @@ public class Infest() : broodmotherCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["InfestationAmount"].UpgradeValueBy(2m);
+        DynamicVars["InfestationAmount"].UpgradeValueBy(1m);
     }
 }

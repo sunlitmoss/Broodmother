@@ -12,7 +12,6 @@ public class HiveMind() : broodmotherCard(1,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DynamicVar("Times", 1m)
     ];
 
     private Creature? _insect;
@@ -27,16 +26,12 @@ public class HiveMind() : broodmotherCard(1,
         
         if (insects.Count == 0) return;
         
-        for (int i = 1; i <= DynamicVars["Times"].IntValue; i++)
-        {
-            Creature insect = CombatState.RunState.Rng.CombatTargets.NextItem(insects)!;
-            if (insect.Monster is BroodmotherSummonModel summon) await summon.OnPassive(CombatState);
-        }
-        
+        Creature insect = CombatState.RunState.Rng.CombatTargets.NextItem(insects)!;
+        if (insect.Monster is BroodmotherSummonModel summon) await summon.OnPassive(CombatState);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Times"].UpgradeValueBy(1m);
+        BaseReplayCount++;
     }
 }

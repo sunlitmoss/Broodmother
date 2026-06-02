@@ -27,13 +27,13 @@
   "BROODMOTHER-INVIGORATING_SLASH.title": "Invigorating Slash",
   "BROODMOTHER-INFEST.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold].",
   "BROODMOTHER-INFEST.title": "Infest",
-  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times.",
+  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times. \n Add a [gold]Wasp Nest[/gold] to your hand.",
   "BROODMOTHER-WILD_STING.title": "Wild Sting",
   "BROODMOTHER-ENCOURAGEMENT.description": "At the start of your turn, gain {EncouragementPower:diff()} [gold]Vigor[/gold] for each insect alive.",
   "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement",
   "BROODMOTHER-EMERGENCE.description": "If this is the first card you play this turn, gain {Energy:energyIcons()}. \nOtherwise draw {Cards:diff()} cards.",
   "BROODMOTHER-EMERGENCE.title": "Emergence",
-  "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of {Times:diff()} random {Times:plural:insect|insects}.",
+  "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of a random insect.",
   "BROODMOTHER-HIVE_MIND.title": "Hive Mind",
   "BROODMOTHER-INSTAR.description": "[gold]Shift[/gold] ALL [gold]Shift[/gold] cards in your hand.",
   "BROODMOTHER-INSTAR.title": "Instar",
@@ -42,5 +42,11 @@
   "BROODMOTHER-RELEASE_SHRINKER_BEETLE.description": "[gold]Release[/gold] a [gold]Shrinker Beetle[/gold]",
   "BROODMOTHER-RELEASE_SHRINKER_BEETLE.title": "Shrinker Beetle",
   "BROODMOTHER-RELEASE_SCARAB_BEETLE.description": "[gold]Release[/gold] a [gold]Scarab Beetle[/gold]",
-  "BROODMOTHER-RELEASE_SCARAB_BEETLE.title": "Scarab Beetle"
+  "BROODMOTHER-RELEASE_SCARAB_BEETLE.title": "Scarab Beetle",
+  "BROODMOTHER-BLIGHT.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold] to ALL enemies.",
+  "BROODMOTHER-BLIGHT.title": "Blight",
+  "BROODMOTHER-KHEPRIS_ASSURANCE.description": "Shuffle your [gold]Discard Pile[/gold] into your [gold]Draw Pile[/gold].\nDraw cards until your hand is full. \nAdd a [gold]Scarab Beetle[/gold] into your [gold]Hand[/gold].",
+  "BROODMOTHER-KHEPRIS_ASSURANCE.title": "Khepri's Assurance",
+  "BROODMOTHER-RELEASE_DAWN_BEETLE.description": "[gold]Release[/gold] a [gold]Dawn Beetle[/gold].",
+  "BROODMOTHER-RELEASE_DAWN_BEETLE.title": "Dawn Beetle"
 }

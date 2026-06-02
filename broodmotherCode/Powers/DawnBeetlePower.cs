@@ -2,11 +2,12 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 
 namespace broodmother.broodmotherCode.Powers;
 
-public class ResistancePower() : broodmotherPower
+public class DawnBeetlePower() : broodmotherPower
 {
     public override PowerType Type =>
-        PowerType.None;
+        PowerType.Buff;
 
     public override PowerStackType StackType =>
-        PowerStackType.Counter;
+        PowerStackType.Single;
+    
 }

@@ -16,7 +16,7 @@ public class WillingSacrifice() : broodmotherCard(1,
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         new List<IHoverTip> {HoverTipFactory.FromPower<SacrificePower>() };
 
-
+    public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust };
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
@@ -26,6 +26,6 @@ public class WillingSacrifice() : broodmotherCard(1,
 
     protected override void OnUpgrade()
     {
-        BaseReplayCount++;
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

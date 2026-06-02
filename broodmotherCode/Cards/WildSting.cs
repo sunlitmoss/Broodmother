@@ -1,6 +1,9 @@
+using broodmother.broodmotherCode.Cards.InsectCards;
+using broodmother.broodmotherCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -10,10 +13,15 @@ public class WildSting() : broodmotherCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.RandomEnemy)
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<WaspNestPower>()
+    ];
+    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(2m, ValueProp.Move),
-        new RepeatVar(4)
+        new RepeatVar(3)
     ];
 
     protected override async Task OnPlay(
@@ -24,6 +32,7 @@ public class WildSting() : broodmotherCard(1,
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this)
             .TargetingRandomOpponents(CombatState)
             .Execute(choiceContext);
+        await ReleaseWaspNest.CreateInHand(Owner, CombatState);
     }
 
     protected override void OnUpgrade()

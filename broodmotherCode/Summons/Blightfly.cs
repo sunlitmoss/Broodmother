@@ -29,7 +29,7 @@ public class Blightfly : BroodmotherSummonModel
 
     private bool _activeThisTurn = true;
 
-    public override async Task OnPassive(ICombatState combatState)
+    public override async Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null)
     {
         if (_activeThisTurn)
         {

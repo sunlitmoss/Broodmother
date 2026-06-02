@@ -57,9 +57,10 @@ public abstract class BroodmotherInsectCard : CustomCardModel
         await PowerCmd.Apply<MinionPower>(choiceContext, c, 1m, null, null);
         ApplySummonPowers(choiceContext, c);
         if (c.Monster is BroodmotherSummonModel summon)
-        {
-            await summon.OnPassive(CombatState);
+        {            
             summon.Summoner = Owner;
+            await summon.OnPassive(CombatState);
+            summon.ChoiceContext = choiceContext;
         }
         return c;
     }

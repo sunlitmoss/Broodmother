@@ -11,7 +11,7 @@ public class ScarabBeetle : BroodmotherSummonModel
         return new SleepIntent();
     }
 
-    public override Task OnPassive(ICombatState combatState)
+    public override Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null)
     {
         return Task.CompletedTask;
     }

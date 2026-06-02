@@ -17,6 +17,7 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
 {
     public int SlotIndex { get; set; } = -1;
     public Player? Summoner { get; set; }
+    public PlayerChoiceContext? ChoiceContext { get; set; }
     public override LocString Title => new("monsters", "BROODMOTHER-" + GetType().Name.ToUpper() + ".name");
     
     protected virtual AbstractIntent GetIntent()
@@ -33,7 +34,7 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
         return creatureAnimator;
     }
 
-    public abstract Task OnPassive(ICombatState combatState);
+    public abstract Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null);
 
     public abstract Task OnDeath(PlayerChoiceContext choiceContext);
 
@@ -51,10 +52,15 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
             await OnPassive(combatState);
     }
 
+    public override  async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    {
+        if (creature != Creature) return;
+        await OnDeath(choiceContext);
+    }
+
     public override async Task BeforeDeath(Creature creature)
     {
         if (creature != Creature) return;
-        await OnDeath(new ThrowingPlayerChoiceContext());
         BroodmotherInsectSlots.EmptySlot(SlotIndex);
     }
 }
