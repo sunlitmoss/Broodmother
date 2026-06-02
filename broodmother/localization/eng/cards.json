@@ -42,5 +42,7 @@
   "BROODMOTHER-RELEASE_SHRINKER_BEETLE.description": "[gold]Release[/gold] a [gold]Shrinker Beetle[/gold]",
   "BROODMOTHER-RELEASE_SHRINKER_BEETLE.title": "Shrinker Beetle",
   "BROODMOTHER-RELEASE_SCARAB_BEETLE.description": "[gold]Release[/gold] a [gold]Scarab Beetle[/gold]",
-  "BROODMOTHER-RELEASE_SCARAB_BEETLE.title": "Scarab Beetle"
+  "BROODMOTHER-RELEASE_SCARAB_BEETLE.title": "Scarab Beetle",
+  "BROODMOTHER-BLIGHT.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold] to ALL enemies.",
+  "BROODMOTHER-BLIGHT.title": "Blight"
 }
