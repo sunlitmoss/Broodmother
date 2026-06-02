@@ -1,4 +1,5 @@
 using broodmother.broodmotherCode.Powers;
+using Broodmother.broodmotherCode.Powers;
 using broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -18,7 +19,8 @@ public class ReleaseShrinkerBeetle() : BroodmotherInsectCard(TargetType.AnyEnemy
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
     protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<ShrinkerBeetlePower>();
-    
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromPower<ShrinkerBeetleShrinkPower>()];
+
     public static Task<CardModel?> CreateInHand(Player owner, ICombatState combatState)
     {
         return CreateInHand<ReleaseShrinkerBeetle>(owner, combatState);

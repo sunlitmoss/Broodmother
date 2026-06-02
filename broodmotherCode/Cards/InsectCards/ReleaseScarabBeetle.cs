@@ -17,6 +17,7 @@ public class ReleaseScarabBeetle : BroodmotherInsectCard
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
     protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<ScarabBeetlePower>();
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromPower<SwanSongPower>()];
 
     protected override async Task ApplySummonPowers(PlayerChoiceContext choiceContext, Creature creature)
     {

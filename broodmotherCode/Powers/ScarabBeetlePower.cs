@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 
 namespace broodmother.broodmotherCode.Powers;
 
@@ -13,7 +14,12 @@ public class ScarabBeetlePower() : broodmotherPower
 
     public override PowerStackType StackType =>
         PowerStackType.Single;
-    
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<SwanSongPower>()
+    ];
+
     public override bool ShouldDieLate(Creature creature)
     {
         if (Owner.Monster is not BroodmotherSummonModel summon) return true;

@@ -32,10 +32,10 @@
   "BROODMOTHER-SHRINKER_BEETLE_SHRINK_POWER.description": "This creature's Attacks deal [blue]20%[/blue] less damage for the next 3 turns",
   "BROODMOTHER-SHRINKER_BEETLE_SHRINK_POWER.smartDescription": "{ApplierName.StringValue:cond:While {} is alive, [gold]{OwnerName}'s[/gold]|[gold]{OwnerName}'s[/gold]} Attacks deal [blue]{DamageDecrease}%[/blue] less damage{Amount:cond:==1? next turn|>1? for the next [blue]{}[/blue] turns|}.",
   "BROODMOTHER-SHRINKER_BEETLE_SHRINK_POWER.title": "Shrink",
-  "BROODMOTHER-SCARAB_BEETLE_POWER.description": "",
-  "BROODMOTHER-SCARAB_BEETLE_POWER.smartDescription": "",
+  "BROODMOTHER-SCARAB_BEETLE_POWER.description": "Once, when you would die, this insect sacrifices itself, healing you to 1 HP and granting [gold]Swan Song[/gold].",
+  "BROODMOTHER-SCARAB_BEETLE_POWER.smartDescription": "Once, when you would die, this insect sacrifices itself, healing you to 1 HP and granting [gold]Swan Song[/gold].",
   "BROODMOTHER-SCARAB_BEETLE_POWER.title": "Scarab Beetle",
-  "BROODMOTHER-SWAN_SONG_POWER.description": "",
-  "BROODMOTHER-SWAN_SONG_POWER.smartDescription": "",
+  "BROODMOTHER-SWAN_SONG_POWER.description": "Prevent lethal damage. At the end of each enemy turn, lose 1 stack. At 0 stacks, die.",
+  "BROODMOTHER-SWAN_SONG_POWER.smartDescription": "Prevent lethal damage. At the end of each enemy turn, lose 1 stack. At 0 {Amount:plural:stack|stacks}, die.",
   "BROODMOTHER-SWAN_SONG_POWER.title": "Swan Song"
 }
