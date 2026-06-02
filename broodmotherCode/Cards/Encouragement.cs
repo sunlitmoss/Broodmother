@@ -14,7 +14,7 @@ public class Encouragement() : broodmotherCard(2,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new("EncouragementPower", 2m)
+        new("EncouragementPower", 1m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -33,6 +33,6 @@ public class Encouragement() : broodmotherCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["EncouragementPower"].UpgradeValueBy(2m);
+        DynamicVars["EncouragementPower"].UpgradeValueBy(1m);
     }
 }

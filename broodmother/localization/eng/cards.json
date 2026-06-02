@@ -27,7 +27,7 @@
   "BROODMOTHER-INVIGORATING_SLASH.title": "Invigorating Slash",
   "BROODMOTHER-INFEST.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold].",
   "BROODMOTHER-INFEST.title": "Infest",
-  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times.",
+  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times. \n Add a [gold]Wasp Nest[/gold] to your hand.",
   "BROODMOTHER-WILD_STING.title": "Wild Sting",
   "BROODMOTHER-ENCOURAGEMENT.description": "At the start of your turn, gain {EncouragementPower:diff()} [gold]Vigor[/gold] for each insect alive.",
   "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement",
@@ -46,5 +46,7 @@
   "BROODMOTHER-BLIGHT.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold] to ALL enemies.",
   "BROODMOTHER-BLIGHT.title": "Blight",
   "BROODMOTHER-KHEPRIS_ASSURANCE.description": "Shuffle your [gold]Discard Pile[/gold] into your [gold]Draw Pile[/gold].\nDraw cards until your hand is full. \nAdd a [gold]Scarab Beetle[/gold] into your [gold]Hand[/gold].",
-  "BROODMOTHER-KHEPRIS_ASSURANCE.title": "Khepri's Assurance"
+  "BROODMOTHER-KHEPRIS_ASSURANCE.title": "Khepri's Assurance",
+  "BROODMOTHER-RELEASE_DAWN_BEETLE.description": "[gold]Release[/gold] a [gold]Dawn Beetle[/gold].",
+  "BROODMOTHER-RELEASE_DAWN_BEETLE.title": "Dawn Beetle"
 }

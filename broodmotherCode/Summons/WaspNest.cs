@@ -17,7 +17,7 @@ public class WaspNest : BroodmotherSummonModel
         return new SingleAttackIntent(3);
     }
     
-    public override async Task OnPassive(ICombatState combatState)
+    public override async Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null)
     {
         var power = Creature.GetPower<WaspNestPower>();
         if (power == null) return;

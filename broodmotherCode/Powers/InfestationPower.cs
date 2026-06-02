@@ -21,6 +21,7 @@ public sealed class InfestationPower : broodmotherPower
     private bool _firstApplication = true;
     private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 25m);
     private DynamicVar DeathExplosion = new("DeathExplosion", 25m);
+    private decimal _addedAmount = 0m;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -53,11 +54,17 @@ public sealed class InfestationPower : broodmotherPower
                 ValueProp.Unblockable | ValueProp.Unpowered,
                 null,
                 null);
-            await PowerCmd.ModifyAmount(choiceContext,
-                this,
-                ((InfestationMultiplier.BaseValue) / 100) * Amount,
-                null,
-                null);
+            _addedAmount += (InfestationMultiplier.BaseValue / 100m) * Amount;
+            int delta = (int)Math.Floor(_addedAmount);
+            if (delta > 0)
+            {
+                _addedAmount -= delta;
+                await PowerCmd.ModifyAmount(choiceContext, 
+                    this, 
+                    delta, 
+                    null, 
+                    null);
+            }
         }    
     }
 

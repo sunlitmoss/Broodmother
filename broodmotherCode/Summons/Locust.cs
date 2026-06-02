@@ -11,7 +11,7 @@ public class Locust : BroodmotherSummonModel
         return new SingleAttackIntent(1);
     }
     //  deal 1 damage to all enemies, increases each turn. VERY FRAGILE
-    public override Task OnPassive(ICombatState combatState)
+    public override Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null)
     {
         return Task.CompletedTask;
     }
