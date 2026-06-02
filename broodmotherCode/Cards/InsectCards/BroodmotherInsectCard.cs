@@ -1,6 +1,5 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
-using broodmother.broodmotherCode.Powers;
 using broodmother.broodmotherCode.Summons;
 using Broodmother.broodmotherCode.Summons;
 using broodmother.broodmotherCode.Utils;
@@ -25,8 +24,8 @@ public abstract class BroodmotherInsectCard : CustomCardModel
 {
     public override CardPoolModel VisualCardPool => ModelDb.CardPool<TokenCardPool>();
 
-    protected BroodmotherInsectCard(int cost)
-        : base(cost, CardType.Skill, CardRarity.Token, TargetType.Self)
+    protected BroodmotherInsectCard(TargetType target = TargetType.Self)
+        : base(0, CardType.Skill, CardRarity.Token, target)
     {
     }
 
@@ -40,12 +39,14 @@ public abstract class BroodmotherInsectCard : CustomCardModel
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         new List<IHoverTip> { InsectPowerTip }
             .Concat(AdditionalHoverTips);
-
+    
     protected override bool IsPlayable => BroodmotherInsectSlots.GetNextSlot() != -1;
 
-    protected async Task<Creature?> SummonInsect<TMonster, TPower>(PlayerChoiceContext choiceContext)
+    protected virtual Task ApplySummonPowers(PlayerChoiceContext choiceContext, Creature creature)
+        => Task.CompletedTask;
+    
+    public async Task<Creature?> SummonInsect<TMonster>(PlayerChoiceContext choiceContext)
         where TMonster : MonsterModel, IBroodmotherSummon
-        where TPower : broodmotherPower
     {
         var c = await CreatureCmd.Add<TMonster>(CombatState);
         var slot = BroodmotherInsectSlots.GetNextSlot();
@@ -53,8 +54,8 @@ public abstract class BroodmotherInsectCard : CustomCardModel
         (c.Monster as IBroodmotherSummon)!.SlotIndex = slot;
         var node = NCombatRoom.Instance?.GetCreatureNode(c);
         if (node != null) node.Position = BroodmotherInsectSlots.ActiveSlots[slot];
-        await PowerCmd.Apply<TPower>(choiceContext, c, 1m, null, null);
         await PowerCmd.Apply<MinionPower>(choiceContext, c, 1m, null, null);
+        ApplySummonPowers(choiceContext, c);
         if (c.Monster is BroodmotherSummonModel summon)
         {
             await summon.OnPassive(CombatState);

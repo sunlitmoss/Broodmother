@@ -29,8 +29,8 @@ public class HeartOfTheHive() : broodmotherRelic
         (c.Monster as IBroodmotherSummon)!.SlotIndex = slot;
         var node = NCombatRoom.Instance?.GetCreatureNode(c);
         if (node != null) node.Position = BroodmotherInsectSlots.ActiveSlots[slot];
-        await PowerCmd.Apply<TPower>(choiceContext, c, 1m, null, null);
         await PowerCmd.Apply<MinionPower>(choiceContext, c, 1m, null, null);
+        await PowerCmd.Apply<TPower>(choiceContext, c, 1m, null, null);
         if (c.Monster is BroodmotherSummonModel summon) summon.Summoner = Owner;
         return c;
     }

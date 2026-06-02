@@ -10,7 +10,7 @@ public class BlightflyPower() : broodmotherPower
         PowerType.Buff;
 
     public override PowerStackType StackType =>
-        PowerStackType.Counter;
+        PowerStackType.Single;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         new List<IHoverTip> { HoverTipFactory.FromPower<WeakPower>() };

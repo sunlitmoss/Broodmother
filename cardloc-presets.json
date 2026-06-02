@@ -1,0 +1,64 @@
+﻿{
+  "projectId": "broodmother",
+  "localizationBase": "broodmother/localization/eng",
+  "presets": [
+    {
+      "id": "card",
+      "markers": [
+        "BroodmotherInsectCard",
+        "BroodmotherShiftCard",
+        "broodmotherCard",
+        "CustomCardModel"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "cards.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "cards.json",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "markers": [
+        "CustomPowerModel",
+        "broodmotherPower"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "powers.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "powers.json",
+          "optional": false
+        },
+        {
+          "name": "smartDescription",
+          "file": "powers.json",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "monster",
+      "markers": [
+        "BroodmotherSummonModel"
+      ],
+      "fields": [
+        {
+          "name": "name",
+          "file": "monsters.json",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

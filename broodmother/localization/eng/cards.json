@@ -35,8 +35,12 @@
   "BROODMOTHER-EMERGENCE.title": "Emergence",
   "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of {Times:diff()} random {Times:plural:insect|insects}.",
   "BROODMOTHER-HIVE_MIND.title": "Hive Mind",
-  "BROODMOTHER-INSTAR.description": "[gold]Shift[/gold] ALL [gold]Shift[/gold] in your hand.",
+  "BROODMOTHER-INSTAR.description": "[gold]Shift[/gold] ALL [gold]Shift[/gold] cards in your hand.",
   "BROODMOTHER-INSTAR.title": "Instar",
   "BROODMOTHER-WILLING_SACRIFICE.description": "Apply [gold]Sacrifice[/gold] to one of your insects.",
-  "BROODMOTHER-WILLING_SACRIFICE.title": "Willing Sacrifice"
+  "BROODMOTHER-WILLING_SACRIFICE.title": "Willing Sacrifice",
+  "BROODMOTHER-RELEASE_SHRINKER_BEETLE.description": "[gold]Release[/gold] a [gold]Shrinker Beetle[/gold]",
+  "BROODMOTHER-RELEASE_SHRINKER_BEETLE.title": "Shrinker Beetle",
+  "BROODMOTHER-RELEASE_SCARAB_BEETLE.description": "[gold]Release[/gold] a [gold]Scarab Beetle[/gold]",
+  "BROODMOTHER-RELEASE_SCARAB_BEETLE.title": "Scarab Beetle"
 }

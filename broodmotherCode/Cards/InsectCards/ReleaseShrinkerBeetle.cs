@@ -1,9 +1,9 @@
 using broodmother.broodmotherCode.Powers;
+using Broodmother.broodmotherCode.Powers;
 using broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -13,32 +13,31 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace broodmother.broodmotherCode.Cards.InsectCards;
 
-public class ReleaseBlightfly : BroodmotherInsectCard
+
+public class ReleaseShrinkerBeetle() : BroodmotherInsectCard(TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
-    protected override async Task ApplySummonPowers(PlayerChoiceContext choiceContext, Creature creature)
-    {
-        await PowerCmd.Apply<BlightflyPower>(choiceContext, creature, 1m, null, null);
-    }
+    protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<ShrinkerBeetlePower>();
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromPower<ShrinkerBeetleShrinkPower>()];
 
     public static Task<CardModel?> CreateInHand(Player owner, ICombatState combatState)
     {
-        return CreateInHand<ReleaseBlightfly>(owner, combatState);
+        return CreateInHand<ReleaseShrinkerBeetle>(owner, combatState);
     }
-
-    protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<BlightflyPower>();
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromPower<WeakPower>()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await SummonInsect<Blightfly>(choiceContext);
+        var summon = await SummonInsect<ShrinkerBeetle>(choiceContext);
+        (summon!.Monster as ShrinkerBeetle)!.Target = play.Target;
+        await PowerCmd.Apply<MinionPower>(choiceContext, summon!, 1m, null, null);
+        await PowerCmd.Apply<ShrinkerBeetlePower>(choiceContext, summon!, 1m, null, null);
+        await PowerCmd.Apply<SacrificePower>(choiceContext, summon!, 1m, null, null);
     }
-
+    
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
     }
 }

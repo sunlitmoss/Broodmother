@@ -4,15 +4,15 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Powers;
 
-public class WaspNestPower() : broodmotherPower
+public class LocustPower() : broodmotherPower
 {
     public override PowerType Type =>
         PowerType.Buff;
 
     public override PowerStackType StackType =>
-        PowerStackType.Single;
+        PowerStackType.Counter;
 
-    public static decimal _damage = 3m;
+    public static decimal _damage = 1m;
     public DamageVar PassiveDamage = new("PassiveDamage", _damage, ValueProp.Move);
     public DamageVar DeathDamage = new("DeathDamage", 2 * _damage, ValueProp.Move);
 
