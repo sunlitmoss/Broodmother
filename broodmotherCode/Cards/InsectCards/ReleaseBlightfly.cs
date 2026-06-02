@@ -1,7 +1,9 @@
 using broodmother.broodmotherCode.Powers;
 using broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -11,9 +13,14 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace broodmother.broodmotherCode.Cards.InsectCards;
 
-public class ReleaseBlightfly() : BroodmotherInsectCard(1)
+public class ReleaseBlightfly : BroodmotherInsectCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
+
+    protected override async Task ApplySummonPowers(PlayerChoiceContext choiceContext, Creature creature)
+    {
+        await PowerCmd.Apply<BlightflyPower>(choiceContext, creature, 1m, null, null);
+    }
 
     public static Task<CardModel?> CreateInHand(Player owner, ICombatState combatState)
     {
@@ -27,7 +34,7 @@ public class ReleaseBlightfly() : BroodmotherInsectCard(1)
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await SummonInsect<Blightfly, BlightflyPower>(choiceContext);
+        await SummonInsect<Blightfly>(choiceContext);
     }
 
     protected override void OnUpgrade()

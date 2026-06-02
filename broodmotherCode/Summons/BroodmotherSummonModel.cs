@@ -16,9 +16,8 @@ namespace broodmother.broodmotherCode.Summons;
 public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherSummon
 {
     public int SlotIndex { get; set; } = -1;
-    public override LocString Title => new("monsters", "BROODMOTHER-" + GetType().Name.ToUpper() + ".name");
-
     public Player? Summoner { get; set; }
+    public override LocString Title => new("monsters", "BROODMOTHER-" + GetType().Name.ToUpper() + ".name");
     
     protected virtual AbstractIntent GetIntent()
     {

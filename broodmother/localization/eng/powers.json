@@ -22,5 +22,20 @@
   "BROODMOTHER-ENCOURAGEMENT_POWER.title": "Encouragement",
   "BROODMOTHER-SACRIFICE_POWER.description": "This insect absorbs all unblocked attack damage.",
   "BROODMOTHER-SACRIFICE_POWER.smartDescription": "This insect absorbs all unblocked attack damage.",
-  "BROODMOTHER-SACRIFICE_POWER.title": "Sacrifice"
+  "BROODMOTHER-SACRIFICE_POWER.title": "Sacrifice",
+  "BROODMOTHER-LOCUST_POWER.description": "At the start of your turn, deal 1 damage to ALL enemies. On death, deal 2 damage to ALL enemies.",
+  "BROODMOTHER-LOCUST_POWER.smartDescription": "At the start of your turn, deal {PassiveDamage:diff()} damage to a ALL enemies. On death, deal {DeathDamage:diff()} damage to ALL enemies.",
+  "BROODMOTHER-LOCUST_POWER.title": "Locust",
+  "BROODMOTHER-SHRINKER_BEETLE_POWER.description": "While alive, shrinks an enemy.",
+  "BROODMOTHER-SHRINKER_BEETLE_POWER.smartDescription": "While alive, shrinks an enemy.",
+  "BROODMOTHER-SHRINKER_BEETLE_POWER.title": "Shrinker Beetle",
+  "BROODMOTHER-SHRINKER_BEETLE_SHRINK_POWER.description": "This creature's Attacks deal [blue]20%[/blue] less damage for the next 3 turns",
+  "BROODMOTHER-SHRINKER_BEETLE_SHRINK_POWER.smartDescription": "{ApplierName.StringValue:cond:While {} is alive, [gold]{OwnerName}'s[/gold]|[gold]{OwnerName}'s[/gold]} Attacks deal [blue]{DamageDecrease}%[/blue] less damage{Amount:cond:==1? next turn|>1? for the next [blue]{}[/blue] turns|}.",
+  "BROODMOTHER-SHRINKER_BEETLE_SHRINK_POWER.title": "Shrink",
+  "BROODMOTHER-SCARAB_BEETLE_POWER.description": "",
+  "BROODMOTHER-SCARAB_BEETLE_POWER.smartDescription": "",
+  "BROODMOTHER-SCARAB_BEETLE_POWER.title": "Scarab Beetle",
+  "BROODMOTHER-SWAN_SONG_POWER.description": "",
+  "BROODMOTHER-SWAN_SONG_POWER.smartDescription": "",
+  "BROODMOTHER-SWAN_SONG_POWER.title": "Swan Song"
 }

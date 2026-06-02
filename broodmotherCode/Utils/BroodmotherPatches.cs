@@ -2,6 +2,7 @@ using broodmother.broodmotherCode.Summons;
 using Broodmother.broodmotherCode.Summons;
 using Godot;
 using HarmonyLib;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -12,9 +13,11 @@ using MegaCrit.Sts2.Core.Runs;
 
 namespace broodmother.broodmotherCode.Utils;
 
+[UsedImplicitly]
 public class BroodmotherPatches
 {
     [HarmonyPatch(typeof(NCombatRoom), "AddCreature")]
+    [UsedImplicitly]
     public class AddCreaturePatch
     {
         public static void Postfix(Creature creature)
@@ -40,8 +43,10 @@ public class BroodmotherPatches
     }
 
     [HarmonyPatch(typeof(RavenousPower), "AfterDeath")]
+    [UsedImplicitly]
     public class RavenousPowerPatch
     {
+        [UsedImplicitly]
         public static bool Prefix(Creature target)
         {
             if (target.Monster is IBroodmotherSummon)
@@ -51,6 +56,7 @@ public class BroodmotherPatches
     }
 
     [HarmonyPatch(typeof(CardModel), "get_HoverTips")]
+    [UsedImplicitly]
     public class ShiftCombatHoverTipsPatch
     {
         public static void Postfix(CardModel __instance, ref IEnumerable<IHoverTip> __result)
@@ -73,6 +79,7 @@ public class BroodmotherPatches
     }
 
 [HarmonyPatch(typeof(RunState), "CreateShared")]
+[UsedImplicitly]
 public class SetInsectSlotsPatch
 {
     public static void Postfix(RunState __result)

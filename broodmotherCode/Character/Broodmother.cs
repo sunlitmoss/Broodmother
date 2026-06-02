@@ -1,6 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
-using broodmother.broodmotherCode.Cards;
+using broodmother.broodmotherCode.Cards.InsectCards;
 using broodmother.broodmotherCode.Extensions;
 using broodmother.broodmotherCode.Relics;
 using Godot;
@@ -21,16 +21,16 @@ public class Broodmother : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<BugSwarm>(),
-        ModelDb.Card<HurlHive>(),
+        // ModelDb.Card<StrikeBroodmother>(),
+        // ModelDb.Card<StrikeBroodmother>(),
+        // ModelDb.Card<StrikeBroodmother>(),
+        // ModelDb.Card<StrikeBroodmother>(),
+        // ModelDb.Card<DefendBroodmother>(),
+        // ModelDb.Card<DefendBroodmother>(),
+        // ModelDb.Card<DefendBroodmother>(),
+        // ModelDb.Card<DefendBroodmother>(),
+        // ModelDb.Card<BugSwarm>(),
+        // ModelDb.Card<HurlHive>(),
         
         // ModelDb.Card<Emergence>(),
         // ModelDb.Card<Encouragement>(),
@@ -47,6 +47,8 @@ public class Broodmother : PlaceholderCharacterModel
         // ModelDb.Card<Molt>(),
         // ModelDb.Card<WildSting>(),
         // ModelDb.Card<HiveMind>(),
+        // ModelDb.Card<ReleaseShrinkerBeetle>()
+        ModelDb.Card<ReleaseScarabBeetle>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

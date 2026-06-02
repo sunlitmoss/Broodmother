@@ -12,30 +12,31 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace broodmother.broodmotherCode.Cards.InsectCards;
 
-public class ReleaseWaspNest : BroodmotherInsectCard
+public class ReleaseScarabBeetle : BroodmotherInsectCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
-    protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<WaspNestPower>();
+    protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<ScarabBeetlePower>();
 
     protected override async Task ApplySummonPowers(PlayerChoiceContext choiceContext, Creature creature)
     {
         await PowerCmd.Apply<ScarabBeetlePower>(choiceContext, creature, 1m, null, null);
     }
+
     public static Task<CardModel?> CreateInHand(Player owner, ICombatState combatState)
     {
-        return CreateInHand<ReleaseWaspNest>(owner, combatState);
+        return CreateInHand<ReleaseScarabBeetle>(owner, combatState);
     }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        var waspNest = await SummonInsect<WaspNest>(choiceContext);
+        var summon = await SummonInsect<ScarabBeetle>(choiceContext);
+        
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
     }
 }

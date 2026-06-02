@@ -3,39 +3,39 @@ using broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace broodmother.broodmotherCode.Cards.InsectCards;
 
-public class ReleaseWaspNest : BroodmotherInsectCard
+
+public class ReleaseShrinkerBeetle() : BroodmotherInsectCard(TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
-    protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<WaspNestPower>();
-
-    protected override async Task ApplySummonPowers(PlayerChoiceContext choiceContext, Creature creature)
-    {
-        await PowerCmd.Apply<ScarabBeetlePower>(choiceContext, creature, 1m, null, null);
-    }
+    protected override IHoverTip InsectPowerTip => HoverTipFactory.FromPower<ShrinkerBeetlePower>();
+    
     public static Task<CardModel?> CreateInHand(Player owner, ICombatState combatState)
     {
-        return CreateInHand<ReleaseWaspNest>(owner, combatState);
+        return CreateInHand<ReleaseShrinkerBeetle>(owner, combatState);
     }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        var waspNest = await SummonInsect<WaspNest>(choiceContext);
+        var summon = await SummonInsect<ShrinkerBeetle>(choiceContext);
+        (summon!.Monster as ShrinkerBeetle)!.Target = play.Target;
+        await PowerCmd.Apply<MinionPower>(choiceContext, summon!, 1m, null, null);
+        await PowerCmd.Apply<ShrinkerBeetlePower>(choiceContext, summon!, 1m, null, null);
+        await PowerCmd.Apply<SacrificePower>(choiceContext, summon!, 1m, null, null);
     }
-
+    
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
     }
 }
