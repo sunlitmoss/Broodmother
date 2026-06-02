@@ -20,7 +20,7 @@ public class ReleaseWaspNest : BroodmotherInsectCard
 
     protected override async Task ApplySummonPowers(PlayerChoiceContext choiceContext, Creature creature)
     {
-        await PowerCmd.Apply<ScarabBeetlePower>(choiceContext, creature, 1m, null, null);
+        await PowerCmd.Apply<WaspNestPower>(choiceContext, creature, 1m, null, null);
     }
     public static Task<CardModel?> CreateInHand(Player owner, ICombatState combatState)
     {

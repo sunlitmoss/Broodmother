@@ -33,7 +33,7 @@
   "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement",
   "BROODMOTHER-EMERGENCE.description": "If this is the first card you play this turn, gain {Energy:energyIcons()}. \nOtherwise draw {Cards:diff()} cards.",
   "BROODMOTHER-EMERGENCE.title": "Emergence",
-  "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of {Times:diff()} random {Times:plural:insect|insects}.",
+  "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of a random insect.",
   "BROODMOTHER-HIVE_MIND.title": "Hive Mind",
   "BROODMOTHER-INSTAR.description": "[gold]Shift[/gold] ALL [gold]Shift[/gold] cards in your hand.",
   "BROODMOTHER-INSTAR.title": "Instar",
@@ -44,5 +44,7 @@
   "BROODMOTHER-RELEASE_SCARAB_BEETLE.description": "[gold]Release[/gold] a [gold]Scarab Beetle[/gold]",
   "BROODMOTHER-RELEASE_SCARAB_BEETLE.title": "Scarab Beetle",
   "BROODMOTHER-BLIGHT.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold] to ALL enemies.",
-  "BROODMOTHER-BLIGHT.title": "Blight"
+  "BROODMOTHER-BLIGHT.title": "Blight",
+  "BROODMOTHER-KHEPRIS_ASSURANCE.description": "Shuffle your [gold]Discard Pile[/gold] into your [gold]Draw Pile[/gold].\nDraw cards until your hand is full. \nAdd a [gold]Scarab Beetle[/gold] into your [gold]Hand[/gold].",
+  "BROODMOTHER-KHEPRIS_ASSURANCE.title": "Khepri's Assurance"
 }

@@ -51,10 +51,15 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
             await OnPassive(combatState);
     }
 
+    public override  async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    {
+        if (creature != Creature) return;
+        await OnDeath(choiceContext);
+    }
+
     public override async Task BeforeDeath(Creature creature)
     {
         if (creature != Creature) return;
-        await OnDeath(new ThrowingPlayerChoiceContext());
         BroodmotherInsectSlots.EmptySlot(SlotIndex);
     }
 }
