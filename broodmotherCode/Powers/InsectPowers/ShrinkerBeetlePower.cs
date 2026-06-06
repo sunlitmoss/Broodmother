@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 
-namespace broodmother.broodmotherCode.Powers;
+namespace broodmother.broodmotherCode.Powers.InsectPowers;
 
 
 public class ShrinkerBeetlePower() : broodmotherPower

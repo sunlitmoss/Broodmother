@@ -37,5 +37,8 @@
   "BROODMOTHER-SWAN_SONG_POWER.title": "Swan Song",
   "BROODMOTHER-DAWN_BEETLE_POWER.description": "At the start of every other turn, draw a card. On death, gain {3:energyIcons()}.",
   "BROODMOTHER-DAWN_BEETLE_POWER.smartDescription": "At the start of every other turn, draw a card. On death, gain {3:energyIcons()}.",
-  "BROODMOTHER-DAWN_BEETLE_POWER.title": "Dawn Beetle"
+  "BROODMOTHER-DAWN_BEETLE_POWER.title": "Dawn Beetle",
+  "BROODMOTHER-PLAGUEFLY_POWER.description": "",
+  "BROODMOTHER-PLAGUEFLY_POWER.smartDescription": "",
+  "BROODMOTHER-PLAGUEFLY_POWER.title": "Plaguefly"
 }

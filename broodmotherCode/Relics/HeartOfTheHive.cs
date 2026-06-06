@@ -1,4 +1,5 @@
 using broodmother.broodmotherCode.Powers;
+using broodmother.broodmotherCode.Powers.InsectPowers;
 using broodmother.broodmotherCode.Summons;
 using Broodmother.broodmotherCode.Summons;
 using broodmother.broodmotherCode.Utils;

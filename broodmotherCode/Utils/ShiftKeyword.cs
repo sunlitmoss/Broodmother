@@ -8,10 +8,8 @@ using MegaCrit.Sts2.Core.Nodes.CommonUi;
 namespace broodmother.broodmotherCode.Utils;
 
 [UsedImplicitly]
-public class ShiftKeyword() : CustomSingletonModel(true,
-    false)
+public class ShiftKeyword() : CustomSingletonModel(true, false)
 {
-    
     public override async Task AfterCardChangedPiles(CardModel card,
         PileType oldPileType,
         AbstractModel? clonedBy)
@@ -20,21 +18,14 @@ public class ShiftKeyword() : CustomSingletonModel(true,
             (card.Pile?.Type == PileType.Discard || card.Pile?.Type == PileType.Exhaust) &&
             card.Keywords.Contains(BroodmotherKeywords.Shift))
         {
-            if (ShiftRegistries.ShiftPairs.TryGetValue(card.GetType(),
-                    out var altType))
+            if (ShiftRegistries.ShiftPairs.TryGetValue(card.GetType(), out var altType))
             {
-                var modelDbCard = typeof(ModelDb).GetMethod("Card",
-                        Type.EmptyTypes)!
+                var modelDbCard = typeof(ModelDb).GetMethod("Card", Type.EmptyTypes)!
                     .MakeGenericMethod(altType)
-                    .Invoke(null,
-                        null) as CardModel;
-
-                var alt = card.CardScope!.CreateCard(modelDbCard!,
-                    card.Owner);
-                await CardCmd.Transform(new CardTransformation(card,
-                        alt).Yield(),
-                    null,
-                    CardPreviewStyle.None);
+                    .Invoke(null, null) as CardModel;
+                var alt = card.CardScope!.CreateCard(modelDbCard!, card.Owner);
+                await CardCmd.Transform(new CardTransformation(card, alt).Yield(),
+                    null, CardPreviewStyle.None);
                 if (card.IsUpgraded && alt.IsUpgradable)
                     CardCmd.Upgrade(alt);
                 return;
@@ -43,21 +34,15 @@ public class ShiftKeyword() : CustomSingletonModel(true,
             if (ShiftRegistries.CombatPairs.TryGetValue(card.GetHashCode(),
                     out (Type altTypeC, bool wasUpgraded) tuple))
             {
-                var modelDbCard = typeof(ModelDb).GetMethod("Card",
-                        Type.EmptyTypes)!
+                var modelDbCard = typeof(ModelDb).GetMethod("Card", Type.EmptyTypes)!
                     .MakeGenericMethod(tuple.altTypeC)
-                    .Invoke(null,
-                        null) as CardModel;
-
-                var alt = card.CardScope!.CreateCard(modelDbCard!,
-                    card.Owner);
+                    .Invoke(null, null) as CardModel;
+                var alt = card.CardScope!.CreateCard(modelDbCard!, card.Owner);
                 alt.AddKeyword(BroodmotherKeywords.Shift);
                 if (tuple.wasUpgraded)
                     CardCmd.Upgrade(alt);
-                await CardCmd.Transform(new CardTransformation(card,
-                        alt).Yield(),
-                    null,
-                    CardPreviewStyle.None);
+                await CardCmd.Transform(new CardTransformation(card, alt).Yield(),
+                    null, CardPreviewStyle.None);
                 ShiftRegistries.CombatPairs.Remove(card.GetHashCode());
                 ShiftRegistries.CombatPairs[alt.GetHashCode()] = (card.GetType(), card.IsUpgraded);
                 return;

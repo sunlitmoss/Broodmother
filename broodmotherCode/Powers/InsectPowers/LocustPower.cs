@@ -2,7 +2,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace broodmother.broodmotherCode.Powers;
+namespace broodmother.broodmotherCode.Powers.InsectPowers;
 
 public class LocustPower() : broodmotherPower
 {

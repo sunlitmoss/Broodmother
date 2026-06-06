@@ -18,6 +18,7 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
     public int SlotIndex { get; set; } = -1;
     public Player? Summoner { get; set; }
     public PlayerChoiceContext? ChoiceContext { get; set; }
+    
     public override LocString Title => new("monsters", "BROODMOTHER-" + GetType().Name.ToUpper() + ".name");
     
     protected virtual AbstractIntent GetIntent()

@@ -1,5 +1,5 @@
 using broodmother.broodmotherCode.Cards.InsectCards;
-using broodmother.broodmotherCode.Powers;
+using broodmother.broodmotherCode.Powers.InsectPowers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

@@ -2,7 +2,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Powers;
 
-namespace broodmother.broodmotherCode.Powers;
+namespace broodmother.broodmotherCode.Powers.InsectPowers;
 
 public class BlightflyPower() : broodmotherPower
 {

@@ -4,6 +4,7 @@ using Godot;
 using HarmonyLib;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
@@ -78,15 +79,25 @@ public class BroodmotherPatches
         }
     }
 
-[HarmonyPatch(typeof(RunState), "CreateShared")]
-[UsedImplicitly]
-public class SetInsectSlotsPatch
-{
-    public static void Postfix(RunState __result)
+    [HarmonyPatch(typeof(RunState), "CreateShared")]
+    [UsedImplicitly]
+    public class SetInsectSlotsPatch
     {
-        int count = __result.Players.
-            Count(p => p.Character is Character.Broodmother);
-        if (count > 1) BroodmotherInsectSlots.SetSlots();
+        public static void Postfix(RunState __result)
+        {
+            int count = __result.Players.Count(p => p.Character is Character.Broodmother);
+            if (count > 1) BroodmotherInsectSlots.SetSlots();
+        }
     }
-}
+
+    [HarmonyPatch(typeof(AttackCommand), "GetPossibleTargets")]
+    [UsedImplicitly]
+    public class ExcludeInsectsFromRandomTargetingPatch
+    {
+        public static void Postfix(AttackCommand __instance, ref IReadOnlyList<Creature> __result)
+        {
+            if (__instance.IsRandomlyTargeted)
+                __result = __result.Where(c => c.Monster is not IBroodmotherSummon).ToList();
+        }
+    }
 }

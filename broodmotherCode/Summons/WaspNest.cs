@@ -1,4 +1,4 @@
-using broodmother.broodmotherCode.Powers;
+using broodmother.broodmotherCode.Powers.InsectPowers;
 using Broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;

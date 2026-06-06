@@ -1,5 +1,5 @@
 using broodmother.broodmotherCode.Cards.InsectCards;
-using broodmother.broodmotherCode.Powers;
+using broodmother.broodmotherCode.Powers.InsectPowers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -29,8 +29,9 @@ public class WildSting() : broodmotherCard(1,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Attack", Owner.Character.CastAnimDelay);
+
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this)
-            .TargetingRandomOpponents(CombatState)
+            .TargetingRandomOpponents(CombatState!)
             .Execute(choiceContext);
         await ReleaseWaspNest.CreateInHand(Owner, CombatState);
     }

@@ -1,4 +1,5 @@
 using BaseLib.Hooks;
+using Broodmother.broodmotherCode.Summons;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -72,8 +73,13 @@ public sealed class InfestationPower : broodmotherPower
     {
         if (creature != Owner || _applier == null) return;
         await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(),
-            CombatState.HittableEnemies.Where(c => c != Owner),
+            CombatState.HittableEnemies.Where(c => c != Owner && c.Monster is not IBroodmotherSummon),
             new DamageVar(Owner.MaxHp * (DeathExplosion.IntValue / 100m),
             ValueProp.Move), _applier);
+        await PowerCmd.Apply<InfestationPower>(new ThrowingPlayerChoiceContext(),
+            CombatState.HittableEnemies.Where(c => c != Owner && c.Monster is not IBroodmotherSummon),
+            1m,
+            null,
+            null);
     }
 }

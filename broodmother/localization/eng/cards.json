@@ -48,5 +48,7 @@
   "BROODMOTHER-KHEPRIS_ASSURANCE.description": "Shuffle your [gold]Discard Pile[/gold] into your [gold]Draw Pile[/gold].\nDraw cards until your hand is full. \nAdd a [gold]Scarab Beetle[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-KHEPRIS_ASSURANCE.title": "Khepri's Assurance",
   "BROODMOTHER-RELEASE_DAWN_BEETLE.description": "[gold]Release[/gold] a [gold]Dawn Beetle[/gold].",
-  "BROODMOTHER-RELEASE_DAWN_BEETLE.title": "Dawn Beetle"
+  "BROODMOTHER-RELEASE_DAWN_BEETLE.title": "Dawn Beetle",
+  "BROODMOTHER-RELEASE_PLAGUEFLY.description": "[gold]Release[/gold] a [gold]Plaguefly[/gold].",
+  "BROODMOTHER-RELEASE_PLAGUEFLY.title": "Plaguefly"
 }
