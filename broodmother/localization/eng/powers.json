@@ -35,10 +35,16 @@
   "BROODMOTHER-SWAN_SONG_POWER.description": "Prevent lethal damage. At the end of each enemy turn, lose 1 stack. At 0 stacks, die.",
   "BROODMOTHER-SWAN_SONG_POWER.smartDescription": "Prevent lethal damage. At the end of each enemy turn, lose 1 stack. At 0 {Amount:plural:stack|stacks}, die.",
   "BROODMOTHER-SWAN_SONG_POWER.title": "Swan Song",
-  "BROODMOTHER-DAWN_BEETLE_POWER.description": "At the start of every other turn, draw a card. On death, gain {3:energyIcons()}.",
-  "BROODMOTHER-DAWN_BEETLE_POWER.smartDescription": "At the start of every other turn, draw a card. On death, gain {3:energyIcons()}.",
+  "BROODMOTHER-DAWN_BEETLE_POWER.description": "At the start of every other turn, draw a card. On death, gain [blue]3[/blue] Energy.",
+  "BROODMOTHER-DAWN_BEETLE_POWER.smartDescription": "At the start of every other turn, draw a card. On death, gain {Energy:energyIcons()}.",
   "BROODMOTHER-DAWN_BEETLE_POWER.title": "Dawn Beetle",
-  "BROODMOTHER-PLAGUEFLY_POWER.description": "",
-  "BROODMOTHER-PLAGUEFLY_POWER.smartDescription": "",
-  "BROODMOTHER-PLAGUEFLY_POWER.title": "Plaguefly"
+  "BROODMOTHER-PLAGUEFLY_POWER.description": "At the start of every other turn, apply [gold]Infestation[/gold] to a random enemy. On death, double all enemies' [gold]Infestation[/gold].",
+  "BROODMOTHER-PLAGUEFLY_POWER.smartDescription": "At the start of every other turn, apply [gold]Infestation[/gold] to a random enemy. On death, double all enemies' [gold]Infestation[/gold].",
+  "BROODMOTHER-PLAGUEFLY_POWER.title": "Plaguefly",
+  "BROODMOTHER-SNAREFLY_POWER.description": "At the start of every third turn, apply [blue]1[/blue] [gold]Constrict[/gold] to an enemy. On death, unconstrict.",
+  "BROODMOTHER-SNAREFLY_POWER.smartDescription": "At the start of every third turn, apply [blue]1[/blue] [gold]Constrict[/gold] to an enemy. On death, unconstrict.",
+  "BROODMOTHER-SNAREFLY_POWER.title": "Snarefly",
+  "BROODMOTHER-SNAREFLY_CONSTRICT_POWER.description": "While [gold]Snarefly[/gold] is alive, at the end of turn, takes [blue]1[/blue] damage.",
+  "BROODMOTHER-SNAREFLY_CONSTRICT_POWER.smartDescription": "While [gold]Snarefly[/gold] is alive, at the end of turn, {OwnerName} takes [blue]{Amount}[/blue] damage",
+  "BROODMOTHER-SNAREFLY_CONSTRICT_POWER.title": "Constrict"
 }

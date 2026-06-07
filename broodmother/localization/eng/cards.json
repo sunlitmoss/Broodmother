@@ -50,5 +50,7 @@
   "BROODMOTHER-RELEASE_DAWN_BEETLE.description": "[gold]Release[/gold] a [gold]Dawn Beetle[/gold].",
   "BROODMOTHER-RELEASE_DAWN_BEETLE.title": "Dawn Beetle",
   "BROODMOTHER-RELEASE_PLAGUEFLY.description": "[gold]Release[/gold] a [gold]Plaguefly[/gold].",
-  "BROODMOTHER-RELEASE_PLAGUEFLY.title": "Plaguefly"
+  "BROODMOTHER-RELEASE_PLAGUEFLY.title": "Plaguefly",
+  "BROODMOTHER-RELEASE_SNAREFLY.description": "[gold]Release[/gold] a [gold]Snarefly[/gold].",
+  "BROODMOTHER-RELEASE_SNAREFLY.title": "Snarefly"
 }
