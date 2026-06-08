@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Powers.InsectPowers;
 
-public class WaspNestPower() : broodmotherPower
+public class RazorwaspPower() : broodmotherPower
 {
     public override PowerType Type =>
         PowerType.Buff;

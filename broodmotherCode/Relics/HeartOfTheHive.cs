@@ -40,6 +40,6 @@ public class HeartOfTheHive() : broodmotherRelic
         IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (participants.Contains(Owner.Creature) && Owner.PlayerCombatState!.TurnNumber <= 1)
-            await SummonInsect<WaspNest, WaspNestPower>(choiceContext, combatState);
+            await SummonInsect<Razorwasp, RazorwaspPower>(choiceContext, combatState);
     }
 }

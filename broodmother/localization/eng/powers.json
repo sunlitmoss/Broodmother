@@ -2,9 +2,9 @@
   "BROODMOTHER-BLIGHTFLY_POWER.description": "At the start of your every other turn, apply [gold]Weak[/gold] to a random enemy. On death, apply [gold]Weak[/gold] to ALL enemies.",
   "BROODMOTHER-BLIGHTFLY_POWER.smartDescription": "At the start of your every other turn, apply [gold]Weak[/gold] to a random enemy. On death, apply [gold]Weak[/gold] to ALL enemies.",
   "BROODMOTHER-BLIGHTFLY_POWER.title": "Blightfly",
-  "BROODMOTHER-WASP_NEST_POWER.description": "At the start of your turn, deal 3 damage to a random enemy. On death, deal 6 damage to ALL enemies.",
-  "BROODMOTHER-WASP_NEST_POWER.smartDescription": "At the start of your turn, deal {PassiveDamage:diff()} damage to a random enemy. On death, deal {DeathDamage:diff()} damage to ALL enemies.",
-  "BROODMOTHER-WASP_NEST_POWER.title": "Wasp Nest",
+  "BROODMOTHER-RAZORWASP_POWER.description": "At the start of your turn, deal 3 damage to a random enemy. On death, deal 6 damage to ALL enemies.",
+  "BROODMOTHER-RAZORWASP_POWER.smartDescription": "At the start of your turn, deal {PassiveDamage:diff()} damage to a random enemy. On death, deal {DeathDamage:diff()} damage to ALL enemies.",
+  "BROODMOTHER-RAZORWASP_POWER.title": "Razorwasp",
   "BROODMOTHER-MOLT_THORNS_POWER.description": "At the end of the enemy's turn, lose [gold]Thorns[/gold].",
   "BROODMOTHER-MOLT_THORNS_POWER.smartDescription": "At the end of the enemy's turn, lose {Amount:diff()} [gold]Thorns[/gold].",
   "BROODMOTHER-MOLT_THORNS_POWER.title": "Molt",
@@ -46,5 +46,8 @@
   "BROODMOTHER-SNAREFLY_POWER.title": "Snarefly",
   "BROODMOTHER-SNAREFLY_CONSTRICT_POWER.description": "While [gold]Snarefly[/gold] is alive, at the end of turn, takes [blue]1[/blue] damage.",
   "BROODMOTHER-SNAREFLY_CONSTRICT_POWER.smartDescription": "While [gold]Snarefly[/gold] is alive, at the end of turn, {OwnerName} takes [blue]{Amount}[/blue] damage",
-  "BROODMOTHER-SNAREFLY_CONSTRICT_POWER.title": "Constrict"
+  "BROODMOTHER-SNAREFLY_CONSTRICT_POWER.title": "Constrict",
+  "BROODMOTHER-FESTERING_FORM_POWER.description": "Whenever an enemy takes unblocked damage, increase the target's [gold]Infestation[/gold] by [blue]25%[/blue]. \nIf they have no [gold]Infestation[/gold], apply [blue]1[/blue].",
+  "BROODMOTHER-FESTERING_FORM_POWER.smartDescription": "Whenever an enemy takes unblocked damage, increase the target's [gold]Infestation[/gold] by [blue]{Amount}%[/blue]. \nIf they have no [gold]Infestation[/gold], apply [blue]1[/blue].",
+  "BROODMOTHER-FESTERING_FORM_POWER.title": "Festering Form"
 }

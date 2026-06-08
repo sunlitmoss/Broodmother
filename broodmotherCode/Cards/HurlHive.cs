@@ -28,7 +28,7 @@ public class HurlHive() : broodmotherCard
             .Execute(choiceContext);
         for (var i = 0; i < DynamicVars["Cards"].IntValue; i++)
         {
-            await ReleaseWaspNest.CreateInHand(Owner, CombatState);
+            await ReleaseRazorwasp.CreateInHand(Owner, CombatState);
             await Cmd.Wait(0.25f);
         }
     }
@@ -39,5 +39,5 @@ public class HurlHive() : broodmotherCard
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        new List<IHoverTip> { HoverTipFactory.FromCard<ReleaseWaspNest>(), HoverTipFactory.FromPower<WaspNestPower>() };
+        new List<IHoverTip> { HoverTipFactory.FromCard<ReleaseRazorwasp>(), HoverTipFactory.FromPower<RazorwaspPower>() };
 }

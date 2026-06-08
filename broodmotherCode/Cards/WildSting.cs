@@ -15,7 +15,7 @@ public class WildSting() : broodmotherCard(1,
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<WaspNestPower>()
+        HoverTipFactory.FromPower<RazorwaspPower>()
     ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -33,7 +33,7 @@ public class WildSting() : broodmotherCard(1,
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this)
             .TargetingRandomOpponents(CombatState!)
             .Execute(choiceContext);
-        await ReleaseWaspNest.CreateInHand(Owner, CombatState);
+        await ReleaseRazorwasp.CreateInHand(Owner, CombatState);
     }
 
     protected override void OnUpgrade()

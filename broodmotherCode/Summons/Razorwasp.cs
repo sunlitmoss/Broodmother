@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 
 namespace broodmother.broodmotherCode.Summons;
 
-public class WaspNest : BroodmotherSummonModel
+public class Razorwasp : BroodmotherSummonModel
 {
     public override int MinInitialHp => 6;
     public override int MaxInitialHp => 6;
@@ -19,7 +19,7 @@ public class WaspNest : BroodmotherSummonModel
     
     public override async Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null)
     {
-        var power = Creature.GetPower<WaspNestPower>();
+        var power = Creature.GetPower<RazorwaspPower>();
         if (power == null) return;
         var target = combatState.RunState.Rng.CombatTargets.NextItem(
             combatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
@@ -29,7 +29,7 @@ public class WaspNest : BroodmotherSummonModel
 
     public override async Task OnDeath(PlayerChoiceContext choiceContext)
     {
-        var power = Creature.GetPower<WaspNestPower>();
+        var power = Creature.GetPower<RazorwaspPower>();
         if (power == null) return;
         var targets = CombatState.HittableEnemies
             .Where(c => !(c.Monster is IBroodmotherSummon))

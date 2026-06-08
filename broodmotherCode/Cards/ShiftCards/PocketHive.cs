@@ -22,7 +22,7 @@
 //     {
 //         for (int i = 0; i < DynamicVars.Count; i++)
 //         {
-//             await ReleaseWaspNest.CreateInHand(Owner, CombatState!);
+//             await ReleaseRazorwasp.CreateInHand(Owner, CombatState!);
 //         }
 //     }
 //

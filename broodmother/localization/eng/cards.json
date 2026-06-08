@@ -1,13 +1,13 @@
 {
   "BROODMOTHER-BUG_SWARM.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.",
   "BROODMOTHER-BUG_SWARM.title": "Bug Swarm",
-  "BROODMOTHER-RELEASE_WASP_NEST.description": "[gold]Release[/gold] a [gold]Wasp Nest[/gold].",
-  "BROODMOTHER-RELEASE_WASP_NEST.title": "Wasp Nest",
+  "BROODMOTHER-RELEASE_RAZORWASP.description": "[gold]Release[/gold] a [gold]Razorwasp[/gold].",
+  "BROODMOTHER-RELEASE_RAZORWASP.title": "Razorwasp",
   "BROODMOTHER-BLIGHTED_GUARD.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd a [gold]Blightfly[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-BLIGHTED_GUARD.title": "Blighted Guard",
   "BROODMOTHER-RELEASE_BLIGHTFLY.description": "[gold]Release[/gold] a [gold]Blightfly[/gold].",
   "BROODMOTHER-RELEASE_BLIGHTFLY.title": "Blightfly",
-  "BROODMOTHER-HURL_HIVE.description": "Deal {Damage:diff()} damage.\nAdd {Cards:diff()} [gold]{Cards:plural:Wasp Nest|Wasp Nests}[/gold] into your [gold]Hand[/gold].",
+  "BROODMOTHER-HURL_HIVE.description": "Deal {Damage:diff()} damage.\nAdd {Cards:diff()} [gold]{Cards:plural:Razorwasp|Razorwasps}[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-HURL_HIVE.title": "Hurl Hive",
   "BROODMOTHER-STRIKE_BROODMOTHER.description": "Deal {Damage:diff()} damage.",
   "BROODMOTHER-STRIKE_BROODMOTHER.title": "Strike",
@@ -27,7 +27,7 @@
   "BROODMOTHER-INVIGORATING_SLASH.title": "Invigorating Slash",
   "BROODMOTHER-INFEST.description": "Apply {InfestationAmount:diff()} [gold]Infestation[/gold].",
   "BROODMOTHER-INFEST.title": "Infest",
-  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times. \n Add a [gold]Wasp Nest[/gold] to your hand.",
+  "BROODMOTHER-WILD_STING.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times. \n Add a [gold]Razorwasp[/gold] to your hand.",
   "BROODMOTHER-WILD_STING.title": "Wild Sting",
   "BROODMOTHER-ENCOURAGEMENT.description": "At the start of your turn, gain {EncouragementPower:diff()} [gold]Vigor[/gold] for each insect alive.",
   "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement",
@@ -52,5 +52,7 @@
   "BROODMOTHER-RELEASE_PLAGUEFLY.description": "[gold]Release[/gold] a [gold]Plaguefly[/gold].",
   "BROODMOTHER-RELEASE_PLAGUEFLY.title": "Plaguefly",
   "BROODMOTHER-RELEASE_SNAREFLY.description": "[gold]Release[/gold] a [gold]Snarefly[/gold].",
-  "BROODMOTHER-RELEASE_SNAREFLY.title": "Snarefly"
+  "BROODMOTHER-RELEASE_SNAREFLY.title": "Snarefly",
+  "BROODMOTHER-FESTERING_FORM.description": "Whenever an enemy takes unblocked damage, increase their [gold]Infestation[/gold] by [blue]{InfestationMultiplier}%[/blue]. \nIf they have no [gold]Infestation[/gold], apply [blue]1[/blue].",
+  "BROODMOTHER-FESTERING_FORM.title": "Festering Form"
 }
