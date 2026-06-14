@@ -35,8 +35,8 @@
   "BROODMOTHER-SWAN_SONG_POWER.description": "Prevent lethal damage. At the end of each enemy turn, lose 1 stack. At 0 stacks, die.",
   "BROODMOTHER-SWAN_SONG_POWER.smartDescription": "Prevent lethal damage. At the end of each enemy turn, lose 1 stack. At 0 {Amount:plural:stack|stacks}, die.",
   "BROODMOTHER-SWAN_SONG_POWER.title": "Swan Song",
-  "BROODMOTHER-DAWN_BEETLE_POWER.description": "At the start of every other turn, draw a card. On death, gain [blue]3[/blue] Energy.",
-  "BROODMOTHER-DAWN_BEETLE_POWER.smartDescription": "At the start of every other turn, draw a card. On death, gain {Energy:energyIcons()}.",
+  "BROODMOTHER-DAWN_BEETLE_POWER.description": "At the start of every other turn, draw an additional card. On death, gain [blue]3[/blue] Energy.",
+  "BROODMOTHER-DAWN_BEETLE_POWER.smartDescription": "At the start of every other turn, draw an additional card. On death, gain {Energy:energyIcons()}.",
   "BROODMOTHER-DAWN_BEETLE_POWER.title": "Dawn Beetle",
   "BROODMOTHER-PLAGUEFLY_POWER.description": "At the start of every other turn, apply [gold]Infestation[/gold] to a random enemy. On death, double all enemies' [gold]Infestation[/gold].",
   "BROODMOTHER-PLAGUEFLY_POWER.smartDescription": "At the start of every other turn, apply [gold]Infestation[/gold] to a random enemy. On death, double all enemies' [gold]Infestation[/gold].",
@@ -49,5 +49,8 @@
   "BROODMOTHER-SNAREFLY_CONSTRICT_POWER.title": "Constrict",
   "BROODMOTHER-FESTERING_FORM_POWER.description": "Whenever an enemy takes unblocked damage, increase the target's [gold]Infestation[/gold] by [blue]25%[/blue]. \nIf they have no [gold]Infestation[/gold], apply [blue]1[/blue].",
   "BROODMOTHER-FESTERING_FORM_POWER.smartDescription": "Whenever an enemy takes unblocked damage, increase the target's [gold]Infestation[/gold] by [blue]{Amount}%[/blue]. \nIf they have no [gold]Infestation[/gold], apply [blue]1[/blue].",
-  "BROODMOTHER-FESTERING_FORM_POWER.title": "Festering Form"
+  "BROODMOTHER-FESTERING_FORM_POWER.title": "Festering Form",
+  "BROODMOTHER-EULOGY_POWER.description": "Whenever any of your insects dies, draw 1 card.",
+  "BROODMOTHER-EULOGY_POWER.smartDescription": "Whenever any of your insects dies, draw {Amount} card.",
+  "BROODMOTHER-EULOGY_POWER.title": "Eulogy"
 }
