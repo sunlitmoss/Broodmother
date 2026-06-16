@@ -52,5 +52,8 @@
   "BROODMOTHER-FESTERING_FORM_POWER.title": "Festering Form",
   "BROODMOTHER-EULOGY_POWER.description": "Whenever any of your insects dies, draw 1 card.",
   "BROODMOTHER-EULOGY_POWER.smartDescription": "Whenever any of your insects dies, draw {Amount} card.",
-  "BROODMOTHER-EULOGY_POWER.title": "Eulogy"
+  "BROODMOTHER-EULOGY_POWER.title": "Eulogy",
+  "BROODMOTHER-DRONEWASP_POWER.description": "",
+  "BROODMOTHER-DRONEWASP_POWER.smartDescription": "",
+  "BROODMOTHER-DRONEWASP_POWER.title": "Dronewasp"
 }

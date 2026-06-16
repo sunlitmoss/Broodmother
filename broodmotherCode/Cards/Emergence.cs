@@ -4,17 +4,23 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
 public class Emergence() : broodmotherCard(0,
-    CardType.Skill, CardRarity.Rare,
-    TargetType.Self)
+    CardType.Attack, CardRarity.Uncommon,
+    TargetType.AnyEnemy)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => 
+    [
+        CardKeyword.Exhaust,
+    ];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(2),
-        new CardsVar(2)
+        new CardsVar(1),
+        new DamageVar(3, ValueProp.Move)
     ];
 
     private new bool CanPlay
@@ -32,8 +38,10 @@ public class Emergence() : broodmotherCard(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-
+        ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target)
+            .WithHitFx("vfx/vfx_attack_slash")
+            .Execute(choiceContext);
         if (!CanPlay)
             await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
         else
@@ -42,7 +50,7 @@ public class Emergence() : broodmotherCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(1m);
-        DynamicVars.Energy.UpgradeValueBy(1m);
+        DynamicVars.Damage.UpgradeValueBy(2m);
+        RemoveKeyword(CardKeyword.Exhaust);    
     }
 }

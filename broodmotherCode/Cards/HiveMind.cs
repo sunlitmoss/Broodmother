@@ -1,4 +1,5 @@
 using broodmother.broodmotherCode.Summons;
+using Broodmother.broodmotherCode.Summons;
 using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -26,8 +27,9 @@ public class HiveMind() : broodmotherCard(1,
         
         if (insects.Count == 0) return;
         
-        Creature insect = CombatState.RunState.Rng.CombatTargets.NextItem(insects)!;
-        if (insect.Monster is BroodmotherSummonModel summon) await summon.OnPassive(CombatState);
+        Creature insect = CombatState!.RunState.Rng.CombatTargets.NextItem(insects.Where(c =>
+            c!.Monster is IBroodmotherSummon insect && insect.Summoner == Owner))!;
+        if (insect.Monster is BroodmotherSummonModel summon) await summon.OnPassive(CombatState, choiceContext);
     }
 
     protected override void OnUpgrade()

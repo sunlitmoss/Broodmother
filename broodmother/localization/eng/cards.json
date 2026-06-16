@@ -31,7 +31,7 @@
   "BROODMOTHER-WILD_STING.title": "Wild Sting",
   "BROODMOTHER-ENCOURAGEMENT.description": "At the start of your turn, gain {EncouragementPower:diff()} [gold]Vigor[/gold] for each insect alive.",
   "BROODMOTHER-ENCOURAGEMENT.title": "Encouragement",
-  "BROODMOTHER-EMERGENCE.description": "If this is the first card you play this turn, gain {Energy:energyIcons()}. \nOtherwise draw {Cards:diff()} cards.",
+  "BROODMOTHER-EMERGENCE.description": "Deal {Damage:diff()} damage. \nIf this is the first card you play this turn, gain {Energy:energyIcons()}. Otherwise draw {Cards:diff()} cards.",
   "BROODMOTHER-EMERGENCE.title": "Emergence",
   "BROODMOTHER-HIVE_MIND.description": "Trigger the passive of a random insect.",
   "BROODMOTHER-HIVE_MIND.title": "Hive Mind",
@@ -53,11 +53,15 @@
   "BROODMOTHER-RELEASE_PLAGUEFLY.title": "Plaguefly",
   "BROODMOTHER-RELEASE_SNAREFLY.description": "[gold]Release[/gold] a [gold]Snarefly[/gold].",
   "BROODMOTHER-RELEASE_SNAREFLY.title": "Snarefly",
-  "BROODMOTHER-FESTERING_FORM.description": "Whenever an enemy takes unblocked damage, increase their [gold]Infestation[/gold] by [blue]{InfestationMultiplier}%[/blue]. \nIf they have no [gold]Infestation[/gold], apply [blue]1[/blue].",
+  "BROODMOTHER-FESTERING_FORM.description": "Whenever an enemy takes unblocked damage, increase their [gold]Infestation[/gold] by {InfestationMultiplier}%. \nIf they have no [gold]Infestation[/gold], apply 1.",
   "BROODMOTHER-FESTERING_FORM.title": "Festering Form",
   "BROODMOTHER-SWARM_SACRIFICE.description": "Kill ALL your insects.",
   "BROODMOTHER-SWARM_SACRIFICE.title": "Swarm Sacrifice",
   "BROODMOTHER-EULOGY.description": "Whenever any of your insects dies, draw 1 card",
-  "BROODMOTHER-EULOGY.title": "Eulogy"
-  
+  "BROODMOTHER-EULOGY.title": "Eulogy",
+  "BROODMOTHER-RELEASE_DRONEWASP.description": "[gold]Release[/gold] a [gold]Dronewasp[/gold].",
+  "BROODMOTHER-RELEASE_DRONEWASP.title": "Dronewasp",
+  "BROODMOTHER-RECLAMATION.description": "Move {CardAmount:diff()} {CardAmount:plural:card|cards} from your [gold]Draw Pile[/gold] to your [gold]Discard Pile[/gold].\nDraw {DrawAmount:diff()} cards.",
+  "BROODMOTHER-RECLAMATION.title": "Reclamation",
+  "BROODMOTHER-RECLAMATION.selectionScreenPrompt": "Choose {CardAmount:plural:a card|{} cards} to send to your Discard Pile."
 }
