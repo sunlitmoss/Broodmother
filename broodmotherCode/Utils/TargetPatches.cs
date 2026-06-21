@@ -42,7 +42,7 @@ public class TargetPatches
         private static async Task RunFiltered(CountdownPower __instance, ICombatState combatState)
         {
             Traverse.Create(__instance).Method("Flash").GetValue();
-            var creature = PatchHelper.RandomNonInsectTarget(
+            var creature = HelperMethods.RandomNonInsectTarget(
                 combatState,
                 __instance.Owner.Player!.RunState.Rng.CombatTargets);
             if (creature != null)
@@ -71,7 +71,7 @@ public class TargetPatches
         
         private static async Task RunFiltered(HauntPower __instance, PlayerChoiceContext choiceContext)
         {
-            var creature = PatchHelper.RandomNonInsectTarget(
+            var creature = HelperMethods.RandomNonInsectTarget(
                 __instance.CombatState,
                 __instance.Owner.Player!.RunState.Rng.CombatTargets);
             if (creature != null)
@@ -90,7 +90,7 @@ public class TargetPatches
             
             ICombatState combatState = card.CombatState ?? card.Owner.Creature.CombatState!;
 
-            target = PatchHelper.RandomNonInsectTarget(
+            target = HelperMethods.RandomNonInsectTarget(
                 combatState,
                 card.Owner.RunState.Rng.CombatTargets);
         }
@@ -114,7 +114,7 @@ public class TargetPatches
 
         private static async Task RunFiltered(JuggernautPower __instance)
         {
-            var target = PatchHelper.RandomNonInsectTarget(
+            var target = HelperMethods.RandomNonInsectTarget(
                 __instance.CombatState,
                 __instance.Owner.Player.RunState.Rng.CombatTargets);
             if (target != null)
@@ -164,7 +164,7 @@ public class TargetPatches
             PlayerChoiceContext choiceContext, decimal damage)
         {
             await Cmd.CustomScaledWait(0.1f, 0.2f);
-            var creature = PatchHelper.RandomNonInsectTarget(
+            var creature = HelperMethods.RandomNonInsectTarget(
                 __instance.Owner.CombatState,
                 __instance.Owner.Player.RunState.Rng.CombatTargets);
             if (creature != null)
@@ -197,7 +197,7 @@ public class TargetPatches
 
             for (int i = 0; i < __instance.DynamicVars.Repeat.IntValue; i++)
             {
-                Creature enemy = PatchHelper.RandomNonInsectTarget(
+                Creature enemy = HelperMethods.RandomNonInsectTarget(
                     __instance.CombatState,
                     __instance.Owner.RunState.Rng.CombatTargets);
                 if (enemy == null) continue;

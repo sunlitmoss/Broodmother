@@ -1,3 +1,4 @@
+using broodmother.broodmotherCode.Cards.ShiftCards;
 using broodmother.broodmotherCode.Summons;
 using Broodmother.broodmotherCode.Summons;
 using Godot;
@@ -35,11 +36,13 @@ public class BroodmotherPatches
     }
 
     [HarmonyPatch(typeof(CombatManager), "SetUpCombat")]
-    public class ResetInsectSlotsPatch
+    [UsedImplicitly]
+    public class PostCombatResetPatch
     {
         public static void Postfix()
         {
             BroodmotherInsectSlots.Reset();
+            Gnash.IncreaseAmount = 0;
         }
     }
 
@@ -63,17 +66,10 @@ public class BroodmotherPatches
         public static void Postfix(CardModel __instance, ref IEnumerable<IHoverTip> __result)
         {
             if (__instance.Keywords.Contains(BroodmotherKeywords.Shift) &&
-                ShiftRegistries.CombatPairs.TryGetValue(__instance.GetHashCode(),
-                    out (Type altTypeC, bool wasUpgraded) tuple))
+                ShiftRegistries.CombatPairs.TryGetValue(__instance, out var otherSide))
             {
-                var modelDbCard = typeof(ModelDb).GetMethod("Card", Type.EmptyTypes)!
-                    .MakeGenericMethod(tuple.altTypeC)
-                    .Invoke(null, null) as CardModel;
                 var list = __result.ToList();
-                var alt = __instance.CardScope?.CreateCard(modelDbCard!, __instance.Owner);
-                alt?.AddKeyword(BroodmotherKeywords.Shift);
-                if (tuple.wasUpgraded && alt != null) alt.UpgradeInternal();
-                list.Add(HoverTipFactory.FromCard(alt!));
+                list.Add(HoverTipFactory.FromCard(otherSide));
                 __result = list;
             }
         }

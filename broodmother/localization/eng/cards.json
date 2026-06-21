@@ -63,5 +63,14 @@
   "BROODMOTHER-RELEASE_DRONEWASP.title": "Dronewasp",
   "BROODMOTHER-RECLAMATION.description": "Move {CardAmount:diff()} {CardAmount:plural:card|cards} from your [gold]Draw Pile[/gold] to your [gold]Discard Pile[/gold].\nDraw {DrawAmount:diff()} cards.",
   "BROODMOTHER-RECLAMATION.title": "Reclamation",
-  "BROODMOTHER-RECLAMATION.selectionScreenPrompt": "Choose {CardAmount:plural:a card|{} cards} to send to your Discard Pile."
+  "BROODMOTHER-RECLAMATION.selectionScreenPrompt": "Choose {CardAmount:plural:a card|{} cards} to send to your Discard Pile.",
+  "BROODMOTHER-NIP.description": "Deal {Damage:diff()} damage. \nIncrease the damage of [gold]Gnash[/gold] by {GnashAmount:diff()}.",
+  "BROODMOTHER-NIP.title": "Nip",
+  "BROODMOTHER-GNASH.description": "Deal {Damage:diff()} damage.",
+  "BROODMOTHER-GNASH.title": "Gnash",
+  "BROODMOTHER-PROLIFERATE.description": "Increase the enemy's [gold]Infestation[/gold] by {Multiplier:diff()}%.",
+  "BROODMOTHER-PROLIFERATE.title": "Proliferate",
+  "BROODMOTHER-HONEYCOMB.description": "Gain {Block:diff()} [gold]Block[/gold]. \nApply [gold]Sticky {StickyAmount}[/gold] to a card in your [gold]Hand[/gold].",
+  "BROODMOTHER-HONEYCOMB.title": "Honeycomb",
+  "BROODMOTHER-HONEYCOMB.selectionScreenPrompt": "Choose {CardAmount:plural:a card|{} cards} to apply [gold]Sticky {StickyAmount}[/gold]."
 }

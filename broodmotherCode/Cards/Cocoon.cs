@@ -52,8 +52,9 @@ public class Cocoon() : broodmotherCard(1,
             card1.AddKeyword(BroodmotherKeywords.Shift);
             var card2 = list[1];
             card2.AddKeyword(BroodmotherKeywords.Shift);
-            ShiftRegistries.RegisterCombatPairs(card1, card2);
-            await CardPileCmd.RemoveFromCombat(card2);
+            ShiftRegistries.CombatPairs[card1] = card2;
+            ShiftRegistries.CombatPairs[card2] = card1;
+            await CardPileCmd.Add(card2, OtherSidePile.OtherSide);
         }
 
         if (validCards.Count == 2)
@@ -67,8 +68,9 @@ public class Cocoon() : broodmotherCard(1,
             card1.AddKeyword(BroodmotherKeywords.Shift);
             var card2 = validCards.FirstOrDefault()!;
             card2.AddKeyword(BroodmotherKeywords.Shift);
-            ShiftRegistries.RegisterCombatPairs(card1, card2);
-            await CardPileCmd.RemoveFromCombat(card2);
+            ShiftRegistries.CombatPairs[card1] = card2;
+            ShiftRegistries.CombatPairs[card2] = card1;
+            await CardPileCmd.Add(card2, OtherSidePile.OtherSide);
         }
     }
 

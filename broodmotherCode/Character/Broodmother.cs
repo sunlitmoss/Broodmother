@@ -1,6 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
-using broodmother.broodmotherCode.Cards;
+using broodmother.broodmotherCode.Cards.ShiftCards;
 using broodmother.broodmotherCode.Extensions;
 using broodmother.broodmotherCode.Relics;
 using Godot;
@@ -21,16 +21,26 @@ public class Broodmother : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<StrikeBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<DefendBroodmother>(),
-        ModelDb.Card<BugSwarm>(),
-        ModelDb.Card<HurlHive>(),
+        // ModelDb.Card<StrikeBroodmother>(),
+        // ModelDb.Card<StrikeBroodmother>(),
+        // ModelDb.Card<StrikeBroodmother>(),
+        // ModelDb.Card<StrikeBroodmother>(),
+        // ModelDb.Card<DefendBroodmother>(),
+        // ModelDb.Card<DefendBroodmother>(),
+        // ModelDb.Card<DefendBroodmother>(),
+        // ModelDb.Card<DefendBroodmother>(),
+        // ModelDb.Card<BugSwarm>(),
+        // ModelDb.Card<HurlHive>(),
+        
+        ModelDb.Card<MetamorphicDefend>(),
+        ModelDb.Card<MetamorphicDefend>(),
+        ModelDb.Card<MetamorphicDefend>(),
+        ModelDb.Card<MetamorphicDefend>(),
+        ModelDb.Card<MetamorphicStrike>(),
+        ModelDb.Card<MetamorphicStrike>(),
+        ModelDb.Card<MetamorphicStrike>(),
+        ModelDb.Card<MetamorphicStrike>(),
+        ModelDb.Card<Nip>()
         
         // ModelDb.Card<Emergence>(),
         // ModelDb.Card<Encouragement>(),
