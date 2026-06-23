@@ -53,9 +53,22 @@ public static class HelperMethods
 
     public static Task StickyCard(CardModel card, int amount)
     {
-        card.AddKeyword(CardKeyword.Retain);
+        var existingModifier = CardModifier.Modifiers(card)
+            .OfType<StickyModifier>().FirstOrDefault();
+    
+        if (existingModifier != null)
+        {
+            amount += existingModifier.RemainingTurns;
+            CardModifier.RemoveModifier(card, existingModifier);
+            card.RemoveKeyword(BroodmotherKeywords.Sticky); 
+        }
+
         card.AddKeyword(BroodmotherKeywords.Sticky);
-        CardModifier.AddModifier(card, new StickyModifier { RemainingTurns = amount });
+        var modifier = (StickyModifier)ModelDb
+            .GetById<StickyModifier>(ModelDb.GetId<StickyModifier>())
+            .MutableClone();
+        modifier.RemainingTurns = amount;
+        CardModifier.AddModifier(card, modifier);
         return Task.CompletedTask;
     }
 }

@@ -1,6 +1,6 @@
 {
-  "BROODMOTHER-SHIFT.description": "Transforms to alternate form when enters the [gold]Discard Pile[/gold].",
+  "BROODMOTHER-SHIFT.description": "Transforms to alternate form when enters your [gold]Discard Pile[/gold].",
   "BROODMOTHER-SHIFT.title": "Shift",
-  "BROODMOTHER-STICKY.description": "While [gold]Sticky[/gold], [gold]Retain[/gold].",
-  "BROODMOTHER-STICKY.title": ""
+  "BROODMOTHER-STICKY.description": "If this card would go to your [gold]Discard Pile[/gold] after being played, return it to your [gold]Hand[/gold].\n[gold]Retain[/gold] while [gold]Sticky[/gold].",  
+  "BROODMOTHER-STICKY.title": "Sticky"
 }

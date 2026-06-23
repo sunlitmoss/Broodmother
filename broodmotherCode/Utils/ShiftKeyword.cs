@@ -13,7 +13,6 @@ public class ShiftKeyword() : CustomSingletonModel(true, false)
         PileType oldPileType,
         AbstractModel? clonedBy)
     {
-        // Register any IShiftCard that appears for the first time
         if (card is IShiftCard shiftCard &&
             card.Pile?.Type != OtherSidePile.OtherSide &&
             !ShiftRegistries.CombatPairs.ContainsKey(card))
@@ -28,9 +27,8 @@ public class ShiftKeyword() : CustomSingletonModel(true, false)
             await CardPileCmd.Add(alt, OtherSidePile.OtherSide);
         }
 
-        // Shift when going to Discard or Exhaust
         if ((oldPileType == PileType.Hand || oldPileType == PileType.Play || oldPileType == PileType.Draw) &&
-            (card.Pile?.Type == PileType.Discard || card.Pile?.Type == PileType.Exhaust) &&
+            (card.Pile?.Type == PileType.Discard) &&
             card.Keywords.Contains(BroodmotherKeywords.Shift))
         {
             await HelperMethods.ShiftCard(card);
