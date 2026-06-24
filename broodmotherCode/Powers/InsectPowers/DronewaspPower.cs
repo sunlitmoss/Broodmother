@@ -15,11 +15,9 @@ public class DronewaspPower() : broodmotherPower
 
     public static decimal _damage = 3m;
     public DamageVar PassiveDamage = new("PassiveDamage", _damage, ValueProp.Move);
-    public DamageVar DeathDamage = new("DeathDamage", _damage, ValueProp.Move);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
     {
         PassiveDamage,
-        DeathDamage
     };
 }

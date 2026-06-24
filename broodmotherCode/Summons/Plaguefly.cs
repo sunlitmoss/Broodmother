@@ -54,6 +54,6 @@ public class Plaguefly : BroodmotherSummonModel
     }
 
 
-    public override int MinInitialHp => 5;
-    public override int MaxInitialHp => 5;
+    public override int MinInitialHp => 3;
+    public override int MaxInitialHp => 3;
 }

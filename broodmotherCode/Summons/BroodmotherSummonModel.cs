@@ -4,12 +4,15 @@ using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Summons;
 
@@ -50,7 +53,10 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
         ICombatState combatState)
     {
         if (side == CombatSide.Player)
+        {
             await OnPassive(combatState);
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), this.Creature, new DamageVar(1m, ValueProp.Move), this.Creature);
+        }
     }
 
     public override  async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)

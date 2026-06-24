@@ -53,7 +53,10 @@
   "BROODMOTHER-EULOGY_POWER.description": "Whenever any of your insects dies, draw 1 card.",
   "BROODMOTHER-EULOGY_POWER.smartDescription": "Whenever any of your insects dies, draw {Amount} card.",
   "BROODMOTHER-EULOGY_POWER.title": "Eulogy",
-  "BROODMOTHER-DRONEWASP_POWER.description": "",
-  "BROODMOTHER-DRONEWASP_POWER.smartDescription": "",
-  "BROODMOTHER-DRONEWASP_POWER.title": "Dronewasp"
+  "BROODMOTHER-DRONEWASP_POWER.description": "At the start of your turn, deal [blue]5[/blue] damage to a random enemy.",
+  "BROODMOTHER-DRONEWASP_POWER.smartDescription": "At the start of your turn, deal [blue]{PassiveDamage}[/blue] damage to a random enemy.",
+  "BROODMOTHER-DRONEWASP_POWER.title": "Dronewasp",
+  "BROODMOTHER-WASP_NEST_POWER.description": "At the start of your turn, add a [gold]Dronewasp[/gold] to your [gold]Hand[/gold]. On death, fill your [gold]Hand[/gold] with [gold]Dronewasps[/gold].",
+  "BROODMOTHER-WASP_NEST_POWER.smartDescription": "At the start of your turn, add a [gold]Dronewasp[/gold] to your [gold]Hand[/gold]. On death, fill your [gold]Hand[/gold] with [gold]Dronewasps[/gold].",
+  "BROODMOTHER-WASP_NEST_POWER.title": "Wasp Nest"
 }

@@ -9,11 +9,9 @@ namespace broodmother.broodmotherCode.Summons;
 
 public class Dronewasp : BroodmotherSummonModel
 {
-    public override int MinInitialHp => 1;
-    public override int MaxInitialHp => 1;
-
-    private int _lifespan = 2;
-
+    public override int MinInitialHp => 2;
+    public override int MaxInitialHp => 2;
+    
     protected override AbstractIntent GetIntent()
     {
         return new SingleAttackIntent(3);
@@ -27,9 +25,6 @@ public class Dronewasp : BroodmotherSummonModel
             combatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
         if (target != null)
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, power.PassiveDamage, Creature);
-        _lifespan--;
-        if (_lifespan <= 0) await CreatureCmd.Kill(this.Creature);
-
     }
 
     public override Task OnDeath(PlayerChoiceContext choiceContext)

@@ -11,8 +11,8 @@ namespace broodmother.broodmotherCode.Summons;
 
 public class Blightfly : BroodmotherSummonModel
 {
-    public override int MinInitialHp => 3;
-    public override int MaxInitialHp => 3;
+    public override int MinInitialHp => 2;
+    public override int MaxInitialHp => 2;
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {

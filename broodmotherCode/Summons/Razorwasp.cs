@@ -9,8 +9,8 @@ namespace broodmother.broodmotherCode.Summons;
 
 public class Razorwasp : BroodmotherSummonModel
 {
-    public override int MinInitialHp => 6;
-    public override int MaxInitialHp => 6;
+    public override int MinInitialHp => 3;
+    public override int MaxInitialHp => 3;
 
     protected override AbstractIntent GetIntent()
     {

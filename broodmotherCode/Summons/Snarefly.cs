@@ -44,6 +44,6 @@ public class Snarefly : BroodmotherSummonModel
 
     public Creature? Target { get; set; }
 
-    public override int MinInitialHp => 10;
-    public override int MaxInitialHp => 10;
+    public override int MinInitialHp => 5;
+    public override int MaxInitialHp => 5;
 }

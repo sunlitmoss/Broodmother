@@ -40,7 +40,10 @@ public class StickyModifier : CardModifier
     }
 }
 
+#pragma warning disable CS0618 // Type or member is obsolete
+[UsedImplicitly]
 public class StickyLogic() : CustomSingletonModel(true, false)
+#pragma warning restore CS0618 // Type or member is obsolete
 {
     public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay, ResourceInfo resources, PileType pileType, CardPilePosition position)
     {        

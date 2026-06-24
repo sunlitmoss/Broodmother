@@ -43,7 +43,7 @@ public class DawnBeetle : BroodmotherSummonModel
     {
         await PlayerCmd.GainEnergy(3, Summoner!);
     }
-    public override int MinInitialHp => 10;
-    public override int MaxInitialHp => 10;
+    public override int MinInitialHp => 4;
+    public override int MaxInitialHp => 4;
     
 }

@@ -22,6 +22,6 @@ public class ScarabBeetle : BroodmotherSummonModel
     }
     
     
-    public override int MinInitialHp => 25;
-    public override int MaxInitialHp => 25;
+    public override int MinInitialHp => 10;
+    public override int MaxInitialHp => 10;
 }
