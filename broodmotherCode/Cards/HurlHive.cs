@@ -35,7 +35,7 @@ public class HurlHive() : broodmotherCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Cards"].UpgradeValueBy(1m);
+        EnergyCost.UpgradeBy(-1);
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

@@ -1,3 +1,5 @@
+using Broodmother.broodmotherCode.Summons;
+using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,8 +14,8 @@ public class BugSwarm() : broodmotherCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
     {
-        new DamageVar(2m, ValueProp.Move),
-        new RepeatVar(2)
+        new DamageVar(3m, ValueProp.Move),
+        new RepeatVar(3)
     };
 
     protected override async Task OnPlay(
@@ -21,14 +23,21 @@ public class BugSwarm() : broodmotherCard
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this)
-            .TargetingAllOpponents(CombatState)
+            .TargetingRandomOpponents(CombatState!)
             .Execute(choiceContext);
+
+        var insects = BroodmotherInsectSlots.Occupants
+            .Where(c => c is { Monster: IBroodmotherSummon summon } && summon.Summoner == Owner)
+            .ToList();
+        
+        foreach (var insect in  insects)
+            await CreatureCmd.Heal(insect!, 1m);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1m);
         DynamicVars.Repeat.UpgradeValueBy(1m);
     }
 }

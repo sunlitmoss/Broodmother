@@ -76,11 +76,11 @@ public abstract class BroodmotherInsectCard : CustomCardModel
 
     protected async Task DamageRandomEnemy(PlayerChoiceContext choiceContext, decimal amount, Creature? dealer = null)
     {
-        var _damage = new DamageVar(amount, ValueProp.Move);
-        var target = CombatState.RunState.Rng.CombatTargets.NextItem(
+        var damage = new DamageVar(amount, ValueProp.Move);
+        var target = CombatState!.RunState.Rng.CombatTargets.NextItem(
             CombatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
         if (target != null)
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, _damage, dealer, null);
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, damage, dealer, null);
     }
 
     public static async Task<CardModel?> CreateInHand<T>(Player owner, ICombatState combatState)

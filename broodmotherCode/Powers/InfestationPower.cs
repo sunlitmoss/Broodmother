@@ -20,8 +20,8 @@ public sealed class InfestationPower : broodmotherPower
 
     private Creature _applier;
     private bool _firstApplication = true;
-    private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 25m);
-    private DynamicVar DeathExplosion = new("DeathExplosion", 25m);
+    private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 50m);
+    private DynamicVar DeathExplosion = new("DeathExplosion", 33m);
     private decimal _addedAmount = 0m;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

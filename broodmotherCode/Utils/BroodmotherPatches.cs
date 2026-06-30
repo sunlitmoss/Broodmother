@@ -96,4 +96,5 @@ public class BroodmotherPatches
                 __result = __result.Where(c => c.Monster is not IBroodmotherSummon).ToList();
         }
     }
+    
 }

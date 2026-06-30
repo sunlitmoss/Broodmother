@@ -26,6 +26,6 @@ public abstract class ShiftCard<TAlt>(int cost, CardType type, CardRarity rarity
 
     public CardModel GetAlternateCard()
     {
-        return CombatState.CreateCard<TAlt>(Owner);
+        return CombatState!.CreateCard<TAlt>(Owner);
     }
 }

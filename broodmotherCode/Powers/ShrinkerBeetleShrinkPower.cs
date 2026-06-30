@@ -38,10 +38,10 @@ public class ShrinkerBeetleShrinkPower : broodmotherPower
 		{
 			NCombatRoom.Instance?.GetCreatureNode(base.Owner)?.ScaleTo(0.75f, 0.5);
 		}
-		Creature applier2 = Applier;
-		if (applier2 != null && applier2.IsMonster)
+		Creature applier2 = Applier!;
+		if (applier2.IsMonster)
 		{
-			((StringVar)base.DynamicVars["ApplierName"]).StringValue = Applier.Monster.Title.GetFormattedText();
+			((StringVar)base.DynamicVars["ApplierName"]).StringValue = Applier!.Monster!.Title.GetFormattedText();
 		}
 		return Task.CompletedTask;
 	}

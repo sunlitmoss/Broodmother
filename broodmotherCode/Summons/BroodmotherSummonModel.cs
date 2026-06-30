@@ -20,6 +20,7 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
 {
     public int SlotIndex { get; set; } = -1;
     public Player? Summoner { get; set; }
+    public bool WasConsumed { get; set; } =  false;
     public PlayerChoiceContext? ChoiceContext { get; set; }
     
     public override LocString Title => new("monsters", "BROODMOTHER-" + GetType().Name.ToUpper() + ".name");
@@ -52,17 +53,20 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (side == CombatSide.Player)
-        {
-            await OnPassive(combatState);
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), this.Creature, new DamageVar(1m, ValueProp.Move), this.Creature);
-        }
+        if (side == CombatSide.Player) await OnPassive(combatState);
+        if (side == CombatSide.Enemy)
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(),
+                this.Creature,
+                new DamageVar(1m,
+                    ValueProp.Move),
+                this.Creature);
+
     }
 
     public override  async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
     {
         if (creature != Creature) return;
-        await OnDeath(choiceContext);
+        if (!WasConsumed) await OnDeath(choiceContext);
     }
 
     public override async Task BeforeDeath(Creature creature)

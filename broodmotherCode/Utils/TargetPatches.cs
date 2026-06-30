@@ -1,4 +1,5 @@
 using System.Reflection;
+using Broodmother.broodmotherCode.Summons;
 using Godot;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -227,6 +228,15 @@ public class TargetPatches
                 await PowerCmd.Apply<PoisonPower>(choiceContext, enemy,
                     __instance.DynamicVars.Poison.BaseValue, __instance.Owner.Creature, __instance);
             }
+        }
+    }
+    
+    [HarmonyPatch(typeof(CombatState), nameof(CombatState.HittableEnemies), MethodType.Getter)]
+    public static class ExcludeInsectsFromHittableEnemiesPatch
+    {
+        public static void Postfix(ref IReadOnlyList<Creature> __result)
+        {
+            __result = __result.Where(c => c.Monster is not IBroodmotherSummon).ToList();
         }
     }
 }

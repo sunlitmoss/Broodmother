@@ -21,6 +21,8 @@ public class FesteringFormPower() : broodmotherPower
     
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
+        if (target.Monster is IBroodmotherSummon) return;
+        
         if (dealer != null &&
             (dealer == Owner ||
              (dealer is

@@ -1,5 +1,5 @@
 {
-  "BROODMOTHER-BUG_SWARM.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.",
+  "BROODMOTHER-BUG_SWARM.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times. \nALL insects heal 1.",
   "BROODMOTHER-BUG_SWARM.title": "Bug Swarm",
   "BROODMOTHER-RELEASE_RAZORWASP.description": "[gold]Release[/gold] a [gold]Razorwasp[/gold].",
   "BROODMOTHER-RELEASE_RAZORWASP.title": "Razorwasp",
@@ -72,5 +72,7 @@
   "BROODMOTHER-PROLIFERATE.title": "Proliferate",
   "BROODMOTHER-HONEYCOMB.description": "Gain {Block:diff()} [gold]Block[/gold]. \nApply [gold]Sticky {StickyAmount}[/gold] to a card in your [gold]Hand[/gold].",
   "BROODMOTHER-HONEYCOMB.title": "Honeycomb",
-  "BROODMOTHER-HONEYCOMB.selectionScreenPrompt": "Choose {CardAmount:plural:a card|{} cards} to apply [gold]Sticky {StickyAmount}[/gold]."
+  "BROODMOTHER-HONEYCOMB.selectionScreenPrompt": "Choose {CardAmount:plural:a card|{} cards} to apply [gold]Sticky {StickyAmount}[/gold].",
+  "BROODMOTHER-CANNIBALIZE.description": "{IfUpgraded:show:Harvest|Kill} ALL insects. \nDraw {Cards:diff()} and gain {Energy:diff} for each insect.",
+  "BROODMOTHER-CANNIBALIZE.title": "Cannibalize"
 }
