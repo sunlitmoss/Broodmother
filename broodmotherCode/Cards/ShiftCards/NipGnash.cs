@@ -1,8 +1,11 @@
+using BaseLib.Utils;
 using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards.ShiftCards;
@@ -34,8 +37,12 @@ public class Nip() : ShiftCard<Gnash>(1, CardType.Attack, CardRarity.Uncommon, T
     }
 }
 
-public class Gnash() : ShiftCard<Nip>(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+[Pool(typeof(TokenCardPool))]
+public class Gnash() : ShiftCard<Nip>(1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
 {
+    
+    public override CardPoolModel VisualCardPool => ModelDb.CardPool<TokenCardPool>();
+    
     public static int IncreaseAmount = 0;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
