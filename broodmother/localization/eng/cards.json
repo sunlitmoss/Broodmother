@@ -7,6 +7,8 @@
   "BROODMOTHER-BLIGHTED_GUARD.title": "Blighted Guard",
   "BROODMOTHER-RELEASE_BLIGHTFLY.description": "[gold]Release[/gold] a [gold]Blightfly[/gold].",
   "BROODMOTHER-RELEASE_BLIGHTFLY.title": "Blightfly",
+  "BROODMOTHER-RELEASE_WASP_NEST.description": "[gold]Release[/gold] a [gold]Wasp Nest[/gold].",
+  "BROODMOTHER-RELEASE_WASP_NEST.title": "Wasp Nest",
   "BROODMOTHER-HURL_HIVE.description": "Deal {Damage:diff()} damage.\nAdd {Cards:diff()} [gold]{Cards:plural:Razorwasp|Razorwasps}[/gold] into your [gold]Hand[/gold].",
   "BROODMOTHER-HURL_HIVE.title": "Hurl Hive",
   "BROODMOTHER-STRIKE_BROODMOTHER.description": "Deal {Damage:diff()} damage.",
@@ -77,7 +79,7 @@
   "BROODMOTHER-CANNIBALIZE.title": "Cannibalize",
   "BROODMOTHER-TEND.description": "ALL insects heal {Heal:diff()}. \nGain {Block:diff()} [gold]Block[/gold].",
   "BROODMOTHER-TEND.title": "Tend",
-  "BROODMOTHER-BURROWING_BITE.description": "Deal {Damage:diff()} damage. \n up to {Cards:plural:a card|{} cards} on top of your [gold]Draw Pile[/gold].",
+  "BROODMOTHER-BURROWING_BITE.description": "Deal {Damage:diff()} damage. \nPut up to {Cards:plural:a card|{} cards} on top of your [gold]Draw Pile[/gold].",
   "BROODMOTHER-BURROWING_BITE.title": "Burrowing Bite",
   "BROODMOTHER-BURROWING_BITE.selectionScreenPrompt": "Choose {Cards:plural:a card|{} cards} to put on top of your Draw Pile.",
   "BROODMOTHER-VENOM_BITE.description": "Deal {Damage:diff()} damage. \nIf the enemy has [gold]Infestation[/gold], apply {InfestationAmount:diff()} [gold]Infestation[/gold]",
@@ -85,5 +87,7 @@
   "BROODMOTHER-RAPID_BITE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
   "BROODMOTHER-RAPID_BITE.title": "Rapid Bite",
   "BROODMOTHER-MOMENTUM.description": "Gain {Block:diff()} block. \nGain {Vigor:diff()} [gold]Vigor[/gold].",
-  "BROODMOTHER-MOMENTUM.title": "Momentum"
+  "BROODMOTHER-MOMENTUM.title": "Momentum",
+  "BROODMOTHER-HIVE_CALL.description": "Add a random living insect card into your [gold]Hand[/gold].",
+  "BROODMOTHER-HIVE_CALL.title": "Hive's Call"
 }

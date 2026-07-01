@@ -1,7 +1,9 @@
+using broodmother.broodmotherCode.Cards.InsectCards;
 using Broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -11,6 +13,8 @@ namespace broodmother.broodmotherCode.Summons;
 
 public class Blightfly : BroodmotherSummonModel
 {
+    public override Task CreateReleaseCard(ICombatState combatState, Player owner) =>
+        ReleaseBlightfly.CreateInHand(owner, combatState);
     public override int MinInitialHp => 2;
     public override int MaxInitialHp => 2;
 

@@ -1,8 +1,10 @@
+using broodmother.broodmotherCode.Cards.InsectCards;
 using Broodmother.broodmotherCode.Powers;
 using Broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -30,6 +32,8 @@ public class Snarefly : BroodmotherSummonModel
     }
 
     private bool _isActive = true;
+    public override Task CreateReleaseCard(ICombatState combatState, Player owner) =>
+        ReleaseSnarefly.CreateInHand(owner, combatState);
     public override async Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null)
     {
         if (_isActive)

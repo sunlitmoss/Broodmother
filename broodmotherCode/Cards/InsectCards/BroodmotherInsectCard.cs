@@ -10,12 +10,10 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards.InsectCards;
 
@@ -64,25 +62,7 @@ public abstract class BroodmotherInsectCard : CustomCardModel
         }
         return c;
     }
-
-    protected async Task ApplyToRandomEnemy<TPower>(PlayerChoiceContext choiceContext, decimal amount)
-        where TPower : PowerModel
-    {
-        var target = CombatState.RunState.Rng.CombatTargets.NextItem(
-            CombatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
-        if (target != null)
-            await PowerCmd.Apply<TPower>(choiceContext, target, amount, Owner.Creature, this);
-    }
-
-    protected async Task DamageRandomEnemy(PlayerChoiceContext choiceContext, decimal amount, Creature? dealer = null)
-    {
-        var damage = new DamageVar(amount, ValueProp.Move);
-        var target = CombatState!.RunState.Rng.CombatTargets.NextItem(
-            CombatState.HittableEnemies.Where(c => !(c.Monster is IBroodmotherSummon)));
-        if (target != null)
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, damage, dealer, null);
-    }
-
+    
     public static async Task<CardModel?> CreateInHand<T>(Player owner, ICombatState combatState)
         where T : BroodmotherInsectCard
     {

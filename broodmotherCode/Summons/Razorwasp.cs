@@ -1,7 +1,9 @@
+using broodmother.broodmotherCode.Cards.InsectCards;
 using broodmother.broodmotherCode.Powers.InsectPowers;
 using Broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 
@@ -16,7 +18,8 @@ public class Razorwasp : BroodmotherSummonModel
     {
         return new SingleAttackIntent(3);
     }
-    
+    public override Task CreateReleaseCard(ICombatState combatState, Player owner) =>
+        ReleaseRazorwasp.CreateInHand(owner, combatState);
     public override async Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null)
     {
         var power = Creature.GetPower<RazorwaspPower>();

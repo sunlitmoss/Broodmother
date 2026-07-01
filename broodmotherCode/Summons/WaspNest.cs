@@ -1,6 +1,7 @@
 using broodmother.broodmotherCode.Cards.InsectCards;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 
@@ -12,7 +13,9 @@ public class WaspNest : BroodmotherSummonModel
     {
         return new SleepIntent();
     }
-    
+
+    public override Task CreateReleaseCard(ICombatState combatState, Player owner) =>
+        ReleaseWaspNest.CreateInHand(owner, combatState);
 
     public override async Task OnPassive(ICombatState combatState, PlayerChoiceContext? choiceContext = null)
     {

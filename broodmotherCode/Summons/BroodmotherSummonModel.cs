@@ -22,6 +22,7 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
     public Player? Summoner { get; set; }
     public bool WasConsumed { get; set; } =  false;
     public PlayerChoiceContext? ChoiceContext { get; set; }
+    public abstract Task CreateReleaseCard(ICombatState combatState, Player owner);
     
     public override LocString Title => new("monsters", "BROODMOTHER-" + GetType().Name.ToUpper() + ".name");
     

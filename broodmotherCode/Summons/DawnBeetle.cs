@@ -1,6 +1,8 @@
+using broodmother.broodmotherCode.Cards.InsectCards;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -9,6 +11,8 @@ namespace broodmother.broodmotherCode.Summons;
 
 public class DawnBeetle : BroodmotherSummonModel
 {
+    public override Task CreateReleaseCard(ICombatState combatState, Player owner) =>
+        ReleaseDawnBeetle.CreateInHand(owner, combatState);
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
         var activeState =

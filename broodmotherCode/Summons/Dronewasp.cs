@@ -1,7 +1,9 @@
+using broodmother.broodmotherCode.Cards.InsectCards;
 using broodmother.broodmotherCode.Powers.InsectPowers;
 using Broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 
@@ -9,6 +11,8 @@ namespace broodmother.broodmotherCode.Summons;
 
 public class Dronewasp : BroodmotherSummonModel
 {
+    public override Task CreateReleaseCard(ICombatState combatState, Player owner) =>
+        ReleaseDronewasp.CreateInHand(owner, combatState);
     public override int MinInitialHp => 2;
     public override int MaxInitialHp => 2;
     
