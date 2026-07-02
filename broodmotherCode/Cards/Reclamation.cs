@@ -8,7 +8,7 @@ namespace broodmother.broodmotherCode.Cards;
 
 
 public class Reclamation() : broodmotherCard(1,
-    CardType.Skill, CardRarity.Uncommon,
+    CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 

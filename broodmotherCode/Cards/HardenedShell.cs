@@ -9,38 +9,35 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace broodmother.broodmotherCode.Cards;
 
 
-public class Momentum() : broodmotherCard(1,
+public class HardenedShell() : broodmotherCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
     public override bool GainsBlock => true;
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(4m, ValueProp.Move),
-        new DynamicVar("Vigor", 2m)
-    ];
-
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<VigorPower>(),
+        HoverTipFactory.FromPower<VigorPower>()
     ];
     
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new BlockVar(6m, ValueProp.Move)
+    ];
+
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        await PowerCmd.Apply<VigorPower>(choiceContext,
-            Owner.Creature,
-            DynamicVars["Vigor"].IntValue,
-            Owner.Creature,
-            this);
+        
+        if (Owner.Creature.HasPower<VigorPower>())
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
 
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Vigor"].UpgradeValueBy(2m);
+        DynamicVars.Block.UpgradeValueBy(3m);
     }
 }

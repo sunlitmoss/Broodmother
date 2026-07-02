@@ -1,4 +1,5 @@
 using BaseLib.Abstracts;
+using broodmother.broodmotherCode.Cards;
 using broodmother.broodmotherCode.Utils;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -45,6 +46,14 @@ public class StickyModifier : CardModifier
 public class StickyLogic() : CustomSingletonModel(true, false)
 #pragma warning restore CS0618 // Type or member is obsolete
 {
+    public override async Task AfterCardEnteredCombat(CardModel card)
+    {
+        if (card is PollinatedBite)
+        {
+            await HelperMethods.StickyCard(card, card.DynamicVars["Sticky"].IntValue);
+        }
+    }
+
     public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay, ResourceInfo resources, PileType pileType, CardPilePosition position)
     {        
         if (!card.Keywords.Contains(BroodmotherKeywords.Sticky)) return (pileType, position);

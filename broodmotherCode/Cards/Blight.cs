@@ -4,6 +4,7 @@ using broodmother.broodmotherCode.Summons;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
@@ -13,10 +14,15 @@ public class Blight() : broodmotherCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<InfestationPower>(),
+        HoverTipFactory.FromPower<WeakPower>()
+    ];
     public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust, CardKeyword.Innate };
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DynamicVar("InfestationAmount", 3m),
+        new DynamicVar("InfestationAmount", 4m),
         new DynamicVar("WeakAmount", 1m)
     ];
 

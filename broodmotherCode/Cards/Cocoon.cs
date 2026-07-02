@@ -15,6 +15,8 @@ public class Cocoon() : broodmotherCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
+    public override bool GainsBlock => true;
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         new List<IHoverTip> { HoverTipFactory.FromKeyword(BroodmotherKeywords.Shift) };
 
