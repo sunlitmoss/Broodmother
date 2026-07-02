@@ -89,5 +89,7 @@
   "BROODMOTHER-MOMENTUM.description": "Gain {Block:diff()} block. \nGain {Vigor:diff()} [gold]Vigor[/gold].",
   "BROODMOTHER-MOMENTUM.title": "Momentum",
   "BROODMOTHER-HIVE_CALL.description": "Add a random living insect card into your [gold]Hand[/gold].",
-  "BROODMOTHER-HIVE_CALL.title": "Hive's Call"
+  "BROODMOTHER-HIVE_CALL.title": "Hive's Call",
+  "BROODMOTHER-BRISTLE.description": "Gain {Thorns:diff()} [gold]Thorns[/gold] this turn.",
+  "BROODMOTHER-BRISTLE.title": "Bristle"
 }

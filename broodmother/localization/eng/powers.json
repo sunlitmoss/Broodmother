@@ -58,5 +58,8 @@
   "BROODMOTHER-DRONEWASP_POWER.title": "Dronewasp",
   "BROODMOTHER-WASP_NEST_POWER.description": "At the start of your turn, add a [gold]Dronewasp[/gold] to your [gold]Hand[/gold]. On death, fill your [gold]Hand[/gold] with [gold]Dronewasps[/gold].",
   "BROODMOTHER-WASP_NEST_POWER.smartDescription": "At the start of your turn, add a [gold]Dronewasp[/gold] to your [gold]Hand[/gold]. On death, fill your [gold]Hand[/gold] with [gold]Dronewasps[/gold].",
-  "BROODMOTHER-WASP_NEST_POWER.title": "Wasp Nest"
+  "BROODMOTHER-WASP_NEST_POWER.title": "Wasp Nest",
+  "BROODMOTHER-BRISTLE_THORNS_POWER.description": "At the end of the enemy's turn, lose [gold]Thorns[/gold].",
+  "BROODMOTHER-BRISTLE_THORNS_POWER.smartDescription": "At the end of the enemy's turn, lose {Amount:diff()} [gold]Thorns[/gold].",
+  "BROODMOTHER-BRISTLE_THORNS_POWER.title": "Bristle"
 }

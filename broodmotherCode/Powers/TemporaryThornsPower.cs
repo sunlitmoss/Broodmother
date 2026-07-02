@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace broodmother.broodmotherCode.Powers;
 
-public abstract class TemporaryThornsPower : PowerModel, ITemporaryPower
+public abstract class TemporaryThornsPower : broodmotherPower, ITemporaryPower
 {
     private bool _shouldIgnoreNextInstance;
 
