@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace broodmother.broodmotherCode.Cards;
 
 public class WildSting() : broodmotherCard(1,
-    CardType.Attack, CardRarity.Uncommon,
+    CardType.Attack, CardRarity.Common,
     TargetType.RandomEnemy)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

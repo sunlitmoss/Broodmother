@@ -18,7 +18,7 @@ public abstract class ShiftCard<TAlt>(int cost, CardType type, CardRarity rarity
     protected virtual IEnumerable<IHoverTip> AdditionalHoverTips =>
         Enumerable.Empty<IHoverTip>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected sealed override IEnumerable<IHoverTip> ExtraHoverTips =>
         new List<IHoverTip> { HoverTipFactory.FromCard<TAlt>() }
             .Concat(AdditionalHoverTips);
 

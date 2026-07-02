@@ -14,7 +14,8 @@ public class HardenedShell() : broodmotherCard(1,
     TargetType.Self)
 {
     public override bool GainsBlock => true;
-    
+    protected override bool ShouldGlowGoldInternal => (Owner.Creature.HasPower<VigorPower>());
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<VigorPower>()

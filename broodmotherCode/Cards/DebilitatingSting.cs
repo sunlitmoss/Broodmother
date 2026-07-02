@@ -1,27 +1,24 @@
-using broodmother.broodmotherCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class InfectedWound() : broodmotherCard(1,
-    CardType.Attack, CardRarity.Uncommon,
+public class DebilitatingSting() : broodmotherCard(1,
+    CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6, ValueProp.Move)
+        new DynamicVar("Weak", 1),
+        new DamageVar(5, ValueProp.Move)
     ];
-    
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromPower<InfestationPower>()
-    ];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -32,13 +29,12 @@ public class InfectedWound() : broodmotherCard(1,
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         
-        await PowerCmd.Apply<InfestationPower>(choiceContext, play.Target,
-            attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.UnblockedDamage),
+        await PowerCmd.Apply<WeakPower>(choiceContext, play.Target, DynamicVars["Weak"].IntValue,
             Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2m);
+        DynamicVars["Weak"].UpgradeValueBy(1);
     }
 }

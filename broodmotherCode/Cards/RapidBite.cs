@@ -1,3 +1,4 @@
+using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,13 +8,15 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace broodmother.broodmotherCode.Cards;
 
 public class RapidBite() : broodmotherCard(0,
-    CardType.Attack, CardRarity.Common,
+    CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [BroodmotherKeywords.Bite];
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(3m, ValueProp.Move),
-        new DynamicVar("Repeat", 2m)
+        new DamageVar(2m, ValueProp.Move),
+        new RepeatVar(2)
     ];
 
     protected override async Task OnPlay(
@@ -30,6 +33,6 @@ public class RapidBite() : broodmotherCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2m);
+        DynamicVars.Repeat.UpgradeValueBy(1);
     }
 }

@@ -12,6 +12,11 @@ public class Mob() : broodmotherCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
+    protected override bool ShouldGlowGoldInternal => (BroodmotherInsectSlots.Occupants
+        .Where(c => c is { Monster: IBroodmotherSummon summon }
+                    && summon.Summoner == Owner).ToList().Count >= 2);
+        
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(5, ValueProp.Move)

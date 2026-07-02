@@ -1,4 +1,5 @@
 using broodmother.broodmotherCode.Summons;
+using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,17 +18,18 @@ public class Intimidate() : ShiftCard<Cover>(1, CardType.Skill, CardRarity.Commo
         new DynamicVar("Vulnerable", 1)
     ];
     
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromPower<VulnerablePower>()
     ];
+    
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<VulnerablePower>(choiceContext,
             CombatState!.HittableEnemies.Where(c => c.Monster is not BroodmotherSummonModel),
-            DynamicVars["InfestationAmount"].BaseValue,
+            DynamicVars["Vulnerable"].BaseValue,
             Owner.Creature,
             this);    
     }
@@ -43,7 +45,7 @@ public class Cover() : ShiftCard<Intimidate>(2, CardType.Skill, CardRarity.Commo
 {
     public override bool GainsBlock => true;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, BroodmotherKeywords.Shift];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

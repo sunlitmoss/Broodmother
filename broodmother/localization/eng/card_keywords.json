@@ -2,5 +2,7 @@
   "BROODMOTHER-SHIFT.description": "Transforms to alternate form when enters your [gold]Discard Pile[/gold].",
   "BROODMOTHER-SHIFT.title": "Shift",
   "BROODMOTHER-STICKY.description": "If this card would go to your [gold]Discard Pile[/gold] after being played, return it to your [gold]Hand[/gold].\n[gold]Retain[/gold] while [gold]Sticky[/gold].",  
-  "BROODMOTHER-STICKY.title": "Sticky"
+  "BROODMOTHER-STICKY.title": "Sticky",
+  "BROODMOTHER-BITE.description": "When played, increase the damage of ALL [gold]Bites[/gold] by 1.",
+  "BROODMOTHER-BITE.title": "Bite"
 }

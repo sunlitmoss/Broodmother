@@ -1,3 +1,4 @@
+using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -14,9 +15,11 @@ public class BurrowingBite() : broodmotherCard(0,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6m, ValueProp.Move),
+        new DamageVar(2m, ValueProp.Move),
         new DynamicVar("Cards", 1)
     ];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [BroodmotherKeywords.Bite];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

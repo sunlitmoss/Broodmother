@@ -1,4 +1,5 @@
 using broodmother.broodmotherCode.Powers;
+using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,6 +14,7 @@ public class VenomBite() : broodmotherCard(0,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [BroodmotherKeywords.Bite];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<InfestationPower>(),
@@ -20,7 +22,7 @@ public class VenomBite() : broodmotherCard(0,
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6m, ValueProp.Move),
+        new DamageVar(2m, ValueProp.Move),
         new DynamicVar("InfestationAmount", 2m)
     ];
 
@@ -45,6 +47,6 @@ public class VenomBite() : broodmotherCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3m);
+        DynamicVars["InfestationAmount"].UpgradeValueBy(1);
     }
 }

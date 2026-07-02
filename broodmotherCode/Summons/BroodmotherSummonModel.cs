@@ -54,13 +54,23 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (side == CombatSide.Player) await OnPassive(combatState);
-        if (side == CombatSide.Enemy)
+        if (side == CombatSide.Player)
+        {
+            if (Creature.CurrentHp > 1)
+            {
+                await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(),
+                    this.Creature,
+                    new DamageVar(1m,
+                        ValueProp.Move),
+                    this.Creature);
+                await OnPassive(combatState);
+            }
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(),
                 this.Creature,
                 new DamageVar(1m,
                     ValueProp.Move),
                 this.Creature);
+        }
 
     }
 

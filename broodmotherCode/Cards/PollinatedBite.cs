@@ -1,3 +1,4 @@
+using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,9 +11,11 @@ public class PollinatedBite() : broodmotherCard(0,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [BroodmotherKeywords.Bite];
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(4, ValueProp.Move),
+        new DamageVar(2, ValueProp.Move),
         new DynamicVar("Sticky", 2)
     ];
     

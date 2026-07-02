@@ -61,5 +61,8 @@
   "BROODMOTHER-WASP_NEST_POWER.title": "Wasp Nest",
   "BROODMOTHER-BRISTLE_THORNS_POWER.description": "At the end of the enemy's turn, lose [gold]Thorns[/gold].",
   "BROODMOTHER-BRISTLE_THORNS_POWER.smartDescription": "At the end of the enemy's turn, lose {Amount:diff()} [gold]Thorns[/gold].",
-  "BROODMOTHER-BRISTLE_THORNS_POWER.title": "Bristle"
+  "BROODMOTHER-BRISTLE_THORNS_POWER.title": "Bristle",
+  "BROODMOTHER-BROOD_POWER.description": "At the start of your turn, add [blue]2[/blue] [gold]Dronewasps[/gold] to your [gold]Hand[/gold].",
+  "BROODMOTHER-BROOD_POWER.smartDescription": "At the start of your turn, add [blue]{Amount}[/blue] [gold]Dronewasps[/gold] to your [gold]Hand[/gold].",
+  "BROODMOTHER-BROOD_POWER.title": "Brood"
 }
