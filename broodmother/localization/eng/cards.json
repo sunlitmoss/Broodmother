@@ -99,5 +99,11 @@
   "BROODMOTHER-TOXIC_BLOOD.description": "Gain {Block:diff()} [gold]Block[/gold]. \nApply {Infestation:diff()} to ALL enemies.",
   "BROODMOTHER-TOXIC_BLOOD.title": "Toxic Blood",
   "BROODMOTHER-POLLINATED_BITE.description": "Deal {Damage:diff()} damage.",
-  "BROODMOTHER-POLLINATED_BITE.title": "Pollinated Bite"
+  "BROODMOTHER-POLLINATED_BITE.title": "Pollinated Bite",
+  "BROODMOTHER-MOB.description": "Deal {Damage:diff()} damage. \nIf you have at least 2 insects, deal {Damage:diff()} again.",
+  "BROODMOTHER-MOB.title": "Mob",
+  "BROODMOTHER-INTIMIDATE.description": "Apply {Vulnerable:diff()} to ALL enemies.",
+  "BROODMOTHER-INTIMIDATE.title": "Intimidate",
+  "BROODMOTHER-COVER.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "BROODMOTHER-COVER.title": "Cover"
 }
