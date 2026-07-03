@@ -1,5 +1,4 @@
 using broodmother.broodmotherCode.Summons;
-using broodmother.broodmotherCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -45,7 +44,7 @@ public class Cover() : ShiftCard<Intimidate>(2, CardType.Skill, CardRarity.Commo
 {
     public override bool GainsBlock => true;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, BroodmotherKeywords.Shift];
+    protected override IEnumerable<CardKeyword> AdditionalKeywords => [CardKeyword.Retain];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

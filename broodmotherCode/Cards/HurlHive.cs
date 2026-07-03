@@ -23,12 +23,12 @@ public class HurlHive() : broodmotherCard
         CardPlay play)
     {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         for (var i = 0; i < DynamicVars["Cards"].IntValue; i++)
         {
-            await ReleaseRazorwasp.CreateInHand(Owner, CombatState);
+            await ReleaseRazorwasp.CreateInHand(Owner, CombatState!);
             await Cmd.Wait(0.25f);
         }
     }

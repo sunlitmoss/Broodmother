@@ -18,7 +18,7 @@ public sealed class InfestationPower : broodmotherPower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    private Creature _applier;
+    private Creature? _applier;
     private bool _firstApplication = true;
     private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 33m);
     private DynamicVar DeathExplosion = new("DeathExplosion", 25m);

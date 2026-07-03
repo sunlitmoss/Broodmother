@@ -30,10 +30,10 @@ public class WildSting() : broodmotherCard(1,
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Attack", Owner.Character.CastAnimDelay);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this, play)
             .TargetingRandomOpponents(CombatState!)
             .Execute(choiceContext);
-        await ReleaseRazorwasp.CreateInHand(Owner, CombatState);
+        await ReleaseRazorwasp.CreateInHand(Owner, CombatState!);
     }
 
     protected override void OnUpgrade()

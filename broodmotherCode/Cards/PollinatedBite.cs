@@ -25,7 +25,7 @@ public class PollinatedBite() : broodmotherCard(0,
     {
         ArgumentNullException.ThrowIfNull(play.Target, "play.Target");
         
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
     }

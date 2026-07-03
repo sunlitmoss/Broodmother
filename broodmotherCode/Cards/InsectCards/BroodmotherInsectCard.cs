@@ -46,18 +46,18 @@ public abstract class BroodmotherInsectCard : CustomCardModel
     public async Task<Creature?> SummonInsect<TMonster>(PlayerChoiceContext choiceContext)
         where TMonster : MonsterModel, IBroodmotherSummon
     {
-        var c = await CreatureCmd.Add<TMonster>(CombatState);
+        var c = await CreatureCmd.Add<TMonster>(CombatState!);
         var slot = BroodmotherInsectSlots.GetNextSlot();
         BroodmotherInsectSlots.OccupySlot(slot, c);
         (c.Monster as IBroodmotherSummon)!.SlotIndex = slot;
         var node = NCombatRoom.Instance?.GetCreatureNode(c);
         if (node != null) node.Position = BroodmotherInsectSlots.ActiveSlots[slot];
         await PowerCmd.Apply<MinionPower>(choiceContext, c, 1m, null, null);
-        ApplySummonPowers(choiceContext, c);
+        await ApplySummonPowers(choiceContext, c);
         if (c.Monster is BroodmotherSummonModel summon)
         {            
             summon.Summoner = Owner;
-            await summon.OnPassive(CombatState);
+            await summon.OnPassive(CombatState!);
             summon.ChoiceContext = choiceContext;
         }
         return c;

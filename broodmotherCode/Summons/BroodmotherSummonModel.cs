@@ -65,11 +65,12 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
                     this.Creature);
                 await OnPassive(combatState);
             }
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(),
-                this.Creature,
-                new DamageVar(1m,
-                    ValueProp.Move),
-                this.Creature);
+            else
+                await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(),
+                    this.Creature,
+                    new DamageVar(1m,
+                        ValueProp.Move),
+                    this.Creature);
         }
 
     }

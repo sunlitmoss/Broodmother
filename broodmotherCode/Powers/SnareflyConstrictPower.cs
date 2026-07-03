@@ -18,7 +18,7 @@ public sealed class SnareflyConstrictPower : broodmotherPower
     {
         if (participants.Contains(base.Owner))
         {
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner, base.Amount, ValueProp.Unpowered, base.Owner, null);
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner, base.Amount, ValueProp.Unpowered, null, null);
         }
     }
 

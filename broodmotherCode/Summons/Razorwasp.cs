@@ -37,6 +37,6 @@ public class Razorwasp : BroodmotherSummonModel
         var targets = CombatState.HittableEnemies
             .Where(c => !(c.Monster is IBroodmotherSummon))
             .ToList();
-        await CreatureCmd.Damage(choiceContext, targets, power.DeathDamage.BaseValue, power.DeathDamage.Props, null);
+        await CreatureCmd.Damage(choiceContext, targets, power.DeathDamage.BaseValue, power.DeathDamage.Props, null!);
     }
 }

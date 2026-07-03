@@ -29,7 +29,7 @@ public class BlightedGuard() : broodmotherCard
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
         for (var i = 0; i < DynamicVars["Cards"].IntValue; i++)
         {
-            await ReleaseBlightfly.CreateInHand(Owner, CombatState);
+            await ReleaseBlightfly.CreateInHand(Owner, CombatState!);
             await Cmd.Wait(0.25f);
         }
     }

@@ -28,9 +28,9 @@ public class BroodmotherPatches
             {
                 var node = NCombatRoom.Instance?.GetCreatureNode(creature);
                 var slot = (creature.Monster as BroodmotherSummonModel)?.SlotIndex ?? -1;
-                if (slot >= 0) node.Position = BroodmotherInsectSlots.ActiveSlots[slot];
+                if (slot >= 0) node!.Position = BroodmotherInsectSlots.ActiveSlots[slot];
 
-                node.Scale = new Vector2(0.5f, 0.5f);
+                node!.Scale = new Vector2(0.5f, 0.5f);
             }
         }
     }

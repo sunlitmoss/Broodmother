@@ -15,7 +15,6 @@ public class HiveMind() : broodmotherCard(1,
     protected override IEnumerable<DynamicVar> CanonicalVars => [
     ];
 
-    private Creature? _insect;
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)

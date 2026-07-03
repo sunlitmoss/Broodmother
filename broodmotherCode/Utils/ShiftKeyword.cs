@@ -7,7 +7,9 @@ using MegaCrit.Sts2.Core.Models;
 namespace broodmother.broodmotherCode.Utils;
 
 [UsedImplicitly]
+#pragma warning disable CS0618 // Type or member is obsolete
 public class ShiftKeyword() : CustomSingletonModel(true, false)
+#pragma warning restore CS0618 // Type or member is obsolete
 {
     public override async Task AfterCardChangedPiles(CardModel card,
         PileType oldPileType,

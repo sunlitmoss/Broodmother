@@ -21,12 +21,12 @@ public class RapidBite() : broodmotherCard(0,
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
-        CardPlay cardPlay)
+        CardPlay play)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+        ArgumentNullException.ThrowIfNull(play.Target, "play.Target");
         
         for (var i = 0; i < DynamicVars["Repeat"].IntValue; i++)
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
     }

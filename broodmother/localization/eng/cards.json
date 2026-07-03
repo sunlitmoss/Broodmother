@@ -110,10 +110,14 @@
   "BROODMOTHER-SHED_SKIN.title": "Shed Skin",
   "BROODMOTHER-GNAW.description": "Deal {Damage:diff()} damage. \nDraw {Cards:plural:a card|{} cards}.",
   "BROODMOTHER-GNAW.title": "Gnaw",
-  "BROODMOTHER-DEBILITATING_STING.description": "Deal {Damage:diff()}. \nApply {Weak:diff()} [gold]Weak[/gold].",
+  "BROODMOTHER-DEBILITATING_STING.description": "Deal {Damage:diff()} damage. \nApply {Weak:diff()} [gold]Weak[/gold].",
   "BROODMOTHER-DEBILITATING_STING.title": "Debilitating Sting",
   "BROODMOTHER-ASSAULT.description": "Deal {Damage:diff()} damage.",
   "BROODMOTHER-ASSAULT.title": "Assault",
-  "BROODMOTHER-BROOD.description": "Next turn, add {Cards:diff()} [gold]Dronewasps[/gold] to your [gold]Hand[/gold] and gain {Energy:energyIcons()}.",
-  "BROODMOTHER-BROOD.title": "Brood"
+  "BROODMOTHER-BROOD.description": "Next turn, add {Cards:plural:a [gold]Dronewasp[/gold]|{} [gold]Dronewasps[/gold]} to your [gold]Hand[/gold] and gain {Energy:energyIcons()}.",
+  "BROODMOTHER-BROOD.title": "Brood",
+  "BROODMOTHER-LARVA_ENERGY.description": "Gain {Energy:energyIcons()}.",
+  "BROODMOTHER-LARVA_ENERGY.title": "Larva",
+  "BROODMOTHER-LARVA_CARD.description": "Draw {Cards:plural:a card|{} cards}.",
+  "BROODMOTHER-LARVA_CARD.title": "Larva"
 }

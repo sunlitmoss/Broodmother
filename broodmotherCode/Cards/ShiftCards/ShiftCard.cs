@@ -13,11 +13,15 @@ public abstract class ShiftCard<TAlt>(int cost, CardType type, CardRarity rarity
     : CustomCardModel(cost, type, rarity, target), IShiftCard
     where TAlt : CardModel
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { BroodmotherKeywords.Shift };
+    public sealed override IEnumerable<CardKeyword> CanonicalKeywords => 
+        new List<CardKeyword> { BroodmotherKeywords.Shift }
+            .Concat(AdditionalKeywords);
 
     protected virtual IEnumerable<IHoverTip> AdditionalHoverTips =>
         Enumerable.Empty<IHoverTip>();
 
+    protected virtual IEnumerable<CardKeyword> AdditionalKeywords =>
+        Enumerable.Empty<CardKeyword>();
     protected sealed override IEnumerable<IHoverTip> ExtraHoverTips =>
         new List<IHoverTip> { HoverTipFactory.FromCard<TAlt>() }
             .Concat(AdditionalHoverTips);
