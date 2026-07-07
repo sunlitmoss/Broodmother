@@ -1,5 +1,4 @@
 using BaseLib.Abstracts;
-using broodmother.broodmotherCode.Cards;
 using broodmother.broodmotherCode.Utils;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -48,9 +47,10 @@ public class StickyLogic() : CustomSingletonModel(true, false)
 {
     public override async Task AfterCardEnteredCombat(CardModel card)
     {
-        if (card is PollinatedBite)
+        if (card.Keywords.Contains(BroodmotherKeywords.Pollinated))
         {
             await HelperMethods.StickyCard(card, card.DynamicVars["Sticky"].IntValue);
+            card.RemoveKeyword(BroodmotherKeywords.Pollinated);
         }
     }
 

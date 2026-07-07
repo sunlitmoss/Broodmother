@@ -11,8 +11,8 @@
   "BROODMOTHER-TEMPORARY_THORNS_POWER.description": "At the end of the enemy's turn, lose [gold]Thorns[/gold].",
   "BROODMOTHER-TEMPORARY_THORNS_POWER.smartDescription": "At the end of the enemy's turn, lose {Amount:diff()} [gold]Thorns[/gold].",
   "BROODMOTHER-TEMPORARY_THORNS_POWER.title": "Thorns",
-  "BROODMOTHER-INFESTATION_POWER.description": "At the end of its turn, loses HP and increases by 25%.",
-  "BROODMOTHER-INFESTATION_POWER.smartDescription": "At the end of its turn, loses {Amount} HP and increases by {InfestationMultiplier}%.",
+  "BROODMOTHER-INFESTATION_POWER.description": "At the end of its turn, loses HP. When killed, deal damage to ALL enemies.",
+  "BROODMOTHER-INFESTATION_POWER.smartDescription": "At the end of its turn, loses {Amount} HP. When killed, deal {DeathExplosion:diff()} to ALL enemies.",
   "BROODMOTHER-INFESTATION_POWER.title": "Infestation",
   "BROODMOTHER-ENCOURAGEMENT_POWER.description": "At the start of your turn, gain [gold]Vigor[/gold] for each insect alive.",
   "BROODMOTHER-ENCOURAGEMENT_POWER.smartDescription": "At the start of your turn, gain {Amount} [gold]Vigor[/gold] for each insect alive.",
@@ -64,5 +64,8 @@
   "BROODMOTHER-BRISTLE_THORNS_POWER.title": "Bristle",
   "BROODMOTHER-BROOD_POWER.description": "At the start of your turn, add [blue]2[/blue] [gold]Dronewasps[/gold] to your [gold]Hand[/gold].",
   "BROODMOTHER-BROOD_POWER.smartDescription": "At the start of your turn, add [blue]{Amount}[/blue] [gold]Dronewasps[/gold] to your [gold]Hand[/gold].",
-  "BROODMOTHER-BROOD_POWER.title": "Brood"
+  "BROODMOTHER-BROOD_POWER.title": "Brood",
+  "BROODMOTHER-RECALL_POWER.description": "Cards played this turn are shuffled into your [gold]Draw Pile[/gold].",
+  "BROODMOTHER-RECALL_POWER.smartDescription": "The next [blue]{Amount}[/blue] cards played this turn are shuffled into your [gold]Draw Pile[/gold].",
+  "BROODMOTHER-RECALL_POWER.title": "Recall"
 }

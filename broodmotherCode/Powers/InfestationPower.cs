@@ -20,22 +20,31 @@ public sealed class InfestationPower : broodmotherPower
 
     private Creature? _applier;
     private bool _firstApplication = true;
-    private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 33m);
-    private DynamicVar DeathExplosion = new("DeathExplosion", 25m);
+    private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 0); 
+        //  set to 0 to disable compounding for balance
+    private int DeathExplosionMultiplier = 25;
+    private DynamicVar DeathExplosion = new DynamicVar("DeathExplosion", 0);
     private decimal _addedAmount = 0m;
-
+    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         InfestationMultiplier,
         DeathExplosion
     ];
 
+    private void RefreshCalculatedDeathExplosion()
+    {
+        if (Owner == null) return;
+        DeathExplosion.BaseValue =
+            Math.Floor(Owner.MaxHp * (DeathExplosionMultiplier / 100m));
+    }
     
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         if (!_firstApplication || applier == null) return Task.CompletedTask;
         _applier = applier;
         _firstApplication = false;
+        RefreshCalculatedDeathExplosion();
         return Task.CompletedTask;
     }
 
@@ -69,13 +78,20 @@ public sealed class InfestationPower : broodmotherPower
         }    
     }
 
+    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+        CardModel? cardSource)
+    {
+        RefreshCalculatedDeathExplosion();
+        return Task.CompletedTask;
+    }
+
     public override async Task BeforeDeath(Creature creature)
     {
         if (creature != Owner || _applier == null) return;
         await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(),
             CombatState.HittableEnemies.Where(c => c != Owner && c.Monster is not IBroodmotherSummon),
-            new DamageVar(Owner.MaxHp * (DeathExplosion.IntValue / 100m),
-            ValueProp.Move), _applier);
+            new DamageVar(DynamicVars["DeathExplosion"].IntValue,
+            ValueProp.Unpowered), _applier);
         await PowerCmd.Apply<InfestationPower>(new ThrowingPlayerChoiceContext(),
             CombatState.HittableEnemies.Where(c => c != Owner && c.Monster is not IBroodmotherSummon),
             1m,

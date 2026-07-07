@@ -75,10 +75,11 @@ public abstract class BroodmotherSummonModel : CustomMonsterModel, IBroodmotherS
 
     }
 
-    public override  async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
     {
         if (creature != Creature) return;
-        if (!WasConsumed) await OnDeath(choiceContext);
+        if (!WasConsumed) 
+            await OnDeath(choiceContext);
     }
 
     public override async Task BeforeDeath(Creature creature)

@@ -28,6 +28,6 @@ public class Reclamation() : broodmotherCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["CardAmount"].UpgradeValueBy(1m);
+        DynamicVars["DrawAmount"].UpgradeValueBy(1m);
     }
 }

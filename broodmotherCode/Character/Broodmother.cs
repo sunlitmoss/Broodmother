@@ -1,6 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
-using broodmother.broodmotherCode.Cards;
+using broodmother.broodmotherCode.Cards.Basic;
 using broodmother.broodmotherCode.Extensions;
 using broodmother.broodmotherCode.Relics;
 using Godot;

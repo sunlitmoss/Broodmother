@@ -11,7 +11,7 @@ public class PollinatedBite() : broodmotherCard(0,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BroodmotherKeywords.Bite];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [BroodmotherKeywords.Bite, BroodmotherKeywords.Pollinated];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

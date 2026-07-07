@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace broodmother.broodmotherCode.Cards;
+namespace broodmother.broodmotherCode.Cards.Basic;
 
 public class BugSwarm() : broodmotherCard
 (1, CardType.Attack, CardRarity.Basic,

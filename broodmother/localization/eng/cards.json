@@ -75,7 +75,7 @@
   "BROODMOTHER-HONEYCOMB.description": "Gain {Block:diff()} [gold]Block[/gold]. \nApply [gold]Sticky {StickyAmount}[/gold] to a card in your [gold]Hand[/gold].",
   "BROODMOTHER-HONEYCOMB.title": "Honeycomb",
   "BROODMOTHER-HONEYCOMB.selectionScreenPrompt": "Choose {CardAmount:plural:a card|{} cards} to apply [gold]Sticky {StickyAmount}[/gold].",
-  "BROODMOTHER-CANNIBALIZE.description": "{IfUpgraded:show:Harvest|Kill} ALL insects. \nDraw {Cards:diff()} and gain {Energy:diff} for each insect.",
+  "BROODMOTHER-CANNIBALIZE.description": "{IfUpgraded:show:Harvest|Kill} ALL insects. \nDraw {Cards:diff()} card and gain {Energy:diff} for each insect.",
   "BROODMOTHER-CANNIBALIZE.title": "Cannibalize",
   "BROODMOTHER-TEND.description": "ALL insects heal {Heal:diff()}. \nGain {Block:diff()} [gold]Block[/gold].",
   "BROODMOTHER-TEND.title": "Tend",
@@ -119,5 +119,7 @@
   "BROODMOTHER-LARVA_ENERGY.description": "Gain {Energy:energyIcons()}.",
   "BROODMOTHER-LARVA_ENERGY.title": "Larva",
   "BROODMOTHER-LARVA_CARD.description": "Draw {Cards:plural:a card|{} cards}.",
-  "BROODMOTHER-LARVA_CARD.title": "Larva"
+  "BROODMOTHER-LARVA_CARD.title": "Larva",
+  "BROODMOTHER-RECALL.description": "The next {Recall:diff} cards you play this turn are shuffled into your [gold]Draw Pile[/gold].",
+  "BROODMOTHER-RECALL.title": "Recall"
 }

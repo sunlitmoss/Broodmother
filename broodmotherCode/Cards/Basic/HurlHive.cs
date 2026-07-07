@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace broodmother.broodmotherCode.Cards;
+namespace broodmother.broodmotherCode.Cards.Basic;
 
 public class HurlHive() : broodmotherCard
 (1, CardType.Skill, CardRarity.Basic,

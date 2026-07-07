@@ -51,10 +51,13 @@ public class BroodmotherPatches
     public class RavenousPowerPatch
     {
         [UsedImplicitly]
-        public static bool Prefix(Creature target)
+        public static bool Prefix(Creature target, ref Task __result)
         {
             if (target.Monster is IBroodmotherSummon)
+            {
+                __result = Task.CompletedTask;
                 return false;
+            }
             return true;
         }
     }
