@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using broodmother.broodmotherCode.Character;
 using broodmother.broodmotherCode.Utils;
@@ -10,7 +9,7 @@ namespace broodmother.broodmotherCode.Cards.ShiftCards;
 
 [Pool(typeof(broodmotherCardPool))]
 public abstract class ShiftCard<TAlt>(int cost, CardType type, CardRarity rarity, TargetType target)
-    : CustomCardModel(cost, type, rarity, target), IShiftCard
+    : broodmotherCard(cost, type, rarity, target), IShiftCard
     where TAlt : CardModel
 {
     public sealed override IEnumerable<CardKeyword> CanonicalKeywords => 

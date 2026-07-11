@@ -16,5 +16,8 @@ public class BroodmotherKeywords
     
     [CustomEnum] [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Pollinated;
+    
+    [CustomEnum] [KeywordProperties(AutoKeywordPosition.None)]
+    public static CardKeyword Harvest;
 
 }

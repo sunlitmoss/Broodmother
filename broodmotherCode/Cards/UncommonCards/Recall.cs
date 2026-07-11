@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace broodmother.broodmotherCode.Cards;
 
-public class Recall() : broodmotherCard(1,
+public class Recall() : broodmotherCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
@@ -30,6 +30,6 @@ public class Recall() : broodmotherCard(1,
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars["Recall"].UpgradeValueBy(2);
     }
 }

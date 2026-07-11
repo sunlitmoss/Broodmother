@@ -8,12 +8,12 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace broodmother.broodmotherCode.Cards;
 
 public class Molt() : broodmotherCard
-    (0, CardType.Power, CardRarity.Rare, TargetType.Self)
+    (1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
     {
-        new PowerVar<StrengthPower>(-1m),
-        new PowerVar<ThornsPower>(5m),
+        new DynamicVar("Strength",-1),
+        new DynamicVar("Thorns", 5),
     };
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -24,13 +24,13 @@ public class Molt() : broodmotherCard
     {
             await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
             await PowerCmd.Apply<ThornsPower>(choiceContext, Owner.Creature,
-                DynamicVars["ThornsPower"].BaseValue, Owner.Creature, this);
+                DynamicVars["Thorns"].BaseValue, Owner.Creature, this);
             await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature,
-                DynamicVars.Strength.BaseValue, Owner.Creature, this);
+                DynamicVars["Strength"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["ThornsPower"].UpgradeValueBy(3m);
+        DynamicVars["ThornsPower"].UpgradeValueBy(2m);
     }
 }

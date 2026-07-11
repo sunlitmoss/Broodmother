@@ -6,5 +6,7 @@
   "BROODMOTHER-BITE.description": "When played, increase the damage of ALL [gold]Bites[/gold] by 1.",
   "BROODMOTHER-BITE.title": "Bite",
   "BROODMOTHER-POLLINATED.description": "Gains [gold]Sticky[/gold] at the start of combat.",
-  "BROODMOTHER-POLLINATED.title": "Pollinated"
+  "BROODMOTHER-POLLINATED.title": "Pollinated",
+  "BROODMOTHER-HARVEST.description": "Kill an insect without triggering it's [gold]On Death[/gold] effect.",
+  "BROODMOTHER-HARVEST.title": "Harvest"
 }

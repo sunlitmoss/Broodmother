@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace broodmother.broodmotherCode.Cards.ShiftCards;
 
 
-public class Nip() : ShiftCard<Gnash>(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class Nip() : ShiftCard<Gnash>(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -63,6 +63,6 @@ public class Gnash() : ShiftCard<Nip>(1, CardType.Attack, CardRarity.Token, Targ
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(5m);
+        EnergyCost.UpgradeBy(-1);
     }
 }

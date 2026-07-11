@@ -20,31 +20,21 @@ public sealed class InfestationPower : broodmotherPower
 
     private Creature? _applier;
     private bool _firstApplication = true;
-    private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 0); 
+    private DynamicVar InfestationMultiplier = new("InfestationMultiplier", 0);
         //  set to 0 to disable compounding for balance
-    private int DeathExplosionMultiplier = 25;
-    private DynamicVar DeathExplosion = new DynamicVar("DeathExplosion", 0);
+    private const int DeathExplosionMultiplier = 25;
     private decimal _addedAmount = 0m;
-    
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        InfestationMultiplier,
-        DeathExplosion
+        InfestationMultiplier
     ];
 
-    private void RefreshCalculatedDeathExplosion()
-    {
-        if (Owner == null) return;
-        DeathExplosion.BaseValue =
-            Math.Floor(Owner.MaxHp * (DeathExplosionMultiplier / 100m));
-    }
-    
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         if (!_firstApplication || applier == null) return Task.CompletedTask;
         _applier = applier;
         _firstApplication = false;
-        RefreshCalculatedDeathExplosion();
         return Task.CompletedTask;
     }
 
@@ -59,8 +49,8 @@ public sealed class InfestationPower : broodmotherPower
         if (side == CombatSide.Enemy)
         {
             await CreatureCmd.Damage(choiceContext,
-                Owner, 
-                    Amount,
+                Owner,
+                Amount,
                 ValueProp.Unblockable | ValueProp.Unpowered,
                 null,
                 null);
@@ -69,29 +59,23 @@ public sealed class InfestationPower : broodmotherPower
             if (delta > 0)
             {
                 _addedAmount -= delta;
-                await PowerCmd.ModifyAmount(choiceContext, 
-                    this, 
-                    delta, 
-                    null, 
+                await PowerCmd.ModifyAmount(choiceContext,
+                    this,
+                    delta,
+                    null,
                     null);
             }
-        }    
-    }
-
-    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
-        CardModel? cardSource)
-    {
-        RefreshCalculatedDeathExplosion();
-        return Task.CompletedTask;
+        }
     }
 
     public override async Task BeforeDeath(Creature creature)
     {
         if (creature != Owner || _applier == null) return;
+        var explosionDamage = Math.Floor(Owner.MaxHp * (DeathExplosionMultiplier / 100m));
         await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(),
             CombatState.HittableEnemies.Where(c => c != Owner && c.Monster is not IBroodmotherSummon),
-            new DamageVar(DynamicVars["DeathExplosion"].IntValue,
-            ValueProp.Unpowered), _applier);
+            new DamageVar(explosionDamage, ValueProp.Unpowered),
+            _applier);
         await PowerCmd.Apply<InfestationPower>(new ThrowingPlayerChoiceContext(),
             CombatState.HittableEnemies.Where(c => c != Owner && c.Monster is not IBroodmotherSummon),
             1m,

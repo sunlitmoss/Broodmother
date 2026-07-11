@@ -13,7 +13,8 @@ public class Cannibalize() : broodmotherCard(1,
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
-        CardKeyword.Exhaust
+        CardKeyword.Exhaust,
+        BroodmotherKeywords.Harvest
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -40,4 +41,7 @@ public class Cannibalize() : broodmotherCard(1,
             await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         }
     }
+
+    protected override void OnUpgrade() =>
+        RemoveKeyword(BroodmotherKeywords.Harvest);
 }

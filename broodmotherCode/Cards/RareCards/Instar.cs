@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace broodmother.broodmotherCode.Cards;
 
 
-public class Instar() : broodmotherCard(1,
+public class Instar() : broodmotherCard(0,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
@@ -16,7 +16,7 @@ public class Instar() : broodmotherCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        foreach (var card in PileType.Hand.GetPile(Owner).Cards
+        foreach (var card in Owner.PlayerCombatState!.AllCards
                      .Where(c => c.Keywords.Contains(BroodmotherKeywords.Shift)).ToList())
         {
             await HelperMethods.ShiftCard(card);

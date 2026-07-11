@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace broodmother.broodmotherCode.Cards;
 
 
-public class ToxicBlood() : broodmotherCard(0,
+public class ToxicBlood() : broodmotherCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.AllEnemies)
 {
@@ -24,7 +24,7 @@ public class ToxicBlood() : broodmotherCard(0,
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(5, ValueProp.Move),
-        new DynamicVar("Infestation", 1)
+        new DynamicVar("Infestation", 2)
     ];
 
     protected override async Task OnPlay(

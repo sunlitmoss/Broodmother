@@ -34,6 +34,6 @@ public class Infest() : broodmotherCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["InfestationAmount"].UpgradeValueBy(1);
+        DynamicVars["InfestationAmount"].UpgradeValueBy(2);
     }
 }

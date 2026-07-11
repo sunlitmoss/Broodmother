@@ -17,7 +17,7 @@ public class Broodmother : PlaceholderCharacterModel
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Feminine;
-    public override int StartingHp => 70;
+    public override int StartingHp => 75;
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
@@ -31,35 +31,6 @@ public class Broodmother : PlaceholderCharacterModel
         ModelDb.Card<DefendBroodmother>(),
         ModelDb.Card<BugSwarm>(),
         ModelDb.Card<HurlHive>(),
-        
-        // ModelDb.Card<MetamorphicDefend>(),
-        // ModelDb.Card<MetamorphicDefend>(),
-        // ModelDb.Card<MetamorphicDefend>(),
-        // ModelDb.Card<MetamorphicDefend>(),
-        // ModelDb.Card<MetamorphicStrike>(),
-        // ModelDb.Card<MetamorphicStrike>(),
-        // ModelDb.Card<MetamorphicStrike>(),
-        // ModelDb.Card<MetamorphicStrike>(),
-        // ModelDb.Card<Nip>()
-        
-        // ModelDb.Card<Emergence>(),
-        // ModelDb.Card<Encouragement>(),
-        // ModelDb.Card<MetamorphicDefend>(),
-        // ModelDb.Card<MetamorphicStrike>(),
-        // ModelDb.Card<BlightedGuard>(),
-        // ModelDb.Card<BugShield>(),
-        // ModelDb.Card<BugSwarm>(),
-        // ModelDb.Card<Cocoon>(),
-        // ModelDb.Card<Encouragement>(),
-        // ModelDb.Card<HurlHive>(),
-        // ModelDb.Card<Infest>(),
-        // ModelDb.Card<InvigoratingSlash>(),
-        // ModelDb.Card<Molt>(),
-        // ModelDb.Card<WildSting>(),
-        // ModelDb.Card<HiveMind>(),
-        // ModelDb.Card<ReleaseShrinkerBeetle>()
-        // ModelDb.Card<ReleaseScarabBeetle>()
-        // ModelDb.Card<ReleaseDawnBeetle>()
     ];
     
     
